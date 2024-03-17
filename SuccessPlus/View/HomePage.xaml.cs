@@ -16,18 +16,13 @@ using System.Windows.Shapes;
 namespace SuccessPlus.View
 {
     /// <summary>
-    /// Логика взаимодействия для SingInPage.xaml
+    /// Логика взаимодействия для HomePage.xaml
     /// </summary>
-    public partial class SingInPage : Page
+    public partial class HomePage : Page
     {
-        public SingInPage()
+        public HomePage()
         {
             InitializeComponent();
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            this.NavigationService.Navigate(new HomePage());
         }
     }
 }
