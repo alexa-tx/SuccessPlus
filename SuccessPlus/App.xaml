@@ -4,6 +4,13 @@
              xmlns:local="clr-namespace:SuccessPlus"
              StartupUri="View/MainWindow.xaml">
     <Application.Resources>
-         
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Style/Color.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="Style/Image.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="Style/Text.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="Style/Button.xaml"></ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

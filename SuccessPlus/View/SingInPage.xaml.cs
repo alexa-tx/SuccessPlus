@@ -16,14 +16,13 @@ using System.Windows.Shapes;
 namespace SuccessPlus.View
 {
     /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
+    /// Логика взаимодействия для SingInPage.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class SingInPage : UserControl
     {
-        public MainWindow()
+        public SingInPage()
         {
             InitializeComponent();
-            MainFrame.Navigate(new SingInPage());
         }
     }
 }
