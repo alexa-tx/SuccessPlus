@@ -144,7 +144,6 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Assets\logo.png" />
-    <Resource Include="Assets\LogoForSIngIn.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

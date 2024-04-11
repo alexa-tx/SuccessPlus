@@ -5,21 +5,25 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SuccessPlus"
         mc:Ignorable="d"
-        Title="MainWindow" Height="720" Width="1440">
+        Title="MainWindow" Height="720" Width="1440" Background="#070406">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height ="75"/>
             <RowDefinition Height="10*"/>
+            <RowDefinition Height="75"/>
         </Grid.RowDefinitions>
         <Grid HorizontalAlignment="Left">
             <Image Source="/Assets/logo.png" Width="80"/>
         </Grid>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Width="700" VerticalAlignment="Center">
-            <TextBlock Margin="50 0">Учебные группы</TextBlock>
-            <TextBlock Margin="50 0">Студенты</TextBlock>
-            <TextBlock Margin="50 0">Рейтинг-листы</TextBlock>
-            <TextBlock Margin="50 0">Отчет</TextBlock>
+            <TextBlock Margin="20 0" Style="{StaticResource MainWindowText}">Учебные группы</TextBlock>
+            <TextBlock Margin="50 0" Style="{StaticResource MainWindowText}">Студенты</TextBlock>
+            <TextBlock Margin="50 0" Style="{StaticResource MainWindowText}">Рейтинг-листы</TextBlock>
+            <TextBlock Margin="50 0" Style="{StaticResource MainWindowText}">Отчет</TextBlock>
         </StackPanel>
         <Frame Grid.Row="1" x:Name="MainFrame" NavigationUIVisibility="Hidden"></Frame>
+        <Button Grid.Row="2" Style="{StaticResource BtnAdd}">
+            <TextBlock Text="Добавить"></TextBlock>
+        </Button>
     </Grid>
 </Window>

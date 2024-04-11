@@ -15,7 +15,7 @@
                 <Grid Width="350"  Margin ="0 0 0 90"  HorizontalAlignment="Center">
                     <TextBlock Margin="10 0" VerticalAlignment="Center" Foreground="#060D0E" IsHitTestVisible="False"
                        Panel.ZIndex="1" Text="Логин" Visibility="{Binding ElementName=Search, Path=Text.IsEmpty,Converter={StaticResource BoolToVis}}"/>
-                    <Image Source="/Assets/LogoForSIngIn.png"  Width="80" Height="80" Margin="0 -240 0 0"/>
+                    <Image Source="/Assets/logo.png"  Width="80" Height="80" Margin="0 -130 0 0"/>
                 </Grid>
                 <Grid Width="350"  Margin ="0 30 0 90"  HorizontalAlignment="Center">
                     <TextBlock Margin="10 0 0 0" VerticalAlignment="Center" Foreground="#060D0E" IsHitTestVisible="False"
@@ -28,7 +28,7 @@
                            Panel.ZIndex="1" Text="Пароль" Visibility="{Binding ElementName=Password, Path=Text.IsEmpty,Converter={StaticResource BoolToVis}}"/>
                     <TextBox x:Name="Password" Style="{StaticResource SearchBox}" Height="40" VerticalContentAlignment="Center"/>
                 </Grid>
-                <Button Style="{StaticResource AddNewUser}" Click="Button_Click">
+                <Button Style="{StaticResource BtnSingIn}" Click="Button_Click">
                     <TextBlock Text="Войти"></TextBlock>
                 </Button>
             </Grid>

@@ -1,10 +1,10 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
     <Style x:Key="BackgroundSingIn" TargetType="Border">
         <Setter Property="Width" Value="500"/>
         <Setter Property="Height" Value="350"/>
-        <Setter Property="Background" Value="#A1A2D7"/>
+        <Setter Property="Background" Value="#CAAABD"/>
         <Setter Property="CornerRadius" Value="20"/>
     </Style>
-
 </ResourceDictionary>
