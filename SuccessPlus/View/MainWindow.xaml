@@ -8,9 +8,18 @@
         Title="MainWindow" Height="720" Width="1440">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height ="50"/>
+            <RowDefinition Height ="75"/>
             <RowDefinition Height="10*"/>
         </Grid.RowDefinitions>
+        <Grid HorizontalAlignment="Left">
+            <Image Source="/Assets/logo.png" Width="80"/>
+        </Grid>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Width="700" VerticalAlignment="Center">
+            <TextBlock Margin="50 0">Учебные группы</TextBlock>
+            <TextBlock Margin="50 0">Студенты</TextBlock>
+            <TextBlock Margin="50 0">Рейтинг-листы</TextBlock>
+            <TextBlock Margin="50 0">Отчет</TextBlock>
+        </StackPanel>
         <Frame Grid.Row="1" x:Name="MainFrame" NavigationUIVisibility="Hidden"></Frame>
     </Grid>
 </Window>
