@@ -32,7 +32,11 @@
     <Style x:Key="MainWindowText" TargetType="TextBlock">
         <Setter Property="FontSize" Value="16"/>
         <Setter Property="Foreground" Value="#F1E9EE"/>
-
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="TextBlock.TextDecorations" Value="Underline"/>
+            </Trigger>
+        </Style.Triggers>
     </Style>
 
 </ResourceDictionary>
