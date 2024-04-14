@@ -10,7 +10,6 @@
         <Grid.RowDefinitions>
             <RowDefinition Height ="75"/>
             <RowDefinition Height="10*"/>
-            <RowDefinition Height="75"/>
         </Grid.RowDefinitions>
         <Grid HorizontalAlignment="Left">
             <Image Source="/Assets/logo.png" Width="80"/>
@@ -22,8 +21,6 @@
             <TextBlock Margin="50 0" Style="{StaticResource MainWindowText}">Отчет</TextBlock>
         </StackPanel>
         <Frame Grid.Row="1" x:Name="MainFrame" NavigationUIVisibility="Hidden"></Frame>
-        <Button Grid.Row="2" Style="{StaticResource BtnAdd}">
-            <TextBlock Text="Добавить"></TextBlock>
-        </Button>
+        
     </Grid>
 </Window>
