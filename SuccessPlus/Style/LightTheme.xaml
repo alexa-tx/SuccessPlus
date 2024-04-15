@@ -1,0 +1,255 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <SolidColorBrush x:Key="Sort.Up.Icon.MouseOver"
+                     Color="#FFFFFF" />
+
+    <SolidColorBrush x:Key="Sort.Up.Icon.Active"
+                     Color="#FFFFFF" />
+
+    <SolidColorBrush x:Key="DataGrid.Header.Static.Background"
+                     Color="#F7F7F7" />
+
+    <SolidColorBrush x:Key="DataGrid.Headers.Icon.Static.Background"
+                     Color="#828283" />
+
+    <SolidColorBrush x:Key="DataGrid.Static.BorderBrush"
+                     Color="#4683DE" />
+
+    <SolidColorBrush x:Key="DataGrid.Row.Details.Static.BorderBrush"
+                     Color="#4683DE" />
+
+    <SolidColorBrush x:Key="DataGrid.Header.Title.Static.Foreground"
+                     Color="#828283" />
+
+    <SolidColorBrush x:Key="DataGrid.Column.Header.Static.Foreground"
+                     Color="#FFFFFF" />
+
+    <SolidColorBrush x:Key="DataGrid.Header.SearchBox.PlaceHolder.Static.Foreground"
+                     Color="#ECECEC" />
+
+    <SolidColorBrush x:Key="DataGrid.Header.SearchBox.Static.BorderBrush"
+                     Color="#ECECEC" />
+
+    <SolidColorBrush x:Key="DataGrid.Column.Header.Icon.Static"
+                     Color="#B4CDF3" />
+
+    <SolidColorBrush x:Key="Sort.Down.Icon.MouseOver"
+                     Color="#FFFFFF" />
+
+    <SolidColorBrush x:Key="Sort.Down.Icon.Active"
+                     Color="#FFFFFF" />
+
+    <SolidColorBrush x:Key="DataGrid.Column.Header.Background"
+                     Color="#4683DE" />
+
+    <SolidColorBrush x:Key="DataGrid.Footer.Separator.Background.Static"
+                     Color="#4683DE" />
+
+    <SolidColorBrush x:Key="DataGrid.Footer.Background.Static"
+                     Color="#F7F7F7" />
+
+    <SolidColorBrush x:Key="DataGrid.Footer.Pagination.GoToRow.Button.Background.Static"
+                     Color="#4683DE" />
+
+    <SolidColorBrush x:Key="DataGrid.Footer.Pagination.GoToRow.Button.BorderBrush.Static"
+                     Color="#4683DE" />
+
+    <SolidColorBrush x:Key="DataGrid.Footer.Pagination.Button.BorderBrush.Static"
+                     Color="#ECECEC" />
+
+    <SolidColorBrush x:Key="DataGrid.Footer.Pagination.Button.Foreground.Disabled"
+                     Color="#CECECE" />
+
+    <SolidColorBrush x:Key="DataGrid.Footer.Pagination.Button.Background.Static"
+                     Color="#FFFFFF" />
+
+    <SolidColorBrush x:Key="DataGrid.Footer.Pagination.Button.Background.Checked"
+                     Color="#4683DE" />
+
+    <SolidColorBrush x:Key="DataGrid.Footer.Pagination.Button.BorderBrush.Checked"
+                     Color="#4683DE" />
+
+    <SolidColorBrush x:Key="DataGrid.Footer.Pagination.Button.Foreground.Static"
+                     Color="#000000" />
+
+    <SolidColorBrush x:Key="DataGrid.Footer.Pagination.Button.Foreground.Checked"
+                     Color="#FFFFFF" />
+
+    <SolidColorBrush x:Key="DataGrid.Column.Icon.Filter.Static.Background"
+                     Color="Transparent" />
+
+    <SolidColorBrush x:Key="DataGrid.Column.Icon.
+                     .Active.Background"
+                     Color="#FFFFFF" />
+
+    <SolidColorBrush x:Key="DataGrid.Column.Icon.Filter.Active.Fill"
+                     Color="#828283" />
+
+    <SolidColorBrush x:Key="DataGrid.Column.Icon.Filter.Active.Background"
+                     Color="#FFFFFF" />
+
+    <SolidColorBrush x:Key="DataGrid.Column.Icon.Filter.Static.BorderBrush"
+                     Color="#B4CDF3" />
+
+    <SolidColorBrush x:Key="DataGrid.Column.Icon.Filter.Active.BorderBrush"
+                     Color="#FFFFFF" />
+
+    <SolidColorBrush x:Key="DataGrid.AlternateRow.Static.Background"
+                     Color="#FAFAFA" />
+
+    <SolidColorBrush x:Key="DataGrid.Grid.HorizontalLineBrush"
+                     Color="#ECECEC" />
+
+    <SolidColorBrush x:Key="DataGrid.Cell.Static.Foreground"
+                     Color="#000000" />
+
+    <SolidColorBrush x:Key="DataGrid.Cell.Selected.Foreground"
+                     Color="#FFFFFF" />
+
+    <SolidColorBrush x:Key="DataGrid.Cell.Static.CompletedBrush"
+                     Color="#18BD11" />
+
+    <SolidColorBrush x:Key="DataGrid.Cell.Static.FailedBrush"
+                     Color="#EA5C5C" />
+
+    <SolidColorBrush x:Key="DataGrid.Cell.Static.InProgressBrush"
+                     Color="#D4A746" />
+
+    <SolidColorBrush x:Key="DataGrid.Cell.Static.NotStartedBrush"
+                     Color="#4683DE" />
+
+    <SolidColorBrush x:Key="Icon.View.Static.Fill"
+                     Color="#929DE7" />
+
+    <SolidColorBrush x:Key="Icon.Edit.Static.Fill"
+                     Color="#18BD11" />
+
+    <SolidColorBrush x:Key="Icon.Trash.Static.Fill"
+                     Color="#EA5C5C" />
+
+    <SolidColorBrush x:Key="Icon.View.Static.BorderBrush"
+                     Color="#929DE7" />
+
+    <SolidColorBrush x:Key="Icon.Edit.Static.BorderBrush"
+                     Color="#18BD11" />
+
+    <SolidColorBrush x:Key="Icon.Trash.Static.BorderBrush"
+                     Color="#EA5C5C" />
+
+    <SolidColorBrush x:Key="Icon.MouseOver.Background"
+                     Color="#FFFFFF" />
+
+    <SolidColorBrush x:Key="ProgressBar.Background"
+                     Color="#D3D3D3" />
+
+    <SolidColorBrush x:Key="ProgressBar.Fill.CompletedBrush"
+                     Color="#18BD11" />
+
+    <SolidColorBrush x:Key="ProgressBar.Fill.FailedBrush"
+                     Color="#EA5C5C" />
+
+    <SolidColorBrush x:Key="ProgressBar.Fill.InProgressBrush"
+                     Color="#D4A746" />
+
+
+    <!--#region ComboBox Brushes -->
+    <SolidColorBrush x:Key="ComboBox.Static.Background"
+                     Color="#FFFFFF" />
+
+    <SolidColorBrush x:Key="ComboBox.Static.Border"
+                     Color="#ECECEC" />
+
+    <SolidColorBrush x:Key="ComboBox.Static.Foreground"
+                     Color="#000000" />
+
+    <SolidColorBrush x:Key="ComboBox.Static.Glyph"
+                     Color="#ECECEC" />
+
+    <SolidColorBrush x:Key="ComboBox.MouseOver.Glyph"
+                     Color="#CECECE" />
+
+    <SolidColorBrush x:Key="ComboBox.MouseOver.Background"
+                     Color="#FFFFFF" />
+
+    <SolidColorBrush x:Key="ComboBox.MouseOver.Border"
+                     Color="#CECECE" />
+
+    <SolidColorBrush x:Key="ComboBox.Pressed.Glyph"
+                     Color="#CECECE" />
+
+    <SolidColorBrush x:Key="ComboBox.Disabled.Glyph"
+                     Color="#CECECE" />
+
+    <SolidColorBrush x:Key="ComboBox.Disabled.Background"
+                     Color="#FFFFFF" />
+
+    <SolidColorBrush x:Key="ComboBox.Disabled.Border"
+                     Color="#CECECE" />
+
+    <SolidColorBrush x:Key="ComboBoxItem.Static.Background"
+                     Color="#FFFFFF" />
+
+    <SolidColorBrush x:Key="ComboBoxItem.MouseOver.Background"
+                     Color="#ECECEC" />
+
+    <SolidColorBrush x:Key="Popup.Static.Background"
+                     Color="#FFFFFF" />
+
+
+    <Color x:Key="Popup.Static.Shadow.Color">
+        #FFFFFF
+    </Color>
+
+    <SolidColorBrush x:Key="Popup.TextBox.MouseOver.BorderBrush"
+                     Color="#CECECE" />
+
+    <SolidColorBrush x:Key="Popup.TextBox.MouseCaptured.BorderBrush"
+                     Color="#CECECE" />
+
+    <SolidColorBrush x:Key="Popup.TextBox.Parent.Panel.Static.Background"
+                     Color="#F7F7F7" />
+
+    <SolidColorBrush x:Key="CheckBox.Glyph.Checked.Fill"
+                     Color="#FFFFFF" />
+
+    <SolidColorBrush x:Key="CheckBox.Static.BorderBrush"
+                     Color="#CECECE" />
+
+    <SolidColorBrush x:Key="CheckBox.Static.Background"
+                     Color="#FFFFFF" />
+
+    <SolidColorBrush x:Key="CheckBox.Checked.Background"
+                     Color="#4683DE" />
+
+    <SolidColorBrush x:Key="CheckBox.Checked.BorderBrush"
+                     Color="#4683DE" />
+
+    <SolidColorBrush x:Key="Button.Default.MouseOver.OpacityMask"
+                     Color="#FFFFFF" />
+
+    <SolidColorBrush x:Key="Button.Default.Static.Background"
+                     Color="#FFFFFF" />
+
+    <SolidColorBrush x:Key="Button.Primary.Static.Background"
+                     Color="#4683DE" />
+
+    <SolidColorBrush x:Key="Button.Cancel.Static.Background"
+                     Color="#828283" />
+
+    <SolidColorBrush x:Key="Button.Default.Static.Foreground"
+                     Color="#FFFFFF" />
+
+    <SolidColorBrush x:Key="Button.Primary.Static.Foreground"
+                     Color="#FFFFFF" />
+
+    <SolidColorBrush x:Key="Button.Cancel.Static.Foreground"
+                     Color="#FFFFFF" />
+
+    <SolidColorBrush x:Key="FilterButton.Static.Background"
+                     Color="#828283" />
+
+    <SolidColorBrush x:Key="Button.ClearAll.Static.Background"
+                     Color="#D4AA4B" />
+    <!--#endregion-->
+</ResourceDictionary>
