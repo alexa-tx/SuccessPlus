@@ -6,7 +6,8 @@
         <Setter Property="BorderThickness" Value="0"/>
         <Setter Property="FontSize" Value="12"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
-
+        <!--Отступ слева в текстбоксе-->
+        <Setter Property="Padding" Value="10 0"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate>

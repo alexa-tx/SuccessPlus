@@ -1,21 +1,41 @@
-﻿<Window x:Class="SuccessPlus.View.StudentsGroup"
+﻿<Page x:Class="SuccessPlus.View.StudentsGroup"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SuccessPlus.View"
         mc:Ignorable="d"
+
         Title="StudentsGroup" Height="450" Width="800">
     <Grid>
-        <DataGrid RowStyle="{DynamicResource DataGridRowStyle1}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" x:Name="DataGrid" IsReadOnly="True" AutoGenerateColumns="False" ItemsSource="{Binding employeesCollection, UpdateSourceTrigger=PropertyChanged}" Margin="10">
+        <DataGrid RowStyle="{DynamicResource DataGridRowStyle1}" 
+                  ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" 
+                  x:Name="DataGrid" IsReadOnly="True" AutoGenerateColumns="False" 
+                  Margin="10"
+                  >
             <DataGrid.Columns>
-                <DataGridTextColumn Header="ID" MinWidth="100" Width="*"/>
-                <DataGridTextColumn Header="Название группы" MinWidth="150" Width="*"/>
-                <DataGridTextColumn Header="Количество студентов" MinWidth="100" Width="*"/>
+                <DataGridTextColumn Header="ID" MinWidth="100" Width="*" Binding="{Binding IdGroup}" />
+                <DataGridTextColumn Header="Название группы" MinWidth="150" Width="*" Binding="{Binding NameGroup}"/>
+                <DataGridTextColumn Header="Количество студентов" MinWidth="100" Width="*" Binding="{Binding CountStudents}"/>
+                <DataGridTemplateColumn Header="Редактировать" IsReadOnly="True" Width="auto" CanUserResize="False">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <Button Style="{StaticResource BtnAdd}" Click="Button_Click_1">
+                                    <!--ред-->
+                                </Button>
+                                <Button Style="{StaticResource BtnAdd}" Margin="8 0">
+                                    <!--дел-->
+                                </Button>
+
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
         <Button Style="{StaticResource BtnAdd}" Click="Button_Click">
             <TextBlock Text="Добавить"></TextBlock>
         </Button>
     </Grid>
-</Window>
+</Page>

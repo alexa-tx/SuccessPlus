@@ -5,22 +5,23 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SuccessPlus"
         mc:Ignorable="d"
-        Title="MainWindow" Height="720" Width="1440" Background="#070406">
+        Title="MainWindow" Height="720" Width="1440" Background="#070406" Closed="Window_Closed">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height ="75"/>
             <RowDefinition Height="10*"/>
         </Grid.RowDefinitions>
-        <Grid HorizontalAlignment="Left">
-            <Image Source="/Assets/logo.png" Width="80"/>
+        <Grid x:Name="TopBarMenu" Visibility="Collapsed">
+            <Image Source="/Assets/logo.png" Width="80" HorizontalAlignment="Left" PreviewMouseLeftButtonDown="Image_PreviewMouseLeftButtonDown"/>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Width="700" VerticalAlignment="Center">
+                <TextBlock Margin="20 0" Style="{StaticResource MainWindowText}" PreviewMouseLeftButtonDown="TextBlock_PreviewMouseLeftButtonDown">Учебные группы</TextBlock>
+                <TextBlock Margin="50 0" Style="{StaticResource MainWindowText}" PreviewMouseLeftButtonDown="TextBlock_PreviewMouseLeftButtonDown_1">Студенты</TextBlock>
+                <TextBlock Margin="50 0" Style="{StaticResource MainWindowText}" PreviewMouseLeftButtonDown="TextBlock_PreviewMouseLeftButtonDown_2">Рейтинг-листы</TextBlock>
+                <TextBlock Margin="50 0" Style="{StaticResource MainWindowText}" PreviewMouseLeftButtonDown="TextBlock_PreviewMouseLeftButtonDown_3">Отчет</TextBlock>
+            </StackPanel>
         </Grid>
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Width="700" VerticalAlignment="Center">
-            <TextBlock Margin="20 0" Style="{StaticResource MainWindowText}">Учебные группы</TextBlock>
-            <TextBlock Margin="50 0" Style="{StaticResource MainWindowText}">Студенты</TextBlock>
-            <TextBlock Margin="50 0" Style="{StaticResource MainWindowText}">Рейтинг-листы</TextBlock>
-            <TextBlock Margin="50 0" Style="{StaticResource MainWindowText}">Отчет</TextBlock>
-        </StackPanel>
-        <Frame Grid.Row="1" x:Name="MainFrame" NavigationUIVisibility="Hidden"></Frame>
+        
+        <Frame Grid.Row="1" x:Name="MainFrame" NavigationUIVisibility="Hidden" ContentRendered="MainFrame_ContentRendered" ></Frame>
         
     </Grid>
 </Window>

@@ -19,14 +19,14 @@
                 </Grid>
                 <Grid Width="350"  Margin ="0 30 0 90"  HorizontalAlignment="Center">
                     <TextBlock Margin="10 0 0 0" VerticalAlignment="Center" Foreground="#060D0E" IsHitTestVisible="False"
-                           Panel.ZIndex="1" Text="Логин" Visibility="{Binding ElementName=Search, Path=Text.IsEmpty,Converter={StaticResource BoolToVis}}"/>
-                    <TextBox x:Name="Search" Style="{StaticResource SearchBox}" Height="40" VerticalContentAlignment="Center"/>
+                           Panel.ZIndex="1" Text="Логин" Visibility="{Binding ElementName=LoginTextBox, Path=Text.IsEmpty,Converter={StaticResource BoolToVis}}"/>
+                    <TextBox x:Name="LoginTextBox" Style="{StaticResource SearchBox}" Height="40" VerticalContentAlignment="Center"/>
 
                 </Grid>
                 <Grid Width="350" Height="45" HorizontalAlignment="Center" Margin="0 65 0 0">
                     <TextBlock Margin="10 0" VerticalAlignment="Center" Foreground="#060D0E" IsHitTestVisible="False"
-                           Panel.ZIndex="1" Text="Пароль" Visibility="{Binding ElementName=Password, Path=Text.IsEmpty,Converter={StaticResource BoolToVis}}"/>
-                    <TextBox x:Name="Password" Style="{StaticResource SearchBox}" Height="40" VerticalContentAlignment="Center"/>
+                           Panel.ZIndex="1" Text="Пароль" Visibility="{Binding ElementName=PasswordTextBox, Path=Text.IsEmpty,Converter={StaticResource BoolToVis}}"/>
+                    <TextBox x:Name="PasswordTextBox" Style="{StaticResource SearchBox}" Height="40" VerticalContentAlignment="Center"/>
                 </Grid>
                 <Button Style="{StaticResource BtnSingIn}" Click="Button_Click">
                     <TextBlock Text="Войти"></TextBlock>

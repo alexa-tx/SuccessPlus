@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SuccessPlus.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,6 +21,9 @@ namespace SuccessPlus.View
     /// </summary>
     public partial class SingInPage : Page
     {
+        public Core db = new Core();
+        private SignIn _singIn;
+        private User _user;
         public SingInPage()
         {
             InitializeComponent();
@@ -27,7 +31,17 @@ namespace SuccessPlus.View
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            this.NavigationService.Navigate(new HomePage());
+            if(db.context.SignIn.Where(x => x.Login == LoginTextBox.Text).Count() == 1
+                && db.context.SignIn.Where(x => x.Password == PasswordTextBox.Text).Count()==1)
+            {
+                _singIn = db.context.SignIn.Where(x => x.Login == LoginTextBox.Text).FirstOrDefault();
+                _user = db.context.User.Where(x=> x.IdUser == _singIn.IdUser).FirstOrDefault();
+                Properties.Settings.Default.userId = _user.IdUser;
+                this.NavigationService.Navigate(new HomePage());
+                
+                
+            }
+            
         }
     }
 }
