@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:SuccessPlus.View"
         mc:Ignorable="d"
 
-        Title="StudentsGroup" Height="450" Width="800">
+        Title="StudentsGroup" Height="645" Width="1440">
     <Grid>
         <DataGrid RowStyle="{DynamicResource DataGridRowStyle1}" 
                   ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" 
@@ -21,11 +21,11 @@
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal">
-                                <Button Style="{StaticResource BtnAdd}" Click="Button_Click_1">
-                                    <!--ред-->
+                                <Button Style="{StaticResource BtnEdit}" Click="Button_Click_1">
+                                    <Image Source="/Assets/BtnEdit.png" Width="20" Height="20"/>
                                 </Button>
-                                <Button Style="{StaticResource BtnAdd}" Margin="8 0">
-                                    <!--дел-->
+                                <Button Style="{StaticResource BtnDelete}" Margin="8 0">
+                                    <Image Source="/Assets/BtnDelete.png" Width="20" Height="20"/>
                                 </Button>
 
                             </StackPanel>

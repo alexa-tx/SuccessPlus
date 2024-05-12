@@ -14,10 +14,10 @@
                      Color="#828283" />
 
     <SolidColorBrush x:Key="DataGrid.Static.BorderBrush"
-                     Color="#4683DE" />
+                     Color="#514D32" />
 
     <SolidColorBrush x:Key="DataGrid.Row.Details.Static.BorderBrush"
-                     Color="#4683DE" />
+                     Color="#514D32" />
 
     <SolidColorBrush x:Key="DataGrid.Header.Title.Static.Foreground"
                      Color="#828283" />
@@ -32,7 +32,7 @@
                      Color="#ECECEC" />
 
     <SolidColorBrush x:Key="DataGrid.Column.Header.Icon.Static"
-                     Color="#B4CDF3" />
+                     Color="#FFFFFF" />
 
     <SolidColorBrush x:Key="Sort.Down.Icon.MouseOver"
                      Color="#FFFFFF" />
@@ -41,19 +41,19 @@
                      Color="#FFFFFF" />
 
     <SolidColorBrush x:Key="DataGrid.Column.Header.Background"
-                     Color="#4683DE" />
+                     Color="#514D32" />
 
     <SolidColorBrush x:Key="DataGrid.Footer.Separator.Background.Static"
-                     Color="#4683DE" />
+                     Color="#514D32" />
 
     <SolidColorBrush x:Key="DataGrid.Footer.Background.Static"
-                     Color="#F7F7F7" />
+                     Color="#F1E9EE" />
 
     <SolidColorBrush x:Key="DataGrid.Footer.Pagination.GoToRow.Button.Background.Static"
-                     Color="#4683DE" />
+                     Color="#514D32" />
 
     <SolidColorBrush x:Key="DataGrid.Footer.Pagination.GoToRow.Button.BorderBrush.Static"
-                     Color="#4683DE" />
+                     Color="#514D32" />
 
     <SolidColorBrush x:Key="DataGrid.Footer.Pagination.Button.BorderBrush.Static"
                      Color="#ECECEC" />
@@ -65,10 +65,10 @@
                      Color="#FFFFFF" />
 
     <SolidColorBrush x:Key="DataGrid.Footer.Pagination.Button.Background.Checked"
-                     Color="#4683DE" />
+                     Color="#514D32" />
 
     <SolidColorBrush x:Key="DataGrid.Footer.Pagination.Button.BorderBrush.Checked"
-                     Color="#4683DE" />
+                     Color="#514D32" />
 
     <SolidColorBrush x:Key="DataGrid.Footer.Pagination.Button.Foreground.Static"
                      Color="#000000" />
@@ -117,10 +117,10 @@
                      Color="#D4A746" />
 
     <SolidColorBrush x:Key="DataGrid.Cell.Static.NotStartedBrush"
-                     Color="#4683DE" />
+                     Color="#514D32" />
 
     <SolidColorBrush x:Key="Icon.View.Static.Fill"
-                     Color="#929DE7" />
+                     Color="#FFFFFF" />
 
     <SolidColorBrush x:Key="Icon.Edit.Static.Fill"
                      Color="#18BD11" />
@@ -129,7 +129,7 @@
                      Color="#EA5C5C" />
 
     <SolidColorBrush x:Key="Icon.View.Static.BorderBrush"
-                     Color="#929DE7" />
+                     Color="#FFFFFF" />
 
     <SolidColorBrush x:Key="Icon.Edit.Static.BorderBrush"
                      Color="#18BD11" />
@@ -220,10 +220,10 @@
                      Color="#FFFFFF" />
 
     <SolidColorBrush x:Key="CheckBox.Checked.Background"
-                     Color="#4683DE" />
+                     Color="#514D32" />
 
     <SolidColorBrush x:Key="CheckBox.Checked.BorderBrush"
-                     Color="#4683DE" />
+                     Color="#514D32" />
 
     <SolidColorBrush x:Key="Button.Default.MouseOver.OpacityMask"
                      Color="#FFFFFF" />
@@ -232,7 +232,7 @@
                      Color="#FFFFFF" />
 
     <SolidColorBrush x:Key="Button.Primary.Static.Background"
-                     Color="#4683DE" />
+                     Color="#514D32" />
 
     <SolidColorBrush x:Key="Button.Cancel.Static.Background"
                      Color="#828283" />
