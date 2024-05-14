@@ -8,6 +8,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
+using System.Windows.Forms;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
@@ -49,6 +50,28 @@ namespace SuccessPlus.View
         {
             EditGroupWindow editGroupWindow = new EditGroupWindow((int)DataGrid.SelectedValue);
             editGroupWindow.ShowDialog();
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            DialogResult result = System.Windows.Forms.MessageBox.Show(
+        "Вы уверенны,что хотите удалить?",
+        "Удаление группы",
+        MessageBoxButtons.YesNo,
+        MessageBoxIcon.Exclamation,
+        MessageBoxDefaultButton.Button2
+        );
+
+            if (result == DialogResult.Yes)
+            {
+                Group selectedGroup = _db.context.Group.Where(x => x.IdGroup == (int)DataGrid.SelectedValue).FirstOrDefault();
+                _db.context.Group.Remove(selectedGroup);
+                _db.context.SaveChanges();
+                if (_db.context.SaveChanges() == 0)
+                    System.Windows.MessageBox.Show("Удалено");
+
+            }
+
         }
     }
 }

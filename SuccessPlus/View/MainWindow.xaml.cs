@@ -56,8 +56,8 @@ namespace SuccessPlus.View
         //кнопка студенты
         private void TextBlock_PreviewMouseLeftButtonDown_1(object sender, MouseButtonEventArgs e)
         {
-            // HomePage => название созданной страницы
-            //MainFrame.Navigate(new HomePage());
+
+                        MainFrame.Navigate(new Students());
         }
         //рейтлисты
         private void TextBlock_PreviewMouseLeftButtonDown_2(object sender, MouseButtonEventArgs e)

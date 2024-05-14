@@ -1,0 +1,52 @@
+﻿<Page x:Class="SuccessPlus.View.Students"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:SuccessPlus.View"
+      mc:Ignorable="d" 
+      Height="645" Width="1440"
+      Title="Students">
+
+    <Grid>
+    <DataGrid RowStyle="{DynamicResource DataGridRowStyle1}" 
+              ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" 
+              x:Name="DataGrid" IsReadOnly="True" AutoGenerateColumns="False" 
+              Margin="10"
+              >
+        <DataGrid.Columns>
+            <DataGridTextColumn Header="ID" MinWidth="20" Width="auto" Binding="{Binding IdStudent}" />
+            <DataGridTextColumn Header="Имя"  Width="auto" Binding="{Binding FisrtName}"/>
+            <DataGridTextColumn Header="Фамилия"  Width="auto" Binding="{Binding LastName}"/>
+            <DataGridTextColumn Header="Группа"  Width="auto" Binding="{Binding GroupName}"/>
+            <DataGridTextColumn Header="Пропуски" MinWidth="70" Width="auto"  Binding="{Binding CountStudents}"/>
+            <DataGridTextColumn Header="Средний балл" MinWidth="100" Width="auto" Binding="{Binding AVGMark}"/>
+            <DataGridTextColumn Header="Общ-я работа" MinWidth="100" Width="auto" Binding="{Binding CountStudents}"/>
+            <DataGridTextColumn Header="Спорт" MinWidth="100" Width="auto" Binding="{Binding CountStudents}"/>
+            <DataGridTextColumn Header="Самодеятельность" MinWidth="100" Width="auto" Binding="{Binding CountStudents}"/>
+            <DataGridTextColumn Header="НТТ" MinWidth="100" Width="auto" Binding="{Binding CountStudents}"/>
+            <DataGridTextColumn Header="Самообразование" MinWidth="100" Width="auto" Binding="{Binding CountStudents}"/>
+            <DataGridTextColumn Header="Поведение" MinWidth="100" Width="auto" Binding="{Binding CountStudents}"/>
+            <DataGridTextColumn Header="Рейтинговая оценка" MinWidth="100" Width="auto" Binding="{Binding CountStudents}"/>
+            <DataGridTemplateColumn Header="Редактировать" IsReadOnly="True" Width="auto" CanUserResize="False">
+                <DataGridTemplateColumn.CellTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <Button Style="{StaticResource BtnEdit}">
+                                <Image Source="/Assets/BtnEdit.png" Width="20" Height="20"/>
+                            </Button>
+                            <Button Style="{StaticResource BtnDelete}" Margin="8 0" >
+                                <Image Source="/Assets/BtnDelete.png" Width="20" Height="20"/>
+                            </Button>
+
+                        </StackPanel>
+                    </DataTemplate>
+                </DataGridTemplateColumn.CellTemplate>
+            </DataGridTemplateColumn>
+        </DataGrid.Columns>
+    </DataGrid>
+    <Button Style="{StaticResource BtnAdd}">
+        <TextBlock Text="Добавить"></TextBlock>
+    </Button>
+</Grid>
+</Page>

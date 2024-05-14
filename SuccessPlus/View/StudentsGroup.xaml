@@ -24,7 +24,7 @@
                                 <Button Style="{StaticResource BtnEdit}" Click="Button_Click_1">
                                     <Image Source="/Assets/BtnEdit.png" Width="20" Height="20"/>
                                 </Button>
-                                <Button Style="{StaticResource BtnDelete}" Margin="8 0">
+                                <Button Style="{StaticResource BtnDelete}" Margin="8 0" Click="Button_Click_2">
                                     <Image Source="/Assets/BtnDelete.png" Width="20" Height="20"/>
                                 </Button>
 
