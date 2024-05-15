@@ -1,4 +1,4 @@
-﻿<Page x:Class="SuccessPlus.View.AddStudentView"
+﻿<Window x:Class="SuccessPlus.View.AddStudentView"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -6,9 +6,34 @@
       xmlns:local="clr-namespace:SuccessPlus.View"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="AddStudentView">
+      Title="AddStudentView" Background="#CAAABD">
 
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="2*"/>
+            
+        </Grid.RowDefinitions>
+        <Grid Width="350" Height="45" HorizontalAlignment="Center" VerticalAlignment="Bottom">
+            <TextBlock Margin="10 0" VerticalAlignment="Center" Foreground="#060D0E" IsHitTestVisible="False" 
+                       Panel.ZIndex="1" Text="Фамилия" Visibility="{Binding ElementName=LastName, Path=Text.IsEmpty,Converter={StaticResource BoolToVis}}"/>
+            <TextBox x:Name="LastName" Style="{StaticResource SearchBox}" Height="40" VerticalContentAlignment="Center"/>
+        </Grid>
+        <Grid Width="350" Height="45" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0 25" Grid.Row="1">
+            <TextBlock Margin="10 0" VerticalAlignment="Center" Foreground="#060D0E" IsHitTestVisible="False" 
+                       Panel.ZIndex="1" Text="Имя" Visibility="{Binding ElementName=FirstName, Path=Text.IsEmpty,Converter={StaticResource BoolToVis}}"/>
+            <TextBox x:Name="FirstName" Style="{StaticResource SearchBox}" Height="40" VerticalContentAlignment="Center"/>
+        </Grid>
+        <Grid Width="350" Height="45" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0 100" Grid.Row="1">
+            <ComboBox
+                SelectedValuePath="IdGroup"
+                DisplayMemberPath="NameGroup"
+                x:Name="GroupComboBox" Style="{StaticResource ComboBox}" >
+                
+            </ComboBox>
+        </Grid>
+        <Button Style="{StaticResource BtnAddView}" VerticalContentAlignment="Center" Grid.Row="2" Click="Button_Click">
+            <TextBlock Text="Добавить"/>
+        </Button>
     </Grid>
-</Page>
+</Window>

@@ -66,9 +66,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Model\Admin.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
     <Compile Include="Model\Assessment.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -132,6 +129,9 @@
     <Compile Include="Model\Visiting.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\VisitingStudent.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="View\AddGroupWindow.xaml.cs">
       <DependentUpon>AddGroupWindow.xaml</DependentUpon>
     </Compile>
@@ -140,6 +140,9 @@
     </Compile>
     <Compile Include="View\EditGroupWindow.xaml.cs">
       <DependentUpon>EditGroupWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\EditStudent.xaml.cs">
+      <DependentUpon>EditStudent.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\HomePage.xaml.cs">
       <DependentUpon>HomePage.xaml</DependentUpon>
@@ -189,6 +192,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\EditGroupWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\EditStudent.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

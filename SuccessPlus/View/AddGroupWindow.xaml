@@ -12,7 +12,7 @@
                        Panel.ZIndex="1" Text="Название группы" Visibility="{Binding ElementName=GroupName, Path=Text.IsEmpty,Converter={StaticResource BoolToVis}}"/>
             <TextBox x:Name="GroupName" Style="{StaticResource SearchBox}" Height="40" VerticalContentAlignment="Center"/>
         </Grid>
-        <Button Style="{StaticResource BtnAddView}" VerticalContentAlignment="Center">
+        <Button Style="{StaticResource BtnAddView}" VerticalContentAlignment="Center" Click="Button_Click">
             <TextBlock Text="Добавить"/>
         </Button>
     </Grid>
