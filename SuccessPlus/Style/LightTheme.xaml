@@ -254,7 +254,7 @@
     --><!--#endregion--><!--
 </ResourceDictionary>-->
     
-    <ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        <ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
     <SolidColorBrush x:Key="Sort.Up.Icon.MouseOver"
@@ -270,10 +270,10 @@
                      Color="#828283" />
 
     <SolidColorBrush x:Key="DataGrid.Static.BorderBrush"
-                     Color="#514D32" />
+                     Color="#99B5CD" />
 
     <SolidColorBrush x:Key="DataGrid.Row.Details.Static.BorderBrush"
-                     Color="#514D32" />
+                     Color="#99B5CD" />
 
     <SolidColorBrush x:Key="DataGrid.Header.Title.Static.Foreground"
                      Color="#828283" />
@@ -297,19 +297,19 @@
                      Color="#FFFFFF" />
 
     <SolidColorBrush x:Key="DataGrid.Column.Header.Background"
-                     Color="#514D32" />
+                     Color="#99B5CD" />
 
     <SolidColorBrush x:Key="DataGrid.Footer.Separator.Background.Static"
-                     Color="#514D32" />
+                     Color="#99B5CD" />
 
     <SolidColorBrush x:Key="DataGrid.Footer.Background.Static"
                      Color="#F1E9EE" />
 
     <SolidColorBrush x:Key="DataGrid.Footer.Pagination.GoToRow.Button.Background.Static"
-                     Color="#514D32" />
+                     Color="#99B5CD" />
 
     <SolidColorBrush x:Key="DataGrid.Footer.Pagination.GoToRow.Button.BorderBrush.Static"
-                     Color="#514D32" />
+                     Color="#99B5CD" />
 
     <SolidColorBrush x:Key="DataGrid.Footer.Pagination.Button.BorderBrush.Static"
                      Color="#ECECEC" />
@@ -318,10 +318,10 @@
                      Color="#FFFFFF" />
 
     <SolidColorBrush x:Key="DataGrid.Footer.Pagination.Button.Background.Checked"
-                     Color="#514D32" />
+                     Color="#99B5CD" />
 
     <SolidColorBrush x:Key="DataGrid.Footer.Pagination.Button.BorderBrush.Checked"
-                     Color="#514D32" />
+                     Color="#99B5CD" />
 
     <SolidColorBrush x:Key="DataGrid.Footer.Pagination.Button.Foreground.Static"
                      Color="#000000" />
@@ -363,6 +363,6 @@
                      Color="#D4A746" />
 
     <SolidColorBrush x:Key="DataGrid.Cell.Static.NotStartedBrush"
-                     Color="#514D32" />
+                     Color="#99B5CD" />
 </ResourceDictionary>
 

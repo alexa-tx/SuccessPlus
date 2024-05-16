@@ -62,7 +62,7 @@ namespace SuccessPlus.View
         //рейтлисты
         private void TextBlock_PreviewMouseLeftButtonDown_2(object sender, MouseButtonEventArgs e)
         {
-            //MainFrame.Navigate(new HomePage());
+            MainFrame.Navigate(new HomePage());
         }
         //отчеты
         private void TextBlock_PreviewMouseLeftButtonDown_3(object sender, MouseButtonEventArgs e)

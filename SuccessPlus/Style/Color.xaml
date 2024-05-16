@@ -4,7 +4,7 @@
     <Style x:Key="BackgroundSingIn" TargetType="Border">
         <Setter Property="Width" Value="500"/>
         <Setter Property="Height" Value="350"/>
-        <Setter Property="Background" Value="#CAAABD"/>
-        <Setter Property="CornerRadius" Value="20"/>
+        <Setter Property="Background" Value="#99B5CD"/>
+        <Setter Property="CornerRadius" Value="10"/>
     </Style>
 </ResourceDictionary>

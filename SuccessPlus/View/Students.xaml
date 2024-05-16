@@ -18,7 +18,7 @@
                 <DataGridTextColumn Header="Имя" Width="*" Binding="{Binding FisrtName}"/>
                 <DataGridTextColumn Header="Фамилия" Width="*" Binding="{Binding LastName}"/>
                 <DataGridTextColumn Header="Группа" Width="*" Binding="{Binding GroupName}"/>
-                <DataGridTextColumn Header="Пропуски" Width="*" Binding="{Binding CountStudents}"/>
+                <DataGridTextColumn Header="Пропуски" Width="*" Binding="{Binding TotalVisiting}"/>
                 <DataGridTextColumn Header="Средний балл" Width="*" Binding="{Binding AVGMark}"/>
                 <DataGridTextColumn Header="Общ-я работа" Width="*" Binding="{Binding CountStudents}"/>
                 <DataGridTextColumn Header="Спорт" Width="*" Binding="{Binding CountStudents}"/>

@@ -32,7 +32,6 @@ namespace SuccessPlus.View
             StudentList = _db.context.Student.ToList();
             DataGrid.ItemsSource = StudentList;
 
-
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
