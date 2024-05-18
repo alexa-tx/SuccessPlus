@@ -31,9 +31,17 @@ namespace SuccessPlus.View
             InitializeComponent();
             StudentList = _db.context.Student.ToList();
             DataGrid.ItemsSource = StudentList;
+            DataGrid.SelectedValuePath = "IdStudent";
 
         }
 
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            StudentList = _db.context.Student.ToList();
+            StudentList = StudentList.Where(x => x.TotalVisiting.ToString().Contains(Poisk.Text) || x.AVGMark.ToString().Contains(Poisk.Text) 
+            || x.FisrtName.ToString().Contains(Poisk.Text) || x.LastName.ToString().Contains(Poisk.Text) || x.GroupName.ToString().Contains(Poisk.Text)).ToList();
+            DataGrid.ItemsSource = StudentList;
+        }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             AddStudentView addStudentView = new AddStudentView();
@@ -60,6 +68,12 @@ namespace SuccessPlus.View
 
             }
 
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            EditStudent editStudent = new EditStudent((int)DataGrid.SelectedValue);
+            editStudent.ShowDialog();
         }
     }
 }

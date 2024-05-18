@@ -9,10 +9,11 @@
       Title="Students">
 
     <Grid>
+        <TextBox x:Name="Poisk" TextChanged="TextBox_TextChanged"/> 
         <DataGrid RowStyle="{DynamicResource DataGridRowStyle1}" 
                   ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" 
                   x:Name="DataGrid" IsReadOnly="True" AutoGenerateColumns="False" 
-                  Margin="10">
+                  Margin="10 0">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ID" Width="*" Binding="{Binding IdStudent}" />
                 <DataGridTextColumn Header="Имя" Width="*" Binding="{Binding FisrtName}"/>
@@ -20,10 +21,10 @@
                 <DataGridTextColumn Header="Группа" Width="*" Binding="{Binding GroupName}"/>
                 <DataGridTextColumn Header="Пропуски" Width="*" Binding="{Binding TotalVisiting}"/>
                 <DataGridTextColumn Header="Средний балл" Width="*" Binding="{Binding AVGMark}"/>
-                <DataGridTextColumn Header="Общ-я работа" Width="*" Binding="{Binding CountStudents}"/>
-                <DataGridTextColumn Header="Спорт" Width="*" Binding="{Binding CountStudents}"/>
+                <DataGridTextColumn Header="Общ-я работа" Width="*" Binding="{Binding AVGSocialEvent}"/>
+                <DataGridTextColumn Header="Спорт" Width="*" Binding="{Binding AVGSportEvent}"/>
                 <DataGridTextColumn Header="Самодеятельность" Width="*" Binding="{Binding CountStudents}"/>
-                <DataGridTextColumn Header="НТТ" Width="*" Binding="{Binding CountStudents}"/>
+                <DataGridTextColumn Header="НТТ" Width="*" Binding="{Binding AVGNttEvent}"/>
                 <DataGridTextColumn Header="Самообразование" Width="*" Binding="{Binding CountStudents}"/>
                 <DataGridTextColumn Header="Поведение" Width="*" Binding="{Binding CountStudents}"/>
                 <DataGridTextColumn Header="Рейтинговая оценка" Width="*" Binding="{Binding CountStudents}"/>
@@ -31,7 +32,7 @@
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal">
-                                <Button Style="{StaticResource BtnEdit}">
+                                <Button Style="{StaticResource BtnEdit}" Click="Button_Click_1">
                                     <Image Source="/Assets/BtnEdit.png" Width="20" Height="20"/>
                                 </Button>
                                 <Button Style="{StaticResource BtnDelete}" Margin="8 0" Click="Button_Click_2">
