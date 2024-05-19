@@ -6,9 +6,9 @@
       xmlns:local="clr-namespace:SuccessPlus.View"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="HomePage" Background="AntiqueWhite">
+      Title="HomePage" >
 
     <Grid>
-        
+        <Calendar x:Name="EventCalendar" HorizontalAlignment="Center" VerticalAlignment="Top" CalendarDayButtonStyle="{StaticResource EventDateCellStyle}"/>
     </Grid>
 </Page>

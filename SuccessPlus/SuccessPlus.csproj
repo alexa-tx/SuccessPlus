@@ -290,6 +290,7 @@
     <Resource Include="Assets\BtnEdit.png" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Assets\main.png" />
     <Content Include="Model\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model1.edmx</DependentUpon>

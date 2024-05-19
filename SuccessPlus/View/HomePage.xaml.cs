@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SuccessPlus.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,32 @@ namespace SuccessPlus.View
     /// </summary>
     public partial class HomePage : Page
     {
+        
+        private Core _db = new Core();
+
         public HomePage()
         {
             InitializeComponent();
+        }
+
+        private void HomePage_Loaded(object sender, RoutedEventArgs e)
+        {
+            LoadEventsToCalendar();
+        }
+
+
+        private void LoadEventsToCalendar()
+        {
+            var events = _db.context.Event.ToList();
+
+            foreach (var ev in events)
+            {
+                if (ev.Date.HasValue) // Проверяем, что дата события не равна null
+                {
+                    DateTime date = ev.Date.Value; // Преобразуем Nullable<DateTime> в DateTime
+                    EventCalendar.BlackoutDates.Add(new CalendarDateRange(date));
+                }
+            }
         }
     }
 }

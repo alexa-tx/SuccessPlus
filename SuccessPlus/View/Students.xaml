@@ -20,6 +20,9 @@
                 <DataGridTextColumn Header="Фамилия" Width="*" Binding="{Binding LastName}"/>
                 <DataGridTextColumn Header="Группа" Width="*" Binding="{Binding GroupName}"/>
                 <DataGridTextColumn Header="Пропуски" Width="*" Binding="{Binding TotalVisiting}"/>
+                <DataGridTextColumn Header="Тройки" Width="*" Binding="{Binding CountThrees}" />
+                <DataGridTextColumn Header="Четверки" Width="*" Binding="{Binding CountFours}"/>
+                <DataGridTextColumn Header="5" Width="*" Binding="{Binding CountFives}"/>
                 <DataGridTextColumn Header="Средний балл" Width="*" Binding="{Binding AVGMark}"/>
                 <DataGridTextColumn Header="Общ-я работа" Width="*" Binding="{Binding AVGSocialEvent}"/>
                 <DataGridTextColumn Header="Спорт" Width="*" Binding="{Binding AVGSportEvent}"/>

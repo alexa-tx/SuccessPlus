@@ -17,6 +17,7 @@
                 <DataGridTextColumn Header="Оценка" Binding="{Binding MarkSubject}"/>
             </DataGrid.Columns>
         </DataGrid>
+        
         <Button Style="{StaticResource BtnSave}" Content="Сохранить" VerticalAlignment="Top" Click="Button_Click" Margin="0 20"/>
     </Grid>
 </Window>

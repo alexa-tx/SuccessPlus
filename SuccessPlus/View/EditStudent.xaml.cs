@@ -25,6 +25,7 @@ namespace SuccessPlus.View
         Student selectedStudent;
         public List<Group> Groups;
         public List<Subjects> Subjects;
+        
         public EditStudent(int idStudent)
         {
             InitializeComponent();
@@ -53,5 +54,6 @@ namespace SuccessPlus.View
                 MessageBox.Show(ex.Message);
             }
         }
+
     }
 }
