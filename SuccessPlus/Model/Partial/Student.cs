@@ -29,15 +29,36 @@ namespace SuccessPlus.Model
 
         public List<int?> SportEvent => _db.context.EventStudent.Where(x => x.IdStudent == IdStudent && x.IdEvent == 2).Select(x => x.IdMark).ToList();
 
-        public double AVGSportEvent => SportEvent.Where(mark => mark.HasValue).Select(mark => mark.Value).AsEnumerable().Average(mark => (double)mark);
+        public double AVGSportEvent
+        {
+            get
+            {
+                var marks = SportEvent.Where(mark => mark.HasValue).Select(mark => mark.Value);
+                return marks.Any() ? marks.Average() : 0;
+            }
+        }
 
         public List<int?> SocialEvent => _db.context.EventStudent.Where(x => x.IdStudent == IdStudent && x.IdEvent == 3).Select(x => x.IdMark).ToList();
 
-        public double AVGSocialEvent => SocialEvent.Where(mark => mark.HasValue).Select(mark => mark.Value).AsEnumerable().Average(mark => (double)mark);
+        public double? AVGSocialEvent
+        {
+            get
+            {
+                var marks = SocialEvent.Where(mark => mark.HasValue).Select(mark => mark.Value);
+                return marks.Any() ? (double?)marks.Average() : 0;
+            }
+        }
 
         public List<int?> NttEvent => _db.context.EventStudent.Where(x => x.IdStudent == IdStudent && x.IdEvent == 1).Select(x => x.IdMark).ToList();
 
-        public double AVGNttEvent => NttEvent.Where(mark => mark.HasValue).Select(mark => mark.Value).AsEnumerable().Average(mark => (double)mark);
+        public double? AVGNttEvent
+        {
+            get
+            {
+                var marks = NttEvent.Where(mark => mark.HasValue).Select(mark => mark.Value);
+                return marks.Any() ? (double?)marks.Average() : 0;
+            }
+        }
 
         public int CountThrees => _db.context.MarkStudent.Where(x => x.IdStudent == IdStudent && x.Marks.MarkName == 3).Count();
 

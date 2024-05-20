@@ -28,6 +28,50 @@
             </Setter.Value>
         </Setter>
     </Style>
+    
+    <Style x:Key="PoiskTextBoxStyle" TargetType="TextBox">
+        <Setter Property="Background" Value="#ffff" />
+        <Setter Property="Foreground" Value="#b0b9c6" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="FontSize" Value="12" />
+        <Setter Property="Width" Value="200"/>
+        <Setter Property="Height" Value="30"/>
+         <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="HorizontalAlignment" Value="Right"/>
+
+        <Setter Property="Template">
+        <Setter.Value>
+            <ControlTemplate>
+                <Border
+                    x:Name="border"
+                    Background="{TemplateBinding Background}"
+                    BorderBrush="#e0e6ed"
+                    BorderThickness="1"
+                    CornerRadius="7"
+                    SnapsToDevicePixels="True">
+                    <ScrollViewer
+                        x:Name="PART_ContentHost"
+                        Focusable="False"
+                        HorizontalScrollBarVisibility="Hidden"
+                        VerticalScrollBarVisibility="Hidden" />
+
+
+                </Border>
+                <ControlTemplate.Triggers>
+                    <Trigger Property="IsMouseOver" Value="True">
+                        <Setter TargetName="border" Property="BorderBrush" Value="#d9d9d9" />
+                    </Trigger>
+                    <Trigger Property="IsKeyboardFocused" Value="True">
+                        <Setter TargetName="border" Property="BorderBrush" Value="#d9d9d9" />
+                    </Trigger>
+                </ControlTemplate.Triggers>
+            </ControlTemplate>
+        </Setter.Value>
+    </Setter>
+
+    </Style>
     <BooleanToVisibilityConverter x:Key="BoolToVis"/>
 
     <Style x:Key="MainWindowText" TargetType="TextBlock">
@@ -81,5 +125,8 @@
                 </Setter.Value>
             </Setter>
         </Style>
+    
+    
+
 
 </ResourceDictionary>

@@ -5,15 +5,19 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:SuccessPlus.View"
       mc:Ignorable="d" 
-      Height="645" Width="1440"
+      Height="660" Width="1440"
       Title="Students">
 
     <Grid>
-        <TextBox x:Name="Poisk" TextChanged="TextBox_TextChanged"/> 
-        <DataGrid RowStyle="{DynamicResource DataGridRowStyle1}" 
+         <Grid.RowDefinitions>
+     <RowDefinition Height="45"/>
+     <RowDefinition Height="2*"/>
+ </Grid.RowDefinitions>
+         <TextBox x:Name="Poisk" TextChanged="TextBox_TextChanged" Style="{StaticResource PoiskTextBoxStyle}"/>        
+         <DataGrid RowStyle="{DynamicResource DataGridRowStyle1}" 
                   ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" 
                   x:Name="DataGrid" IsReadOnly="True" AutoGenerateColumns="False" 
-                  Margin="10 0">
+                  Margin="10 0" Grid.Row="1">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ID" Width="*" Binding="{Binding IdStudent}" />
                 <DataGridTextColumn Header="Имя" Width="*" Binding="{Binding FisrtName}"/>
@@ -47,7 +51,7 @@
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
-        <Button Style="{StaticResource BtnAdd}" Click="Button_Click">
+        <Button Style="{StaticResource BtnAdd}" Click="Button_Click" Grid.Row="1">
             <TextBlock Text="Добавить"></TextBlock>
         </Button>
     </Grid>

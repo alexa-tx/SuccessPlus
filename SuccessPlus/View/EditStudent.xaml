@@ -9,15 +9,29 @@
       Title="EditStudent"  Background="#99B5CD">
 
     <Grid>
-        <TextBlock x:Name="NameStudent"/>
-        <ComboBox x:Name="ComboBoxStudent" Width="100" Height="100"/>
-        <DataGrid HorizontalAlignment="Right" x:Name="DataGridSubject" AutoGenerateColumns="False">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="1*"/>
+
+        </Grid.ColumnDefinitions>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <TextBlock x:Name="NameStudent" />
+            <TextBlock Text="Группа" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="0 0 10 0"/>
+            <ComboBox x:Name="ComboBoxStudent" Width="100" Height="30"/>
+        </Grid>
+        
+        <DataGrid Grid.Column="1" HorizontalAlignment="Center" x:Name="DataGridSubject" AutoGenerateColumns="False" Width="150"  Height="300" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Предмет" Binding="{Binding Name}"/>
                 <DataGridTextColumn Header="Оценка" Binding="{Binding MarkSubject}"/>
             </DataGrid.Columns>
         </DataGrid>
         
-        <Button Style="{StaticResource BtnSave}" Content="Сохранить" VerticalAlignment="Top" Click="Button_Click" Margin="0 20"/>
+        <Button Style="{StaticResource BtnSave}" Content="Сохранить" VerticalAlignment="Bottom" Click="Button_Click" Margin="0 20"/>
     </Grid>
 </Window>

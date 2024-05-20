@@ -27,7 +27,7 @@
         </Grid>
         
         <Grid Width="350" Height="45" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0 100" Grid.Row="1">
-            <ComboBox SelectedValuePath="IdGroup" DisplayMemberPath="NameGroup" x:Name="GroupComboBox"/>
+            <ComboBox SelectedValuePath="IdGroup" DisplayMemberPath="NameGroup" x:Name="GroupComboBox" />
         </Grid>
         
         <Button Style="{StaticResource BtnAddView}" VerticalContentAlignment="Center" Grid.Row="2" Click="Button_Click">
