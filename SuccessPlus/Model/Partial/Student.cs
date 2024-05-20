@@ -16,17 +16,9 @@ namespace SuccessPlus.Model
 
         public List<int> Visiting => _db.context.VisitingStudent.Where(x => x.IdStudent == IdStudent).Select(x => x.Visiting.IdVisiting).ToList();
 
-
         public int TotalVisiting => Visiting.Sum();
 
         public string FIO => $"{LastName} {FisrtName[0]}.";
-
-        //public List <int?> SportEvent => _db.context.EventStudent.Where(x => x.IdStudent == IdStudent).Select(x => x.IdMark).ToList();
-
-        //public int? a => _db.context.EventStudent.Where(x => x.IdStudent == IdStudent).FirstOrDefault().IdMark == null ? 0 : 1;
-
-        //public double AVGSportEvent => SportEvent.AsEnumerable().Average(mark => (double)mark);
-
         public List<int?> SportEvent => _db.context.EventStudent.Where(x => x.IdStudent == IdStudent && x.IdEvent == 2).Select(x => x.IdMark).ToList();
 
         public double AVGSportEvent
@@ -66,5 +58,10 @@ namespace SuccessPlus.Model
 
         public int CountFives => _db.context.MarkStudent.Where(x => x.IdStudent == IdStudent && x.Marks.MarkName == 5).Count();
 
+        public List< string> NameSportEvent => _db.context.Event.Where(x => x.Type == 2).Select(x =>x.Name).ToList();
+
+        public List< string> NameSocialEvent => _db.context.Event.Where(x => x.Type == 1).Select(x =>x.Name).ToList();
+
+        public List< string> NameNttEvent => _db.context.Event.Where(x => x.Type == 3).Select(x =>x.Name).ToList();
     }
 }

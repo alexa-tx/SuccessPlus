@@ -133,4 +133,11 @@
          <Setter Property="Margin" Value="0,20,0,0"/>
     </Style>
 
+    <Style TargetType="TextBlock" x:Key="SignInText">
+        <Setter Property="FontSize" Value="24"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+    </Style>
+
 </ResourceDictionary>

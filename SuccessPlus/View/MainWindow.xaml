@@ -5,24 +5,38 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SuccessPlus"
         mc:Ignorable="d"
-        Title="MainWindow" Height="720" Width="1440" Background="#FAFCF9" Closed="Window_Closed">
+        Title="MainWindow" Height="850" Width="1500" Background="#FAFCF9" Closed="Window_Closed" WindowStartupLocation="CenterScreen"
+        WindowStyle="None" AllowsTransparency="True">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="120"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height ="50"/>
-            <RowDefinition Height="10*"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
+        
         <Grid x:Name="TopBarMenu" Visibility="Collapsed">
-            
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Width="700" VerticalAlignment="Center">
-                <TextBlock Margin="50 0" Style="{StaticResource MainWindowText}" PreviewMouseLeftButtonDown="TextBlock_PreviewMouseLeftButtonDown_2">Главная</TextBlock>
-                <TextBlock Margin="20 0" Style="{StaticResource MainWindowText}" PreviewMouseLeftButtonDown="TextBlock_PreviewMouseLeftButtonDown">Учебные группы</TextBlock>
-                <Image Source="/Assets/logo.png" Width="60" HorizontalAlignment="Stretch" PreviewMouseLeftButtonDown="Image_PreviewMouseLeftButtonDown"/>
-                <TextBlock Margin="50 0" Style="{StaticResource MainWindowText}" PreviewMouseLeftButtonDown="TextBlock_PreviewMouseLeftButtonDown_1">Студенты</TextBlock>
-                <TextBlock Margin="50 0" Style="{StaticResource MainWindowText}" PreviewMouseLeftButtonDown="TextBlock_PreviewMouseLeftButtonDown_3">Отчет</TextBlock>
+            <StackPanel Orientation="Vertical" VerticalAlignment="Stretch" HorizontalAlignment="Center" Width="180" Margin="10">
+                
+                <StackPanel VerticalAlignment="Top">
+                    <Image Source="/Assets/logo.png" Width="60" HorizontalAlignment="Center" Margin="0 20" PreviewMouseLeftButtonDown="Image_PreviewMouseLeftButtonDown"/>
+                </StackPanel>
+                
+                <StackPanel VerticalAlignment="Center" Margin="0, 100, 0, 100">
+                    <Image Source="/Assets/Student.png" Width="60" HorizontalAlignment="Center"  Style="{StaticResource IconImage}" Margin="0 20" PreviewMouseLeftButtonDown="Image_PreviewMouseLeftButtonDown_1"/>
+                    <Image Source="/Assets/Group.png" Width="60" HorizontalAlignment="Center"  Style="{StaticResource IconImage}" Margin="0 20" PreviewMouseLeftButtonDown="Image_PreviewMouseLeftButtonDown_2"/>
+                    <Image Source="/Assets/File.png" Width="60" HorizontalAlignment="Center"  Style="{StaticResource IconImage}" Margin="0 20" PreviewMouseLeftButtonDown="Image_PreviewMouseLeftButtonDown_3"/>
+                </StackPanel>
+                
+                <StackPanel VerticalAlignment="Bottom">
+                    <Image Source="/Assets/Exit.png" Width="60" HorizontalAlignment="Center" Margin="0 20" PreviewMouseLeftButtonDown="Image_PreviewMouseLeftButtonDown_4"/>
+                </StackPanel>
+                
             </StackPanel>
         </Grid>
         
-        <Frame Grid.Row="1" x:Name="MainFrame" NavigationUIVisibility="Hidden" ContentRendered="MainFrame_ContentRendered" ></Frame>
+        <Frame Grid.Column="1" x:Name="MainFrame" NavigationUIVisibility="Hidden" ContentRendered="MainFrame_ContentRendered"></Frame>
         
     </Grid>
 </Window>

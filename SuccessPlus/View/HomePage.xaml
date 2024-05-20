@@ -9,6 +9,6 @@
       Title="HomePage" >
 
     <Grid>
-        <Calendar x:Name="EventCalendar" HorizontalAlignment="Center" VerticalAlignment="Top" CalendarDayButtonStyle="{StaticResource EventDateCellStyle}"/>
+        <Calendar x:Name="EventCalendar" HorizontalAlignment="Center" VerticalAlignment="Top" Style="{StaticResource CalendarStyle}"/>
     </Grid>
 </Page>

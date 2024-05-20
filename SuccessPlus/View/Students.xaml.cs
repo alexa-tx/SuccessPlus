@@ -24,7 +24,7 @@ namespace SuccessPlus.View
         public List<Student> StudentList { get; set; } = new List<Student>();
 
         private Core _db = new Core();
-        public int SelectedStudentId { get; set; } 
+        public int SelectedStudentId { get; set; }
         public Students()
         {
 
@@ -38,7 +38,7 @@ namespace SuccessPlus.View
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             StudentList = _db.context.Student.ToList();
-            StudentList = StudentList.Where(x => x.TotalVisiting.ToString().Contains(Poisk.Text) || x.AVGMark.ToString().Contains(Poisk.Text) 
+            StudentList = StudentList.Where(x => x.TotalVisiting.ToString().Contains(Poisk.Text) || x.AVGMark.ToString().Contains(Poisk.Text)
             || x.FisrtName.ToString().Contains(Poisk.Text) || x.LastName.ToString().Contains(Poisk.Text) || x.GroupName.ToString().Contains(Poisk.Text)).ToList();
             DataGrid.ItemsSource = StudentList;
         }
@@ -75,5 +75,43 @@ namespace SuccessPlus.View
             EditStudent editStudent = new EditStudent((int)DataGrid.SelectedValue);
             editStudent.ShowDialog();
         }
+
+        private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            // Проверяем, выбрана ли какая-либо строка
+            if (DataGrid.SelectedItem != null)
+            {
+                // Получаем выбранного студента
+                var selectedStudent = DataGrid.SelectedItem as Student;
+                if (selectedStudent != null)
+                {
+                    // Формируем информацию о студенте
+                    StringBuilder info = new StringBuilder();
+                    info.AppendLine($"Студент: {selectedStudent.FisrtName} {selectedStudent.LastName}");
+                    info.AppendLine($"Количество оценок: {selectedStudent.CountFives + selectedStudent.CountFours + selectedStudent.CountThrees}");
+                    info.AppendLine($"Средний балл: {selectedStudent.AVGMark}");
+
+                    // Проверяем, где участвовал студент
+                    if (selectedStudent.AVGSocialEvent > 0)
+                    {
+                        string socialEvents = string.Join(", ", selectedStudent.NameSocialEvent);
+                        info.AppendLine($"Участие в общественных мероприятиях: {socialEvents}");
+                    }
+                    if (selectedStudent.AVGSportEvent > 0)
+                    {
+                        string sportEvents = string.Join(", ", selectedStudent.NameSportEvent);
+                        info.AppendLine($"Участие в спортивных мероприятиях: {sportEvents}");
+                    }
+                    if (selectedStudent.AVGNttEvent > 0)
+                    {
+                        string nttEvents = string.Join(", ", selectedStudent.NameNttEvent);
+                        info.AppendLine($"Участие в научно-технологических мероприятиях: {nttEvents}");
+                    }
+
+                    // Отображаем информацию
+                    System.Windows.MessageBox.Show(info.ToString(), "Информация о студенте");
+                }
+            }
+            }
     }
 }

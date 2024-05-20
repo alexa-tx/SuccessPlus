@@ -24,6 +24,7 @@ namespace SuccessPlus.View
         public MainWindow()
         {
             InitializeComponent();
+
             MainFrame.Navigate(new SingInPage());
         }
 
@@ -53,21 +54,27 @@ namespace SuccessPlus.View
         {
             MainFrame.Navigate(new HomePage());
         }
-        //кнопка студенты
-        private void TextBlock_PreviewMouseLeftButtonDown_1(object sender, MouseButtonEventArgs e)
-        {
 
-                        MainFrame.Navigate(new Students());
-        }
-        //рейтлисты
-        private void TextBlock_PreviewMouseLeftButtonDown_2(object sender, MouseButtonEventArgs e)
+        private void Image_PreviewMouseLeftButtonDown_1(object sender, MouseButtonEventArgs e)
         {
-            MainFrame.Navigate(new HomePage());
+            MainFrame.Navigate(new Students());
         }
-        //отчеты
-        private void TextBlock_PreviewMouseLeftButtonDown_3(object sender, MouseButtonEventArgs e)
+
+        private void Image_PreviewMouseLeftButtonDown_2(object sender, MouseButtonEventArgs e)
+        {
+            MainFrame.Navigate(new StudentsGroup());
+        }
+
+        private void Image_PreviewMouseLeftButtonDown_3(object sender, MouseButtonEventArgs e)
         {
             //MainFrame.Navigate(new HomePage());
         }
+
+        private void Image_PreviewMouseLeftButtonDown_4(object sender, MouseButtonEventArgs e)
+        {
+            Application.Current.Shutdown();
+
+        }
+
     }
 }

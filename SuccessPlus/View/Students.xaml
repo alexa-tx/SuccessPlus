@@ -17,7 +17,7 @@
          <DataGrid RowStyle="{DynamicResource DataGridRowStyle1}" 
                   ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" 
                   x:Name="DataGrid" IsReadOnly="True" AutoGenerateColumns="False" 
-                  Margin="10 0" Grid.Row="1">
+                  Margin="10 0" Grid.Row="1"  SelectionChanged="DataGrid_SelectionChanged">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ID" Width="*" Binding="{Binding IdStudent}" />
                 <DataGridTextColumn Header="Имя" Width="*" Binding="{Binding FisrtName}"/>

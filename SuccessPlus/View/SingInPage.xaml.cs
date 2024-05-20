@@ -39,7 +39,6 @@ namespace SuccessPlus.View
                 Properties.Settings.Default.userId = _user.IdUser;
                 this.NavigationService.Navigate(new HomePage());
                 
-                
             }
             
         }

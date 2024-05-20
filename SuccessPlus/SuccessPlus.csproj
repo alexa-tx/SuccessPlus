@@ -164,6 +164,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Style\Calendar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Style\Color.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -284,6 +288,10 @@
     <Resource Include="Assets\main.png" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Assets\File.png" />
+    <Resource Include="Assets\Group.png" />
+    <Resource Include="Assets\Student.png" />
+    <Resource Include="Assets\Exit.png" />
     <Content Include="Model\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model1.edmx</DependentUpon>
