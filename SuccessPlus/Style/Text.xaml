@@ -92,41 +92,45 @@
      <Setter Property="Margin" Value="0,100,0,0" />
  </Style>
     <Style x:Key="EventDateCellStyle" TargetType="CalendarDayButton">
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="CalendarDayButton">
-                        <Grid>
-                            <Border x:Name="NormalBorder"
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="CalendarDayButton">
+                    <Grid>
+                        <Border x:Name="NormalBorder"
                                     BorderBrush="{TemplateBinding BorderBrush}"
                                     BorderThickness="{TemplateBinding BorderThickness}"
                                     Background="{TemplateBinding Background}"
                                     CornerRadius="5"/>
-                            <Border x:Name="HighlightBorder"
+                        <Border x:Name="HighlightBorder"
                                     BorderBrush="Green"
                                     BorderThickness="1"
                                     Background="LightGreen"
                                     CornerRadius="5"
                                     Opacity="0"/>
-                            <ContentPresenter x:Name="NormalContent"
+                        <ContentPresenter x:Name="NormalContent"
                                               HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                               VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                                               Margin="5"/>
-                        </Grid>
-                        <ControlTemplate.Triggers>
-                            <Trigger Property="IsMouseOver" Value="True">
-                                <Setter TargetName="NormalBorder" Property="Visibility" Value="Hidden"/>
-                                <Setter TargetName="HighlightBorder" Property="Visibility" Value="Visible"/>
-                            </Trigger>
-                            <Trigger Property="IsToday" Value="True">
-                                <Setter TargetName="NormalBorder" Property="BorderBrush" Value="Red"/>
-                            </Trigger>
-                        </ControlTemplate.Triggers>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
-    
-    
-
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="NormalBorder" Property="Visibility" Value="Hidden"/>
+                            <Setter TargetName="HighlightBorder" Property="Visibility" Value="Visible"/>
+                        </Trigger>
+                        <Trigger Property="IsToday" Value="True">
+                            <Setter TargetName="NormalBorder" Property="BorderBrush" Value="Red"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+     <Style TargetType="TextBlock" x:Key="NameStudentStyle">
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="FontSize" Value="18"/>
+         <Setter Property="Margin" Value="0,20,0,0"/>
+    </Style>
 
 </ResourceDictionary>

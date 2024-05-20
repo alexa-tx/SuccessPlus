@@ -20,9 +20,10 @@
                 <RowDefinition Height="1*"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <TextBlock x:Name="NameStudent" />
-            <TextBlock Text="Группа" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="0 0 10 0"/>
-            <ComboBox x:Name="ComboBoxStudent" Width="100" Height="30"/>
+            <TextBlock x:Name="NameStudent" Style="{StaticResource NameStudentStyle}"/>
+
+            <TextBlock Text="Группа" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="0 0 10 0" Grid.Row="1"/>
+            <ComboBox x:Name="ComboBoxStudent" Width="100" Height="30" Grid.Row="1" HorizontalAlignment="Left" Margin="50 0 0 0"/>
         </Grid>
         
         <DataGrid Grid.Column="1" HorizontalAlignment="Center" x:Name="DataGridSubject" AutoGenerateColumns="False" Width="150"  Height="300" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}">

@@ -18,9 +18,9 @@
             <PropertyRef Name="IdElder" />
           </Key>
           <Property Name="IdElder" Type="int" Nullable="false" />
-          <Property Name="FisrtName" Type="varchar" MaxLength="50" />
-          <Property Name="LastName" Type="varchar" MaxLength="100" />
-          <Property Name="Group" Type="int" />
+          <Property Name="FisrtName" Type="nvarchar" MaxLength="50" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="100" />
+          <Property Name="IdGroup" Type="int" />
           <Property Name="TypeId" Type="int" />
         </EntityType>
         <EntityType Name="Event">
@@ -28,7 +28,7 @@
             <PropertyRef Name="IdEvent" />
           </Key>
           <Property Name="IdEvent" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Date" Type="date" />
           <Property Name="Type" Type="int" />
         </EntityType>
@@ -53,7 +53,7 @@
             <PropertyRef Name="IdGroup" />
           </Key>
           <Property Name="IdGroup" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="NameGroup" Type="varchar" MaxLength="50" />
+          <Property Name="NameGroup" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Marks">
           <Key>
@@ -77,8 +77,8 @@
             <PropertyRef Name="IdSignIn" />
           </Key>
           <Property Name="IdSignIn" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Login" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Password" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Login" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="IdUser" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Student">
@@ -86,8 +86,8 @@
             <PropertyRef Name="IdStudent" />
           </Key>
           <Property Name="IdStudent" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="FisrtName" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="LastName" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="FisrtName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="GroupId" Type="int" Nullable="false" />
           <Property Name="VisitingId" Type="int" />
           <Property Name="EventId" Type="int" />
@@ -106,8 +106,8 @@
             <PropertyRef Name="IdSupervisor" />
           </Key>
           <Property Name="IdSupervisor" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="FisrtName" Type="varchar" MaxLength="50" />
-          <Property Name="LastName" Type="varchar" MaxLength="100" />
+          <Property Name="FisrtName" Type="nvarchar" MaxLength="50" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="100" />
           <Property Name="TypeId" Type="int" />
         </EntityType>
         <EntityType Name="Type">
@@ -115,15 +115,15 @@
             <PropertyRef Name="IdType" />
           </Key>
           <Property Name="IdType" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="NameAcc" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="NameAcc" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="User">
           <Key>
             <PropertyRef Name="IdUser" />
           </Key>
           <Property Name="IdUser" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="FirstName" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="LastName" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="Type" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Visiting">
@@ -152,7 +152,7 @@
               <PropertyRef Name="IdGroup" />
             </Principal>
             <Dependent Role="Elder">
-              <PropertyRef Name="Group" />
+              <PropertyRef Name="IdGroup" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -458,11 +458,11 @@
             <PropertyRef Name="IdElder" />
           </Key>
           <Property Name="IdElder" Type="Int32" Nullable="false" />
-          <Property Name="FisrtName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="LastName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="Group" Type="Int32" />
+          <Property Name="FisrtName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LastName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="IdGroup" Type="Int32" />
           <Property Name="TypeId" Type="Int32" />
-          <NavigationProperty Name="Group1" Relationship="Self.FK_Elder_Group" FromRole="Elder" ToRole="Group" />
+          <NavigationProperty Name="Group" Relationship="Self.FK_Elder_Group" FromRole="Elder" ToRole="Group" />
           <NavigationProperty Name="Type" Relationship="Self.FK_Elder_Type" FromRole="Elder" ToRole="Type" />
         </EntityType>
         <EntityType Name="Event">
@@ -470,7 +470,7 @@
             <PropertyRef Name="IdEvent" />
           </Key>
           <Property Name="IdEvent" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Date" Type="DateTime" Precision="0" />
           <Property Name="Type" Type="Int32" />
           <NavigationProperty Name="EventType" Relationship="Self.FK_Event_EventType" FromRole="Event" ToRole="EventType" />
@@ -501,7 +501,7 @@
             <PropertyRef Name="IdGroup" />
           </Key>
           <Property Name="IdGroup" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="NameGroup" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NameGroup" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Elder" Relationship="Self.FK_Elder_Group" FromRole="Group" ToRole="Elder" />
           <NavigationProperty Name="Student" Relationship="Self.FK_Student_Group" FromRole="Group" ToRole="Student" />
         </EntityType>
@@ -532,8 +532,8 @@
             <PropertyRef Name="IdSignIn" />
           </Key>
           <Property Name="IdSignIn" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Login" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Password" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Login" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="IdUser" Type="Int32" Nullable="false" />
           <NavigationProperty Name="User" Relationship="Self.FK_SignIn_User" FromRole="SignIn" ToRole="User" />
         </EntityType>
@@ -542,8 +542,8 @@
             <PropertyRef Name="IdStudent" />
           </Key>
           <Property Name="IdStudent" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="FisrtName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="LastName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FisrtName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LastName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="GroupId" Type="Int32" Nullable="false" />
           <Property Name="VisitingId" Type="Int32" />
           <Property Name="EventId" Type="Int32" />
@@ -568,8 +568,8 @@
             <PropertyRef Name="IdSupervisor" />
           </Key>
           <Property Name="IdSupervisor" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="FisrtName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="LastName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="FisrtName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LastName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="TypeId" Type="Int32" />
           <NavigationProperty Name="Type" Relationship="Self.FK_Supervisor_Type" FromRole="Supervisor" ToRole="Type" />
         </EntityType>
@@ -578,7 +578,7 @@
             <PropertyRef Name="IdType" />
           </Key>
           <Property Name="IdType" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="NameAcc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NameAcc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Elder" Relationship="Self.FK_Elder_Type" FromRole="Type" ToRole="Elder" />
           <NavigationProperty Name="Student" Relationship="Self.FK_Student_Type" FromRole="Type" ToRole="Student" />
           <NavigationProperty Name="Supervisor" Relationship="Self.FK_Supervisor_Type" FromRole="Type" ToRole="Supervisor" />
@@ -589,8 +589,8 @@
             <PropertyRef Name="IdUser" />
           </Key>
           <Property Name="IdUser" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="LastName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LastName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Type" Type="Int32" Nullable="false" />
           <NavigationProperty Name="SignIn" Relationship="Self.FK_SignIn_User" FromRole="User" ToRole="SignIn" />
           <NavigationProperty Name="Type1" Relationship="Self.FK_User_Type" FromRole="User" ToRole="Type" />
@@ -624,7 +624,7 @@
               <PropertyRef Name="IdGroup" />
             </Principal>
             <Dependent Role="Elder">
-              <PropertyRef Name="Group" />
+              <PropertyRef Name="IdGroup" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -830,7 +830,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="SuccessPlusEntities5" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="SuccessPlusEntities6" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Assessment" EntityType="Self.Assessment" />
           <EntitySet Name="Elder" EntityType="Self.Elder" />
           <EntitySet Name="Event" EntityType="Self.Event" />
@@ -917,7 +917,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище SuccessPlusModelContainer" CdmEntityContainer="SuccessPlusEntities5">
+        <EntityContainerMapping StorageEntityContainer="Хранилище SuccessPlusModelContainer" CdmEntityContainer="SuccessPlusEntities6">
           <EntitySetMapping Name="Assessment">
             <EntityTypeMapping TypeName="SuccessPlusModel.Assessment">
               <MappingFragment StoreEntitySet="Assessment">
@@ -933,7 +933,7 @@
                 <ScalarProperty Name="IdElder" ColumnName="IdElder" />
                 <ScalarProperty Name="FisrtName" ColumnName="FisrtName" />
                 <ScalarProperty Name="LastName" ColumnName="LastName" />
-                <ScalarProperty Name="Group" ColumnName="Group" />
+                <ScalarProperty Name="IdGroup" ColumnName="IdGroup" />
                 <ScalarProperty Name="TypeId" ColumnName="TypeId" />
               </MappingFragment>
             </EntityTypeMapping>

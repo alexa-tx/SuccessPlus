@@ -14,8 +14,8 @@ namespace SuccessPlus.Model
 
         public double AVGMark => MarkStudents.AsEnumerable().Average(mark => (double)mark);
 
-        public List<int> Visiting => _db.context.VisitingStudent.Where(x => x.IdStudent == IdStudent).Select (x => x.Visiting.IdVisiting).ToList();
-        
+        public List<int> Visiting => _db.context.VisitingStudent.Where(x => x.IdStudent == IdStudent).Select(x => x.Visiting.IdVisiting).ToList();
+
 
         public int TotalVisiting => Visiting.Sum();
 

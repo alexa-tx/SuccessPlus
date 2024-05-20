@@ -13,10 +13,10 @@ namespace SuccessPlus.Model
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class SuccessPlusEntities5 : DbContext
+    public partial class SuccessPlusEntities6 : DbContext
     {
-        public SuccessPlusEntities5()
-            : base("name=SuccessPlusEntities5")
+        public SuccessPlusEntities6()
+            : base("name=SuccessPlusEntities6")
         {
         }
     

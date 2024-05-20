@@ -8,6 +8,6 @@ namespace SuccessPlus.Model
 {
     public class Core
     {
-        public SuccessPlusEntities5 context = new SuccessPlusEntities5();
+        public SuccessPlusEntities6 context = new SuccessPlusEntities6();
     }
 }

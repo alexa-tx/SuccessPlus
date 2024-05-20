@@ -17,10 +17,10 @@ namespace SuccessPlus.Model
         public int IdElder { get; set; }
         public string FisrtName { get; set; }
         public string LastName { get; set; }
-        public Nullable<int> Group { get; set; }
+        public Nullable<int> IdGroup { get; set; }
         public Nullable<int> TypeId { get; set; }
     
-        public virtual Group Group1 { get; set; }
+        public virtual Group Group { get; set; }
         public virtual Type Type { get; set; }
     }
 }
