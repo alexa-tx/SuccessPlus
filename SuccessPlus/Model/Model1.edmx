@@ -1,0 +1,1097 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище SuccessPlusModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Assessment">
+          <Key>
+            <PropertyRef Name="IdAssessment" />
+          </Key>
+          <Property Name="IdAssessment" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="int" />
+          <Property Name="NameAssessment" Type="text" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Elder">
+          <Key>
+            <PropertyRef Name="IdElder" />
+          </Key>
+          <Property Name="IdElder" Type="int" Nullable="false" />
+          <Property Name="FisrtName" Type="varchar" MaxLength="50" />
+          <Property Name="LastName" Type="varchar" MaxLength="100" />
+          <Property Name="Group" Type="int" />
+          <Property Name="TypeId" Type="int" />
+        </EntityType>
+        <EntityType Name="Event">
+          <Key>
+            <PropertyRef Name="IdEvent" />
+          </Key>
+          <Property Name="IdEvent" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Date" Type="date" />
+          <Property Name="Type" Type="int" />
+        </EntityType>
+        <EntityType Name="EventStudent">
+          <Key>
+            <PropertyRef Name="IdEventStudent" />
+          </Key>
+          <Property Name="IdEventStudent" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdStudent" Type="int" Nullable="false" />
+          <Property Name="IdEvent" Type="int" Nullable="false" />
+          <Property Name="IdMark" Type="int" />
+        </EntityType>
+        <EntityType Name="EventType">
+          <Key>
+            <PropertyRef Name="IdTypeEvent" />
+          </Key>
+          <Property Name="IdTypeEvent" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Group">
+          <Key>
+            <PropertyRef Name="IdGroup" />
+          </Key>
+          <Property Name="IdGroup" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NameGroup" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Marks">
+          <Key>
+            <PropertyRef Name="IdMark" />
+          </Key>
+          <Property Name="IdMark" Type="int" Nullable="false" />
+          <Property Name="MarkName" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MarkStudent">
+          <Key>
+            <PropertyRef Name="IdMarkStudent" />
+          </Key>
+          <Property Name="IdStudent" Type="int" Nullable="false" />
+          <Property Name="IdMark" Type="int" Nullable="false" />
+          <Property Name="Date" Type="date" Nullable="false" />
+          <Property Name="IdMarkStudent" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdSubject" Type="int" />
+        </EntityType>
+        <EntityType Name="SignIn">
+          <Key>
+            <PropertyRef Name="IdSignIn" />
+          </Key>
+          <Property Name="IdSignIn" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Login" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="IdUser" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Student">
+          <Key>
+            <PropertyRef Name="IdStudent" />
+          </Key>
+          <Property Name="IdStudent" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FisrtName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="LastName" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="GroupId" Type="int" Nullable="false" />
+          <Property Name="VisitingId" Type="int" />
+          <Property Name="EventId" Type="int" />
+          <Property Name="TypeId" Type="int" />
+          <Property Name="MarkId" Type="int" />
+        </EntityType>
+        <EntityType Name="Subjects">
+          <Key>
+            <PropertyRef Name="IdSubjects" />
+          </Key>
+          <Property Name="IdSubjects" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Supervisor">
+          <Key>
+            <PropertyRef Name="IdSupervisor" />
+          </Key>
+          <Property Name="IdSupervisor" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FisrtName" Type="varchar" MaxLength="50" />
+          <Property Name="LastName" Type="varchar" MaxLength="100" />
+          <Property Name="TypeId" Type="int" />
+        </EntityType>
+        <EntityType Name="Type">
+          <Key>
+            <PropertyRef Name="IdType" />
+          </Key>
+          <Property Name="IdType" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NameAcc" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="IdUser" />
+          </Key>
+          <Property Name="IdUser" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FirstName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="LastName" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Type" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Visiting">
+          <Key>
+            <PropertyRef Name="IdVisiting" />
+          </Key>
+          <Property Name="IdVisiting" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="VisitingStudent">
+          <Key>
+            <PropertyRef Name="IdVisitingStudent" />
+          </Key>
+          <Property Name="IdVisitingStudent" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdVisiting" Type="int" Nullable="false" />
+          <Property Name="IdStudent" Type="int" Nullable="false" />
+          <Property Name="Date" Type="date" />
+        </EntityType>
+        <Association Name="FK_Elder_Group">
+          <End Role="Group" Type="Self.Group" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Elder" Type="Self.Elder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Group">
+              <PropertyRef Name="IdGroup" />
+            </Principal>
+            <Dependent Role="Elder">
+              <PropertyRef Name="Group" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Elder_Type">
+          <End Role="Type" Type="Self.Type" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Elder" Type="Self.Elder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Type">
+              <PropertyRef Name="IdType" />
+            </Principal>
+            <Dependent Role="Elder">
+              <PropertyRef Name="TypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Event_EventType">
+          <End Role="EventType" Type="Self.EventType" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Event" Type="Self.Event" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EventType">
+              <PropertyRef Name="IdTypeEvent" />
+            </Principal>
+            <Dependent Role="Event">
+              <PropertyRef Name="Type" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EventStudent_Event">
+          <End Role="Event" Type="Self.Event" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="EventStudent" Type="Self.EventStudent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Event">
+              <PropertyRef Name="IdEvent" />
+            </Principal>
+            <Dependent Role="EventStudent">
+              <PropertyRef Name="IdEvent" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EventStudent_Marks">
+          <End Role="Marks" Type="Self.Marks" Multiplicity="0..1" />
+          <End Role="EventStudent" Type="Self.EventStudent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Marks">
+              <PropertyRef Name="IdMark" />
+            </Principal>
+            <Dependent Role="EventStudent">
+              <PropertyRef Name="IdMark" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EventStudent_Student">
+          <End Role="Student" Type="Self.Student" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="EventStudent" Type="Self.EventStudent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="IdStudent" />
+            </Principal>
+            <Dependent Role="EventStudent">
+              <PropertyRef Name="IdStudent" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MarkStudent_Marks">
+          <End Role="Marks" Type="Self.Marks" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="MarkStudent" Type="Self.MarkStudent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Marks">
+              <PropertyRef Name="IdMark" />
+            </Principal>
+            <Dependent Role="MarkStudent">
+              <PropertyRef Name="IdMark" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MarkStudent_Student">
+          <End Role="Student" Type="Self.Student" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="MarkStudent" Type="Self.MarkStudent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="IdStudent" />
+            </Principal>
+            <Dependent Role="MarkStudent">
+              <PropertyRef Name="IdStudent" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MarkStudent_Subjects">
+          <End Role="Subjects" Type="Self.Subjects" Multiplicity="0..1" />
+          <End Role="MarkStudent" Type="Self.MarkStudent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Subjects">
+              <PropertyRef Name="IdSubjects" />
+            </Principal>
+            <Dependent Role="MarkStudent">
+              <PropertyRef Name="IdSubject" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SignIn_User">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="SignIn" Type="Self.SignIn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="IdUser" />
+            </Principal>
+            <Dependent Role="SignIn">
+              <PropertyRef Name="IdUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Student_Group">
+          <End Role="Group" Type="Self.Group" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Student" Type="Self.Student" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Group">
+              <PropertyRef Name="IdGroup" />
+            </Principal>
+            <Dependent Role="Student">
+              <PropertyRef Name="GroupId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Student_Type">
+          <End Role="Type" Type="Self.Type" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Student" Type="Self.Student" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Type">
+              <PropertyRef Name="IdType" />
+            </Principal>
+            <Dependent Role="Student">
+              <PropertyRef Name="TypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Supervisor_Type">
+          <End Role="Type" Type="Self.Type" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Supervisor" Type="Self.Supervisor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Type">
+              <PropertyRef Name="IdType" />
+            </Principal>
+            <Dependent Role="Supervisor">
+              <PropertyRef Name="TypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_Type">
+          <End Role="Type" Type="Self.Type" Multiplicity="1" />
+          <End Role="User" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Type">
+              <PropertyRef Name="IdType" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="Type" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VisitingStudent_Student">
+          <End Role="Student" Type="Self.Student" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="VisitingStudent" Type="Self.VisitingStudent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="IdStudent" />
+            </Principal>
+            <Dependent Role="VisitingStudent">
+              <PropertyRef Name="IdStudent" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VisitingStudent_Visiting">
+          <End Role="Visiting" Type="Self.Visiting" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="VisitingStudent" Type="Self.VisitingStudent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Visiting">
+              <PropertyRef Name="IdVisiting" />
+            </Principal>
+            <Dependent Role="VisitingStudent">
+              <PropertyRef Name="IdVisiting" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище SuccessPlusModelContainer">
+          <EntitySet Name="Assessment" EntityType="Self.Assessment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Elder" EntityType="Self.Elder" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Event" EntityType="Self.Event" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EventStudent" EntityType="Self.EventStudent" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EventType" EntityType="Self.EventType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Group" EntityType="Self.Group" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Marks" EntityType="Self.Marks" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MarkStudent" EntityType="Self.MarkStudent" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SignIn" EntityType="Self.SignIn" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Student" EntityType="Self.Student" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Subjects" EntityType="Self.Subjects" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Supervisor" EntityType="Self.Supervisor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Type" EntityType="Self.Type" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Visiting" EntityType="Self.Visiting" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="VisitingStudent" EntityType="Self.VisitingStudent" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Elder_Group" Association="Self.FK_Elder_Group">
+            <End Role="Group" EntitySet="Group" />
+            <End Role="Elder" EntitySet="Elder" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Elder_Type" Association="Self.FK_Elder_Type">
+            <End Role="Type" EntitySet="Type" />
+            <End Role="Elder" EntitySet="Elder" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Event_EventType" Association="Self.FK_Event_EventType">
+            <End Role="EventType" EntitySet="EventType" />
+            <End Role="Event" EntitySet="Event" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EventStudent_Event" Association="Self.FK_EventStudent_Event">
+            <End Role="Event" EntitySet="Event" />
+            <End Role="EventStudent" EntitySet="EventStudent" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EventStudent_Marks" Association="Self.FK_EventStudent_Marks">
+            <End Role="Marks" EntitySet="Marks" />
+            <End Role="EventStudent" EntitySet="EventStudent" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EventStudent_Student" Association="Self.FK_EventStudent_Student">
+            <End Role="Student" EntitySet="Student" />
+            <End Role="EventStudent" EntitySet="EventStudent" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MarkStudent_Marks" Association="Self.FK_MarkStudent_Marks">
+            <End Role="Marks" EntitySet="Marks" />
+            <End Role="MarkStudent" EntitySet="MarkStudent" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MarkStudent_Student" Association="Self.FK_MarkStudent_Student">
+            <End Role="Student" EntitySet="Student" />
+            <End Role="MarkStudent" EntitySet="MarkStudent" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MarkStudent_Subjects" Association="Self.FK_MarkStudent_Subjects">
+            <End Role="Subjects" EntitySet="Subjects" />
+            <End Role="MarkStudent" EntitySet="MarkStudent" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SignIn_User" Association="Self.FK_SignIn_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="SignIn" EntitySet="SignIn" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Student_Group" Association="Self.FK_Student_Group">
+            <End Role="Group" EntitySet="Group" />
+            <End Role="Student" EntitySet="Student" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Student_Type" Association="Self.FK_Student_Type">
+            <End Role="Type" EntitySet="Type" />
+            <End Role="Student" EntitySet="Student" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Supervisor_Type" Association="Self.FK_Supervisor_Type">
+            <End Role="Type" EntitySet="Type" />
+            <End Role="Supervisor" EntitySet="Supervisor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_Type" Association="Self.FK_User_Type">
+            <End Role="Type" EntitySet="Type" />
+            <End Role="User" EntitySet="User" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VisitingStudent_Student" Association="Self.FK_VisitingStudent_Student">
+            <End Role="Student" EntitySet="Student" />
+            <End Role="VisitingStudent" EntitySet="VisitingStudent" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VisitingStudent_Visiting" Association="Self.FK_VisitingStudent_Visiting">
+            <End Role="Visiting" EntitySet="Visiting" />
+            <End Role="VisitingStudent" EntitySet="VisitingStudent" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SuccessPlusModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Assessment">
+          <Key>
+            <PropertyRef Name="IdAssessment" />
+          </Key>
+          <Property Name="IdAssessment" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="Int32" />
+          <Property Name="NameAssessment" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Elder">
+          <Key>
+            <PropertyRef Name="IdElder" />
+          </Key>
+          <Property Name="IdElder" Type="Int32" Nullable="false" />
+          <Property Name="FisrtName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LastName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Group" Type="Int32" />
+          <Property Name="TypeId" Type="Int32" />
+          <NavigationProperty Name="Group1" Relationship="Self.FK_Elder_Group" FromRole="Elder" ToRole="Group" />
+          <NavigationProperty Name="Type" Relationship="Self.FK_Elder_Type" FromRole="Elder" ToRole="Type" />
+        </EntityType>
+        <EntityType Name="Event">
+          <Key>
+            <PropertyRef Name="IdEvent" />
+          </Key>
+          <Property Name="IdEvent" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Precision="0" />
+          <Property Name="Type" Type="Int32" />
+          <NavigationProperty Name="EventType" Relationship="Self.FK_Event_EventType" FromRole="Event" ToRole="EventType" />
+          <NavigationProperty Name="EventStudent" Relationship="Self.FK_EventStudent_Event" FromRole="Event" ToRole="EventStudent" />
+        </EntityType>
+        <EntityType Name="EventStudent">
+          <Key>
+            <PropertyRef Name="IdEventStudent" />
+          </Key>
+          <Property Name="IdEventStudent" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdStudent" Type="Int32" Nullable="false" />
+          <Property Name="IdEvent" Type="Int32" Nullable="false" />
+          <Property Name="IdMark" Type="Int32" />
+          <NavigationProperty Name="Event" Relationship="Self.FK_EventStudent_Event" FromRole="EventStudent" ToRole="Event" />
+          <NavigationProperty Name="Marks" Relationship="Self.FK_EventStudent_Marks" FromRole="EventStudent" ToRole="Marks" />
+          <NavigationProperty Name="Student" Relationship="Self.FK_EventStudent_Student" FromRole="EventStudent" ToRole="Student" />
+        </EntityType>
+        <EntityType Name="EventType">
+          <Key>
+            <PropertyRef Name="IdTypeEvent" />
+          </Key>
+          <Property Name="IdTypeEvent" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Event" Relationship="Self.FK_Event_EventType" FromRole="EventType" ToRole="Event" />
+        </EntityType>
+        <EntityType Name="Group">
+          <Key>
+            <PropertyRef Name="IdGroup" />
+          </Key>
+          <Property Name="IdGroup" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NameGroup" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Elder" Relationship="Self.FK_Elder_Group" FromRole="Group" ToRole="Elder" />
+          <NavigationProperty Name="Student" Relationship="Self.FK_Student_Group" FromRole="Group" ToRole="Student" />
+        </EntityType>
+        <EntityType Name="Marks">
+          <Key>
+            <PropertyRef Name="IdMark" />
+          </Key>
+          <Property Name="IdMark" Type="Int32" Nullable="false" />
+          <Property Name="MarkName" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="EventStudent" Relationship="Self.FK_EventStudent_Marks" FromRole="Marks" ToRole="EventStudent" />
+          <NavigationProperty Name="MarkStudent" Relationship="Self.FK_MarkStudent_Marks" FromRole="Marks" ToRole="MarkStudent" />
+        </EntityType>
+        <EntityType Name="MarkStudent">
+          <Key>
+            <PropertyRef Name="IdMarkStudent" />
+          </Key>
+          <Property Name="IdStudent" Type="Int32" Nullable="false" />
+          <Property Name="IdMark" Type="Int32" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="IdMarkStudent" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdSubject" Type="Int32" />
+          <NavigationProperty Name="Marks" Relationship="Self.FK_MarkStudent_Marks" FromRole="MarkStudent" ToRole="Marks" />
+          <NavigationProperty Name="Student" Relationship="Self.FK_MarkStudent_Student" FromRole="MarkStudent" ToRole="Student" />
+          <NavigationProperty Name="Subjects" Relationship="Self.FK_MarkStudent_Subjects" FromRole="MarkStudent" ToRole="Subjects" />
+        </EntityType>
+        <EntityType Name="SignIn">
+          <Key>
+            <PropertyRef Name="IdSignIn" />
+          </Key>
+          <Property Name="IdSignIn" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Login" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IdUser" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="User" Relationship="Self.FK_SignIn_User" FromRole="SignIn" ToRole="User" />
+        </EntityType>
+        <EntityType Name="Student">
+          <Key>
+            <PropertyRef Name="IdStudent" />
+          </Key>
+          <Property Name="IdStudent" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FisrtName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LastName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="GroupId" Type="Int32" Nullable="false" />
+          <Property Name="VisitingId" Type="Int32" />
+          <Property Name="EventId" Type="Int32" />
+          <Property Name="TypeId" Type="Int32" />
+          <Property Name="MarkId" Type="Int32" />
+          <NavigationProperty Name="EventStudent" Relationship="Self.FK_EventStudent_Student" FromRole="Student" ToRole="EventStudent" />
+          <NavigationProperty Name="Group" Relationship="Self.FK_Student_Group" FromRole="Student" ToRole="Group" />
+          <NavigationProperty Name="MarkStudent" Relationship="Self.FK_MarkStudent_Student" FromRole="Student" ToRole="MarkStudent" />
+          <NavigationProperty Name="Type" Relationship="Self.FK_Student_Type" FromRole="Student" ToRole="Type" />
+          <NavigationProperty Name="VisitingStudent" Relationship="Self.FK_VisitingStudent_Student" FromRole="Student" ToRole="VisitingStudent" />
+        </EntityType>
+        <EntityType Name="Subjects">
+          <Key>
+            <PropertyRef Name="IdSubjects" />
+          </Key>
+          <Property Name="IdSubjects" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="MarkStudent" Relationship="Self.FK_MarkStudent_Subjects" FromRole="Subjects" ToRole="MarkStudent" />
+        </EntityType>
+        <EntityType Name="Supervisor">
+          <Key>
+            <PropertyRef Name="IdSupervisor" />
+          </Key>
+          <Property Name="IdSupervisor" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FisrtName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LastName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="TypeId" Type="Int32" />
+          <NavigationProperty Name="Type" Relationship="Self.FK_Supervisor_Type" FromRole="Supervisor" ToRole="Type" />
+        </EntityType>
+        <EntityType Name="Type">
+          <Key>
+            <PropertyRef Name="IdType" />
+          </Key>
+          <Property Name="IdType" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NameAcc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Elder" Relationship="Self.FK_Elder_Type" FromRole="Type" ToRole="Elder" />
+          <NavigationProperty Name="Student" Relationship="Self.FK_Student_Type" FromRole="Type" ToRole="Student" />
+          <NavigationProperty Name="Supervisor" Relationship="Self.FK_Supervisor_Type" FromRole="Type" ToRole="Supervisor" />
+          <NavigationProperty Name="User" Relationship="Self.FK_User_Type" FromRole="Type" ToRole="User" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="IdUser" />
+          </Key>
+          <Property Name="IdUser" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LastName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Type" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="SignIn" Relationship="Self.FK_SignIn_User" FromRole="User" ToRole="SignIn" />
+          <NavigationProperty Name="Type1" Relationship="Self.FK_User_Type" FromRole="User" ToRole="Type" />
+        </EntityType>
+        <EntityType Name="Visiting">
+          <Key>
+            <PropertyRef Name="IdVisiting" />
+          </Key>
+          <Property Name="IdVisiting" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="VisitingStudent" Relationship="Self.FK_VisitingStudent_Visiting" FromRole="Visiting" ToRole="VisitingStudent" />
+        </EntityType>
+        <EntityType Name="VisitingStudent">
+          <Key>
+            <PropertyRef Name="IdVisitingStudent" />
+          </Key>
+          <Property Name="IdVisitingStudent" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdVisiting" Type="Int32" Nullable="false" />
+          <Property Name="IdStudent" Type="Int32" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Student" Relationship="Self.FK_VisitingStudent_Student" FromRole="VisitingStudent" ToRole="Student" />
+          <NavigationProperty Name="Visiting" Relationship="Self.FK_VisitingStudent_Visiting" FromRole="VisitingStudent" ToRole="Visiting" />
+        </EntityType>
+        <Association Name="FK_Elder_Group">
+          <End Role="Group" Type="Self.Group" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Elder" Type="Self.Elder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Group">
+              <PropertyRef Name="IdGroup" />
+            </Principal>
+            <Dependent Role="Elder">
+              <PropertyRef Name="Group" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Elder_Type">
+          <End Role="Type" Type="Self.Type" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Elder" Type="Self.Elder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Type">
+              <PropertyRef Name="IdType" />
+            </Principal>
+            <Dependent Role="Elder">
+              <PropertyRef Name="TypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Event_EventType">
+          <End Role="EventType" Type="Self.EventType" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Event" Type="Self.Event" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EventType">
+              <PropertyRef Name="IdTypeEvent" />
+            </Principal>
+            <Dependent Role="Event">
+              <PropertyRef Name="Type" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EventStudent_Event">
+          <End Role="Event" Type="Self.Event" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="EventStudent" Type="Self.EventStudent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Event">
+              <PropertyRef Name="IdEvent" />
+            </Principal>
+            <Dependent Role="EventStudent">
+              <PropertyRef Name="IdEvent" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EventStudent_Marks">
+          <End Role="Marks" Type="Self.Marks" Multiplicity="0..1" />
+          <End Role="EventStudent" Type="Self.EventStudent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Marks">
+              <PropertyRef Name="IdMark" />
+            </Principal>
+            <Dependent Role="EventStudent">
+              <PropertyRef Name="IdMark" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EventStudent_Student">
+          <End Role="Student" Type="Self.Student" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="EventStudent" Type="Self.EventStudent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="IdStudent" />
+            </Principal>
+            <Dependent Role="EventStudent">
+              <PropertyRef Name="IdStudent" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Student_Group">
+          <End Role="Group" Type="Self.Group" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Student" Type="Self.Student" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Group">
+              <PropertyRef Name="IdGroup" />
+            </Principal>
+            <Dependent Role="Student">
+              <PropertyRef Name="GroupId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MarkStudent_Marks">
+          <End Role="Marks" Type="Self.Marks" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="MarkStudent" Type="Self.MarkStudent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Marks">
+              <PropertyRef Name="IdMark" />
+            </Principal>
+            <Dependent Role="MarkStudent">
+              <PropertyRef Name="IdMark" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MarkStudent_Student">
+          <End Role="Student" Type="Self.Student" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="MarkStudent" Type="Self.MarkStudent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="IdStudent" />
+            </Principal>
+            <Dependent Role="MarkStudent">
+              <PropertyRef Name="IdStudent" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MarkStudent_Subjects">
+          <End Role="Subjects" Type="Self.Subjects" Multiplicity="0..1" />
+          <End Role="MarkStudent" Type="Self.MarkStudent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Subjects">
+              <PropertyRef Name="IdSubjects" />
+            </Principal>
+            <Dependent Role="MarkStudent">
+              <PropertyRef Name="IdSubject" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SignIn_User">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="SignIn" Type="Self.SignIn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="IdUser" />
+            </Principal>
+            <Dependent Role="SignIn">
+              <PropertyRef Name="IdUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Student_Type">
+          <End Role="Type" Type="Self.Type" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Student" Type="Self.Student" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Type">
+              <PropertyRef Name="IdType" />
+            </Principal>
+            <Dependent Role="Student">
+              <PropertyRef Name="TypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VisitingStudent_Student">
+          <End Role="Student" Type="Self.Student" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="VisitingStudent" Type="Self.VisitingStudent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="IdStudent" />
+            </Principal>
+            <Dependent Role="VisitingStudent">
+              <PropertyRef Name="IdStudent" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Supervisor_Type">
+          <End Role="Type" Type="Self.Type" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Supervisor" Type="Self.Supervisor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Type">
+              <PropertyRef Name="IdType" />
+            </Principal>
+            <Dependent Role="Supervisor">
+              <PropertyRef Name="TypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_Type">
+          <End Role="Type" Type="Self.Type" Multiplicity="1" />
+          <End Role="User" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Type">
+              <PropertyRef Name="IdType" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="Type" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VisitingStudent_Visiting">
+          <End Role="Visiting" Type="Self.Visiting" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="VisitingStudent" Type="Self.VisitingStudent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Visiting">
+              <PropertyRef Name="IdVisiting" />
+            </Principal>
+            <Dependent Role="VisitingStudent">
+              <PropertyRef Name="IdVisiting" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="SuccessPlusEntities5" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Assessment" EntityType="Self.Assessment" />
+          <EntitySet Name="Elder" EntityType="Self.Elder" />
+          <EntitySet Name="Event" EntityType="Self.Event" />
+          <EntitySet Name="EventStudent" EntityType="Self.EventStudent" />
+          <EntitySet Name="EventType" EntityType="Self.EventType" />
+          <EntitySet Name="Group" EntityType="Self.Group" />
+          <EntitySet Name="Marks" EntityType="Self.Marks" />
+          <EntitySet Name="MarkStudent" EntityType="Self.MarkStudent" />
+          <EntitySet Name="SignIn" EntityType="Self.SignIn" />
+          <EntitySet Name="Student" EntityType="Self.Student" />
+          <EntitySet Name="Subjects" EntityType="Self.Subjects" />
+          <EntitySet Name="Supervisor" EntityType="Self.Supervisor" />
+          <EntitySet Name="Type" EntityType="Self.Type" />
+          <EntitySet Name="User" EntityType="Self.User" />
+          <EntitySet Name="Visiting" EntityType="Self.Visiting" />
+          <EntitySet Name="VisitingStudent" EntityType="Self.VisitingStudent" />
+          <AssociationSet Name="FK_Elder_Group" Association="Self.FK_Elder_Group">
+            <End Role="Group" EntitySet="Group" />
+            <End Role="Elder" EntitySet="Elder" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Elder_Type" Association="Self.FK_Elder_Type">
+            <End Role="Type" EntitySet="Type" />
+            <End Role="Elder" EntitySet="Elder" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Event_EventType" Association="Self.FK_Event_EventType">
+            <End Role="EventType" EntitySet="EventType" />
+            <End Role="Event" EntitySet="Event" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EventStudent_Event" Association="Self.FK_EventStudent_Event">
+            <End Role="Event" EntitySet="Event" />
+            <End Role="EventStudent" EntitySet="EventStudent" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EventStudent_Marks" Association="Self.FK_EventStudent_Marks">
+            <End Role="Marks" EntitySet="Marks" />
+            <End Role="EventStudent" EntitySet="EventStudent" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EventStudent_Student" Association="Self.FK_EventStudent_Student">
+            <End Role="Student" EntitySet="Student" />
+            <End Role="EventStudent" EntitySet="EventStudent" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Student_Group" Association="Self.FK_Student_Group">
+            <End Role="Group" EntitySet="Group" />
+            <End Role="Student" EntitySet="Student" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MarkStudent_Marks" Association="Self.FK_MarkStudent_Marks">
+            <End Role="Marks" EntitySet="Marks" />
+            <End Role="MarkStudent" EntitySet="MarkStudent" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MarkStudent_Student" Association="Self.FK_MarkStudent_Student">
+            <End Role="Student" EntitySet="Student" />
+            <End Role="MarkStudent" EntitySet="MarkStudent" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MarkStudent_Subjects" Association="Self.FK_MarkStudent_Subjects">
+            <End Role="Subjects" EntitySet="Subjects" />
+            <End Role="MarkStudent" EntitySet="MarkStudent" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SignIn_User" Association="Self.FK_SignIn_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="SignIn" EntitySet="SignIn" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Student_Type" Association="Self.FK_Student_Type">
+            <End Role="Type" EntitySet="Type" />
+            <End Role="Student" EntitySet="Student" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VisitingStudent_Student" Association="Self.FK_VisitingStudent_Student">
+            <End Role="Student" EntitySet="Student" />
+            <End Role="VisitingStudent" EntitySet="VisitingStudent" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Supervisor_Type" Association="Self.FK_Supervisor_Type">
+            <End Role="Type" EntitySet="Type" />
+            <End Role="Supervisor" EntitySet="Supervisor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_Type" Association="Self.FK_User_Type">
+            <End Role="Type" EntitySet="Type" />
+            <End Role="User" EntitySet="User" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VisitingStudent_Visiting" Association="Self.FK_VisitingStudent_Visiting">
+            <End Role="Visiting" EntitySet="Visiting" />
+            <End Role="VisitingStudent" EntitySet="VisitingStudent" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище SuccessPlusModelContainer" CdmEntityContainer="SuccessPlusEntities5">
+          <EntitySetMapping Name="Assessment">
+            <EntityTypeMapping TypeName="SuccessPlusModel.Assessment">
+              <MappingFragment StoreEntitySet="Assessment">
+                <ScalarProperty Name="IdAssessment" ColumnName="IdAssessment" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="NameAssessment" ColumnName="NameAssessment" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Elder">
+            <EntityTypeMapping TypeName="SuccessPlusModel.Elder">
+              <MappingFragment StoreEntitySet="Elder">
+                <ScalarProperty Name="IdElder" ColumnName="IdElder" />
+                <ScalarProperty Name="FisrtName" ColumnName="FisrtName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Group" ColumnName="Group" />
+                <ScalarProperty Name="TypeId" ColumnName="TypeId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Event">
+            <EntityTypeMapping TypeName="SuccessPlusModel.Event">
+              <MappingFragment StoreEntitySet="Event">
+                <ScalarProperty Name="IdEvent" ColumnName="IdEvent" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EventStudent">
+            <EntityTypeMapping TypeName="SuccessPlusModel.EventStudent">
+              <MappingFragment StoreEntitySet="EventStudent">
+                <ScalarProperty Name="IdEventStudent" ColumnName="IdEventStudent" />
+                <ScalarProperty Name="IdStudent" ColumnName="IdStudent" />
+                <ScalarProperty Name="IdEvent" ColumnName="IdEvent" />
+                <ScalarProperty Name="IdMark" ColumnName="IdMark" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EventType">
+            <EntityTypeMapping TypeName="SuccessPlusModel.EventType">
+              <MappingFragment StoreEntitySet="EventType">
+                <ScalarProperty Name="IdTypeEvent" ColumnName="IdTypeEvent" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Group">
+            <EntityTypeMapping TypeName="SuccessPlusModel.Group">
+              <MappingFragment StoreEntitySet="Group">
+                <ScalarProperty Name="IdGroup" ColumnName="IdGroup" />
+                <ScalarProperty Name="NameGroup" ColumnName="NameGroup" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Marks">
+            <EntityTypeMapping TypeName="SuccessPlusModel.Marks">
+              <MappingFragment StoreEntitySet="Marks">
+                <ScalarProperty Name="IdMark" ColumnName="IdMark" />
+                <ScalarProperty Name="MarkName" ColumnName="MarkName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MarkStudent">
+            <EntityTypeMapping TypeName="SuccessPlusModel.MarkStudent">
+              <MappingFragment StoreEntitySet="MarkStudent">
+                <ScalarProperty Name="IdStudent" ColumnName="IdStudent" />
+                <ScalarProperty Name="IdMark" ColumnName="IdMark" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="IdMarkStudent" ColumnName="IdMarkStudent" />
+                <ScalarProperty Name="IdSubject" ColumnName="IdSubject" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SignIn">
+            <EntityTypeMapping TypeName="SuccessPlusModel.SignIn">
+              <MappingFragment StoreEntitySet="SignIn">
+                <ScalarProperty Name="IdSignIn" ColumnName="IdSignIn" />
+                <ScalarProperty Name="Login" ColumnName="Login" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="IdUser" ColumnName="IdUser" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Student">
+            <EntityTypeMapping TypeName="SuccessPlusModel.Student">
+              <MappingFragment StoreEntitySet="Student">
+                <ScalarProperty Name="IdStudent" ColumnName="IdStudent" />
+                <ScalarProperty Name="FisrtName" ColumnName="FisrtName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="GroupId" ColumnName="GroupId" />
+                <ScalarProperty Name="VisitingId" ColumnName="VisitingId" />
+                <ScalarProperty Name="EventId" ColumnName="EventId" />
+                <ScalarProperty Name="TypeId" ColumnName="TypeId" />
+                <ScalarProperty Name="MarkId" ColumnName="MarkId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Subjects">
+            <EntityTypeMapping TypeName="SuccessPlusModel.Subjects">
+              <MappingFragment StoreEntitySet="Subjects">
+                <ScalarProperty Name="IdSubjects" ColumnName="IdSubjects" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Supervisor">
+            <EntityTypeMapping TypeName="SuccessPlusModel.Supervisor">
+              <MappingFragment StoreEntitySet="Supervisor">
+                <ScalarProperty Name="IdSupervisor" ColumnName="IdSupervisor" />
+                <ScalarProperty Name="FisrtName" ColumnName="FisrtName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="TypeId" ColumnName="TypeId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Type">
+            <EntityTypeMapping TypeName="SuccessPlusModel.Type">
+              <MappingFragment StoreEntitySet="Type">
+                <ScalarProperty Name="IdType" ColumnName="IdType" />
+                <ScalarProperty Name="NameAcc" ColumnName="NameAcc" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="User">
+            <EntityTypeMapping TypeName="SuccessPlusModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="IdUser" ColumnName="IdUser" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Visiting">
+            <EntityTypeMapping TypeName="SuccessPlusModel.Visiting">
+              <MappingFragment StoreEntitySet="Visiting">
+                <ScalarProperty Name="IdVisiting" ColumnName="IdVisiting" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VisitingStudent">
+            <EntityTypeMapping TypeName="SuccessPlusModel.VisitingStudent">
+              <MappingFragment StoreEntitySet="VisitingStudent">
+                <ScalarProperty Name="IdVisitingStudent" ColumnName="IdVisitingStudent" />
+                <ScalarProperty Name="IdVisiting" ColumnName="IdVisiting" />
+                <ScalarProperty Name="IdStudent" ColumnName="IdStudent" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

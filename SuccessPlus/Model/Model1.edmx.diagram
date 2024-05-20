@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="852aec0564ec4cedae3df10515d04785" Name="Diagram1">
+        <EntityTypeShape EntityType="SuccessPlusModel.Assessment" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SuccessPlusModel.Elder" Width="1.5" PointX="3" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SuccessPlusModel.Event" Width="1.5" PointX="6" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="SuccessPlusModel.EventStudent" Width="1.5" PointX="8.25" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SuccessPlusModel.EventType" Width="1.5" PointX="3.75" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SuccessPlusModel.Group" Width="1.5" PointX="0.75" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SuccessPlusModel.Marks" Width="1.5" PointX="6" PointY="13" IsExpanded="true" />
+        <EntityTypeShape EntityType="SuccessPlusModel.MarkStudent" Width="1.5" PointX="11.25" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SuccessPlusModel.SignIn" Width="1.5" PointX="5.25" PointY="18.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SuccessPlusModel.Student" Width="1.5" PointX="6" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SuccessPlusModel.Subjects" Width="1.5" PointX="9" PointY="12.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SuccessPlusModel.Supervisor" Width="1.5" PointX="3" PointY="15.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SuccessPlusModel.Type" Width="1.5" PointX="0.75" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SuccessPlusModel.User" Width="1.5" PointX="3" PointY="18" IsExpanded="true" />
+        <EntityTypeShape EntityType="SuccessPlusModel.Visiting" Width="1.5" PointX="6" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SuccessPlusModel.VisitingStudent" Width="1.5" PointX="8.25" PointY="6.25" IsExpanded="true" />
+        <AssociationConnector Association="SuccessPlusModel.FK_Elder_Group" ManuallyRouted="false" />
+        <AssociationConnector Association="SuccessPlusModel.FK_Elder_Type" ManuallyRouted="false" />
+        <AssociationConnector Association="SuccessPlusModel.FK_Event_EventType" ManuallyRouted="false" />
+        <AssociationConnector Association="SuccessPlusModel.FK_EventStudent_Event" ManuallyRouted="false" />
+        <AssociationConnector Association="SuccessPlusModel.FK_EventStudent_Marks" ManuallyRouted="false" />
+        <AssociationConnector Association="SuccessPlusModel.FK_EventStudent_Student" ManuallyRouted="false" />
+        <AssociationConnector Association="SuccessPlusModel.FK_Student_Group" ManuallyRouted="false" />
+        <AssociationConnector Association="SuccessPlusModel.FK_MarkStudent_Marks" ManuallyRouted="false" />
+        <AssociationConnector Association="SuccessPlusModel.FK_MarkStudent_Student" ManuallyRouted="false" />
+        <AssociationConnector Association="SuccessPlusModel.FK_MarkStudent_Subjects" ManuallyRouted="false" />
+        <AssociationConnector Association="SuccessPlusModel.FK_SignIn_User" ManuallyRouted="false" />
+        <AssociationConnector Association="SuccessPlusModel.FK_Student_Type" ManuallyRouted="false" />
+        <AssociationConnector Association="SuccessPlusModel.FK_VisitingStudent_Student" ManuallyRouted="false" />
+        <AssociationConnector Association="SuccessPlusModel.FK_Supervisor_Type" ManuallyRouted="false" />
+        <AssociationConnector Association="SuccessPlusModel.FK_User_Type" ManuallyRouted="false" />
+        <AssociationConnector Association="SuccessPlusModel.FK_VisitingStudent_Visiting" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
