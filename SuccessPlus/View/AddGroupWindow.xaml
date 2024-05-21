@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SuccessPlus.View"
         mc:Ignorable="d"
-        Title="AddGroupWindow" Height="450" Width="800" Background="#99B5CD">
+        Title="AddGroupWindow" Height="400" Width="600" Background="#CCDEE0">
     <Grid>
         <Grid Width="350" Height="45" HorizontalAlignment="Center">
             <TextBlock Margin="10 0" VerticalAlignment="Center" Foreground="#060D0E" IsHitTestVisible="False" 

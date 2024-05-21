@@ -15,7 +15,6 @@
             <ColumnDefinition Width="250"/>
         </Grid.ColumnDefinitions>
 
-        <!-- Header with application title and description -->
         <Border Grid.Column="0" Style="{StaticResource Info}" Margin="0 25">
             <Grid>
                 <Grid.ColumnDefinitions>
@@ -23,7 +22,6 @@
                     <ColumnDefinition Width="300"/>
                 </Grid.ColumnDefinitions>
 
-                <!-- Description Texts -->
                 <StackPanel Grid.Column="0">
                     <TextBlock Text="SuccessPlus" Style="{StaticResource AppTitleTextStyle}"/>
                     <TextBlock Text="Приложение для управления студентами и группами." 

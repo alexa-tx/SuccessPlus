@@ -93,11 +93,11 @@
  </Style>
     
      <Style TargetType="TextBlock" x:Key="NameStudentStyle">
-        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="Foreground" Value="#3D7278"/>
         <Setter Property="HorizontalAlignment" Value="Center"/>
         <Setter Property="FontWeight" Value="Bold"/>
-        <Setter Property="FontSize" Value="18"/>
-         <Setter Property="Margin" Value="0,20,0,0"/>
+        <Setter Property="FontSize" Value="20"/>
+         <Setter Property="Margin" Value="20,20,0,0"/>
     </Style>
 
     <Style TargetType="TextBlock" x:Key="SignInText">
@@ -108,13 +108,13 @@
     </Style>
     
     <Style x:Key="InfoWindowStyle" TargetType="Border">
-        <Setter Property="Background" Value="#B4B4D8"/>
+        <Setter Property="Background" Value="#9FB5CF"/>
         <Setter Property="CornerRadius" Value="10"/>
         <Setter Property="Padding" Value="10"/>
         <Setter Property="Margin" Value="10"/>
         <Setter Property="Effect">
             <Setter.Value>
-                <DropShadowEffect Color="Gray" BlurRadius="10" ShadowDepth="3"/>
+                <DropShadowEffect Color="Gray" BlurRadius="5" ShadowDepth="3"/>
             </Setter.Value>
         </Setter>
     </Style>
@@ -131,7 +131,7 @@
     <Style x:Key="AppTitleTextStyle" TargetType="TextBlock">
         <Setter Property="FontSize" Value="24"/>
         <Setter Property="FontWeight" Value="Bold"/>
-        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="Foreground" Value="#3D7278"/>
         <Setter Property="HorizontalAlignment" Value="Center"/>
         <Setter Property="Margin" Value="0,10,0,0"/>
 
@@ -140,8 +140,8 @@
     <!-- Style for the application description -->
     <Style x:Key="AppDescriptionTextStyle" TargetType="TextBlock">
         <Setter Property="FontSize" Value="16"/>
-        <Setter Property="Foreground" Value="White"/>
-        <Setter Property="Margin" Value="0,40,0,0"/>
+        <Setter Property="Foreground" Value="#3D7278"/>
+        <Setter Property="Margin" Value="5,40,0,0"/>
         <Setter Property="HorizontalAlignment" Value="Left"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
     </Style>
