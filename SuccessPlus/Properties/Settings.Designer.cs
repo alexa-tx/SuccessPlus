@@ -46,5 +46,17 @@ namespace SuccessPlus.Properties {
                 this["userRole"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string loginUser {
+            get {
+                return ((string)(this["loginUser"]));
+            }
+            set {
+                this["loginUser"] = value;
+            }
+        }
     }
 }

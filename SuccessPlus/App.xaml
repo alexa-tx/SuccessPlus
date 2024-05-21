@@ -15,7 +15,6 @@
                 <ResourceDictionary Source="Style/Button.xaml"></ResourceDictionary>
                 <ResourceDictionary Source="Style/DataGrid.xaml"></ResourceDictionary>
                 <ResourceDictionary Source="Style/Calendar.xaml"></ResourceDictionary>
-
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

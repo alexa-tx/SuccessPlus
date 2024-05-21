@@ -3,12 +3,59 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       xmlns:local="clr-namespace:SuccessPlus.View"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
-      Title="HomePage" >
+      d:DesignHeight="700" d:DesignWidth="1000"
+      Title="HomePage">
 
     <Grid>
-        <Calendar x:Name="EventCalendar" HorizontalAlignment="Center" VerticalAlignment="Top" Style="{StaticResource CalendarStyle}"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="250"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Header with application title and description -->
+        <Border Grid.Column="0" Style="{StaticResource Info}" Margin="0 25">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="300"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- Description Texts -->
+                <StackPanel Grid.Column="0">
+                    <TextBlock Text="SuccessPlus" Style="{StaticResource AppTitleTextStyle}"/>
+                    <TextBlock Text="Приложение для управления студентами и группами." 
+                              Style="{StaticResource AppDescriptionTextStyle}" TextAlignment="Left"/>
+                </StackPanel>
+                <Image Grid.Column="1" Source="/Assets/main.png" Style="{StaticResource ImageHomePage}" Margin="10,0,0,0"/>
+            </Grid>
+        </Border>
+
+        <Border Grid.Column="0" Style="{StaticResource InfoWindowStyle}" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0 -150 80 0">
+            <StackPanel>
+                <TextBlock Text="Общее количество студентов:" FontSize="16" FontWeight="Bold" Margin="0,0,0,5"/>
+                <TextBlock x:Name="StudentCountText" Text="0" FontSize="24" HorizontalAlignment="Center"/>
+            </StackPanel>
+        </Border>
+
+        
+        <Border Grid.Column="0" Style="{StaticResource InfoWindowStyle}" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="80 -150 0 0">
+            <StackPanel>
+                <TextBlock Text="Общее количество групп:" FontSize="16" FontWeight="Bold" Margin="0,0,0,5"/>
+                <TextBlock x:Name="GroupCountText" Text="0" FontSize="24" HorizontalAlignment="Center"/>
+            </StackPanel>
+        </Border>
+
+        
+        <Calendar x:Name="EventCalendar" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0 35" Style="{StaticResource CalendarStyle}"/>
+
+       
+        <Border Grid.Column="1" Style="{StaticResource UserInfoStyle}">
+            <StackPanel>
+                <TextBlock Text="Имя Фамилия" Style="{StaticResource UserNameTextStyle}"/>
+            </StackPanel>
+        </Border>
     </Grid>
 </Page>

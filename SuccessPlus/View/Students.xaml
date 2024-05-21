@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:SuccessPlus.View"
       mc:Ignorable="d" 
-      Height="660" Width="1440"
+      d:DesignHeight="700" d:DesignWidth="1000"
       Title="Students">
 
     <Grid>
@@ -13,19 +13,21 @@
      <RowDefinition Height="45"/>
      <RowDefinition Height="2*"/>
  </Grid.RowDefinitions>
-         <TextBox x:Name="Poisk" TextChanged="TextBox_TextChanged" Style="{StaticResource PoiskTextBoxStyle}"/>        
+         <TextBox x:Name="Poisk" TextChanged="TextBox_TextChanged" Style="{StaticResource PoiskTextBoxStyle}"/>   
+         <Button Style="{StaticResource BtnAdd}" Click="Button_Click" Grid.Row="0">
+            <TextBlock Text="Добавить"></TextBlock>
+        </Button>
          <DataGrid RowStyle="{DynamicResource DataGridRowStyle1}" 
                   ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" 
                   x:Name="DataGrid" IsReadOnly="True" AutoGenerateColumns="False" 
-                  Margin="10 0" Grid.Row="1"  SelectionChanged="DataGrid_SelectionChanged">
+                  Margin="0 0" Grid.Row="1"  SelectionChanged="DataGrid_SelectionChanged">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="ID" Width="*" Binding="{Binding IdStudent}" />
                 <DataGridTextColumn Header="Имя" Width="*" Binding="{Binding FisrtName}"/>
                 <DataGridTextColumn Header="Фамилия" Width="*" Binding="{Binding LastName}"/>
                 <DataGridTextColumn Header="Группа" Width="*" Binding="{Binding GroupName}"/>
                 <DataGridTextColumn Header="Пропуски" Width="*" Binding="{Binding TotalVisiting}"/>
-                <DataGridTextColumn Header="Тройки" Width="*" Binding="{Binding CountThrees}" />
-                <DataGridTextColumn Header="Четверки" Width="*" Binding="{Binding CountFours}"/>
+                <DataGridTextColumn Header="3" Width="*" Binding="{Binding CountThrees}" />
+                <DataGridTextColumn Header="4" Width="*" Binding="{Binding CountFours}"/>
                 <DataGridTextColumn Header="5" Width="*" Binding="{Binding CountFives}"/>
                 <DataGridTextColumn Header="Средний балл" Width="*" Binding="{Binding AVGMark}"/>
                 <DataGridTextColumn Header="Общ-я работа" Width="*" Binding="{Binding AVGSocialEvent}"/>
@@ -51,8 +53,6 @@
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
-        <Button Style="{StaticResource BtnAdd}" Click="Button_Click" Grid.Row="1">
-            <TextBlock Text="Добавить"></TextBlock>
-        </Button>
+       
     </Grid>
 </Page>

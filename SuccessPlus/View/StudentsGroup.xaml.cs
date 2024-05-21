@@ -38,6 +38,7 @@ namespace SuccessPlus.View
             DataGrid.ItemsSource = userSims;
             DataGrid.SelectedValuePath = "IdGroup";
 
+
         }
         //кнопка добавить группу
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -73,5 +74,6 @@ namespace SuccessPlus.View
             }
 
         }
+        
     }
 }

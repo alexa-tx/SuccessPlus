@@ -27,26 +27,33 @@ namespace SuccessPlus.View
         public HomePage()
         {
             InitializeComponent();
+            LoadStudentCount();
+            LoadGroupCount();
         }
 
-        private void HomePage_Loaded(object sender, RoutedEventArgs e)
+        private void LoadStudentCount()
         {
-            LoadEventsToCalendar();
+            int studentCount = GetTotalStudentCount();
+            StudentCountText.Text = studentCount.ToString();
         }
 
-
-        private void LoadEventsToCalendar()
+        private int GetTotalStudentCount()
         {
-            var events = _db.context.Event.ToList();
-
-            foreach (var ev in events)
-            {
-                if (ev.Date.HasValue) // Проверяем, что дата события не равна null
-                {
-                    DateTime date = ev.Date.Value; // Преобразуем Nullable<DateTime> в DateTime
-                    EventCalendar.BlackoutDates.Add(new CalendarDateRange(date));
-                }
-            }
+            
+            return _db.context.Student.Count(); 
         }
+
+        private void LoadGroupCount()
+        {
+            int groupCount = GetTotaGroupCount();
+            GroupCountText.Text = groupCount.ToString();
+        }
+
+        private int GetTotaGroupCount()
+        {
+            
+            return _db.context.Group.Count(); 
+        }
+
     }
 }
