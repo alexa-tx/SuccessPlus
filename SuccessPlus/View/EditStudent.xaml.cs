@@ -25,6 +25,7 @@ namespace SuccessPlus.View
         Student selectedStudent;
         public List<Group> Groups;
         public List<Subjects> Subjects;
+        public List<EventType> EventTypes;
         
         public EditStudent(int idStudent)
         {
@@ -32,10 +33,14 @@ namespace SuccessPlus.View
             selectedStudent = db.context.Student.Where(x=> x.IdStudent == idStudent).FirstOrDefault();
             NameStudent.Text = selectedStudent.FIO;
             Groups = db.context.Group.ToList();
+            EventTypes = db.context.EventType.ToList();
+            EventType.ItemsSource = EventTypes;
+            EventType.DisplayMemberPath = "Name";
+            EventType.SelectedValuePath = "IdTypeEvent";
             ComboBoxStudent.ItemsSource = Groups;
             ComboBoxStudent.SelectedItem = Groups.Where(x => x.IdGroup == selectedStudent.GroupId).FirstOrDefault();
             ComboBoxStudent.DisplayMemberPath = "NameGroup";
-            ComboBoxStudent.SelectedValuePath = "GroupId";
+            ComboBoxStudent.SelectedValuePath = "IdGroup";
             Subjects = db.context.Subjects.ToList();
             DataGridSubject.ItemsSource = Subjects;
         }
@@ -43,6 +48,22 @@ namespace SuccessPlus.View
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             selectedStudent.GroupId = (int)ComboBoxStudent.SelectedValue;
+            Event newEvent = new Event
+            {
+                Name = NameEventSearch.Text,
+                //изменить 
+                Date = DateTime.Now.AddDays(14),
+                Type = (int)EventType.SelectedValue
+            };
+            db.context.Event.Add(newEvent);
+            EventStudent neweventStudent = new EventStudent
+            {
+                IdStudent = selectedStudent.IdStudent,
+                IdEvent = newEvent.IdEvent,
+                //изменить
+                IdMark = 5
+            };
+            db.context.EventStudent.Add(neweventStudent);
             try
             {
                 db.context.SaveChanges();

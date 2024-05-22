@@ -29,6 +29,17 @@ namespace SuccessPlus.View
             InitializeComponent();
             LoadStudentCount();
             LoadGroupCount();
+            LoadUserFio();
+        }
+
+        private User GetCurrentUser()
+        {
+            return _db.context.User.Where(x => x.IdUser == Properties.Settings.Default.userId).First();
+
+        }
+        private void LoadUserFio()
+        {
+            FioTextBox.Text = $"{GetCurrentUser().LastName} {GetCurrentUser().FirstName}";
         }
 
         private void LoadStudentCount()

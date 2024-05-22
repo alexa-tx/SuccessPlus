@@ -42,6 +42,7 @@ namespace SuccessPlus.View
         {
             Properties.Settings.Default.userId = 0;
             Properties.Settings.Default.userRole = 0;
+            Properties.Settings.Default.Save();
             Close();
         }
 
@@ -73,7 +74,9 @@ namespace SuccessPlus.View
         private void Image_PreviewMouseLeftButtonDown_4(object sender, MouseButtonEventArgs e)
         {
             Application.Current.Shutdown();
-
+            Properties.Settings.Default.userId = 0;
+            Properties.Settings.Default.userRole = 0;
+            Properties.Settings.Default.Save();
         }
 
     }

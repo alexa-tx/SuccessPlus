@@ -52,7 +52,7 @@
        
         <Border Grid.Column="1" Style="{StaticResource UserInfoStyle}">
             <StackPanel>
-                <TextBlock Text="Имя Фамилия" Style="{StaticResource UserNameTextStyle}"/>
+                <TextBlock x:Name="FioTextBox" Text="Имя Фамилия" Style="{StaticResource UserNameTextStyle}"/>
             </StackPanel>
         </Border>
     </Grid>
