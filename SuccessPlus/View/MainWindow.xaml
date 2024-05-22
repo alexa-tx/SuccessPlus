@@ -5,8 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SuccessPlus"
         mc:Ignorable="d"
-        Title="MainWindow" Height="700" Width="1200" Background="#EFEFEF" Closed="Window_Closed" WindowStartupLocation="CenterScreen"
-        >
+        Title="MainWindow" Height="700" Width="1200" Background="#EFEFEF" Closed="Window_Closed" WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="140"/>
@@ -15,28 +14,41 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        
+
         <Grid x:Name="TopBarMenu" Visibility="Collapsed">
             <StackPanel Orientation="Vertical" VerticalAlignment="Stretch" HorizontalAlignment="Center" Width="180" Margin="10">
-                
+
                 <StackPanel VerticalAlignment="Top">
                     <Image Source="/Assets/logo.png" Width="70" HorizontalAlignment="Center" Margin="0 20" PreviewMouseLeftButtonDown="Image_PreviewMouseLeftButtonDown"/>
                 </StackPanel>
-                
+
                 <StackPanel VerticalAlignment="Center" Margin="0, 100, 0, 100">
-                    <Image Source="/Assets/Student.png" Width="60" HorizontalAlignment="Center"  Style="{StaticResource IconImage}" Margin="0 20" PreviewMouseLeftButtonDown="Image_PreviewMouseLeftButtonDown_1"/>
-                    <Image Source="/Assets/Group.png" Width="60" HorizontalAlignment="Center"  Style="{StaticResource IconImage}" Margin="0 20" PreviewMouseLeftButtonDown="Image_PreviewMouseLeftButtonDown_2"/>
-                    <Image Source="/Assets/File.png" Width="60" HorizontalAlignment="Center"  Style="{StaticResource IconImage}" Margin="0 20" PreviewMouseLeftButtonDown="Image_PreviewMouseLeftButtonDown_3"/>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 20" PreviewMouseLeftButtonDown="Image_PreviewMouseLeftButtonDown_1">
+                        <Image Source="/Assets/Student.png" Width="60" Style="{StaticResource IconImage}" />
+                        <TextBlock Text="Студенты" VerticalAlignment="Center" Margin="10,0,0,0" FontSize="16"/>
+                    </StackPanel>
+                    
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 20" PreviewMouseLeftButtonDown="Image_PreviewMouseLeftButtonDown_2">
+                        <Image Source="/Assets/Group.png" Width="60" Style="{StaticResource IconImage}" />
+                        <TextBlock Text="Группы" VerticalAlignment="Center" Margin="10,0,0,0" FontSize="16"/>
+                    </StackPanel>
+                    
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 20" PreviewMouseLeftButtonDown="Image_PreviewMouseLeftButtonDown_3">
+                        <Image Source="/Assets/File.png" Width="60" Style="{StaticResource IconImage}" />
+                        <TextBlock Text="Файлы" VerticalAlignment="Center" Margin="10,0,0,0" FontSize="16"/>
+                    </StackPanel>
                 </StackPanel>
-                
-                <StackPanel VerticalAlignment="Bottom">
-                    <Image Source="/Assets/Exit.png" Width="60" HorizontalAlignment="Center" Margin="0 20" Style="{StaticResource IconImage}" PreviewMouseLeftButtonDown="Image_PreviewMouseLeftButtonDown_4"/>
+
+                <StackPanel VerticalAlignment="Bottom" Margin="0 20" PreviewMouseLeftButtonDown="Image_PreviewMouseLeftButtonDown_4">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                        <Image Source="/Assets/Exit.png" Width="60" Style="{StaticResource IconImage}" />
+                        <TextBlock Text="Выход" VerticalAlignment="Center" Margin="10,0,0,0" FontSize="16"/>
+                    </StackPanel>
                 </StackPanel>
-                
+
             </StackPanel>
         </Grid>
-        
-        <Frame Grid.Column="1" x:Name="MainFrame" NavigationUIVisibility="Hidden"  ContentRendered="MainFrame_ContentRendered" ></Frame>
-        
+
+        <Frame Grid.Column="1" x:Name="MainFrame" NavigationUIVisibility="Hidden" ContentRendered="MainFrame_ContentRendered"></Frame>
     </Grid>
 </Window>
