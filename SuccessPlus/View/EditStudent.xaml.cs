@@ -51,17 +51,22 @@ namespace SuccessPlus.View
             Event newEvent = new Event
             {
                 Name = NameEventSearch.Text,
-                //изменить 
-                Date = DateTime.Now.AddDays(14),
+                Date = EventDatePicker.SelectedDate.HasValue ? EventDatePicker.SelectedDate.Value : DateTime.Now,
                 Type = (int)EventType.SelectedValue
             };
             db.context.Event.Add(newEvent);
+           
+            int eventMark;
+            if (!int.TryParse(EventMark.Text, out eventMark))
+            {
+                MessageBox.Show("Пожалуйста, введите корректную оценку.");
+                return;
+            }
             EventStudent neweventStudent = new EventStudent
             {
                 IdStudent = selectedStudent.IdStudent,
                 IdEvent = newEvent.IdEvent,
-                //изменить
-                IdMark = 5
+                IdMark = eventMark
             };
             db.context.EventStudent.Add(neweventStudent);
             try

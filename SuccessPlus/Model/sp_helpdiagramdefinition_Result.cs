@@ -10,15 +10,10 @@
 namespace SuccessPlus.Model
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class Supervisor
+    public partial class sp_helpdiagramdefinition_Result
     {
-        public int IdSupervisor { get; set; }
-        public string FisrtName { get; set; }
-        public string LastName { get; set; }
-        public Nullable<int> TypeId { get; set; }
-    
-        public virtual Type Type { get; set; }
+        public Nullable<int> version { get; set; }
+        public byte[] definition { get; set; }
     }
 }

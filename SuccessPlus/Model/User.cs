@@ -24,7 +24,9 @@ namespace SuccessPlus.Model
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public int Type { get; set; }
+        public Nullable<int> GroupId { get; set; }
     
+        public virtual Group Group { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<SignIn> SignIn { get; set; }
         public virtual Type Type1 { get; set; }

@@ -4,37 +4,33 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="8e332ce901c64f32823de3f93c864b38" Name="Diagram1">
-        <EntityTypeShape EntityType="SuccessPlusModel.Assessment" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SuccessPlusModel.Elder" Width="1.5" PointX="3" PointY="9.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="SuccessPlusModel.Event" Width="1.5" PointX="6" PointY="2" IsExpanded="true" />
-        <EntityTypeShape EntityType="SuccessPlusModel.EventStudent" Width="1.5" PointX="8.25" PointY="9.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="SuccessPlusModel.EventType" Width="1.5" PointX="3.75" PointY="2.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="SuccessPlusModel.Group" Width="1.5" PointX="0.75" PointY="6.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="SuccessPlusModel.Marks" Width="1.5" PointX="6" PointY="13" IsExpanded="true" />
-        <EntityTypeShape EntityType="SuccessPlusModel.MarkStudent" Width="1.5" PointX="11.25" PointY="9.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="SuccessPlusModel.SignIn" Width="1.5" PointX="5.25" PointY="18.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="SuccessPlusModel.Student" Width="1.5" PointX="6" PointY="8.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="SuccessPlusModel.Subjects" Width="1.5" PointX="9" PointY="12.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="SuccessPlusModel.Supervisor" Width="1.5" PointX="3" PointY="15.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="SuccessPlusModel.Type" Width="1.5" PointX="0.75" PointY="9.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="SuccessPlusModel.User" Width="1.5" PointX="3" PointY="18" IsExpanded="true" />
-        <EntityTypeShape EntityType="SuccessPlusModel.Visiting" Width="1.5" PointX="6" PointY="5.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="SuccessPlusModel.VisitingStudent" Width="1.5" PointX="8.25" PointY="6.25" IsExpanded="true" />
-        <AssociationConnector Association="SuccessPlusModel.FK_Elder_Group" ManuallyRouted="false" />
-        <AssociationConnector Association="SuccessPlusModel.FK_Elder_Type" ManuallyRouted="false" />
+      <Diagram DiagramId="2745f8fc8f884e27a346127b65afa8be" Name="Diagram1">
+        <EntityTypeShape EntityType="SuccessPlusModel.Event" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SuccessPlusModel.EventStudent" Width="1.5" PointX="8.25" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SuccessPlusModel.EventType" Width="1.5" PointX="3.75" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SuccessPlusModel.Group" Width="1.5" PointX="0.75" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SuccessPlusModel.Marks" Width="1.5" PointX="6" PointY="11.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SuccessPlusModel.MarkStudent" Width="1.5" PointX="8.25" PointY="10.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SuccessPlusModel.SignIn" Width="1.5" PointX="8.25" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SuccessPlusModel.Student" Width="1.5" PointX="3" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SuccessPlusModel.Subjects" Width="1.5" PointX="6" PointY="14.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SuccessPlusModel.sysdiagrams" Width="1.5" PointX="10.75" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SuccessPlusModel.Type" Width="1.5" PointX="0.75" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SuccessPlusModel.User" Width="1.5" PointX="6" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SuccessPlusModel.Visiting" Width="1.5" PointX="3" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SuccessPlusModel.VisitingStudent" Width="1.5" PointX="5.25" PointY="4" IsExpanded="true" />
         <AssociationConnector Association="SuccessPlusModel.FK_Event_EventType" ManuallyRouted="false" />
         <AssociationConnector Association="SuccessPlusModel.FK_EventStudent_Event" ManuallyRouted="false" />
         <AssociationConnector Association="SuccessPlusModel.FK_EventStudent_Marks" ManuallyRouted="false" />
         <AssociationConnector Association="SuccessPlusModel.FK_EventStudent_Student" ManuallyRouted="false" />
         <AssociationConnector Association="SuccessPlusModel.FK_Student_Group" ManuallyRouted="false" />
+        <AssociationConnector Association="SuccessPlusModel.FK_User_Group" ManuallyRouted="false" />
         <AssociationConnector Association="SuccessPlusModel.FK_MarkStudent_Marks" ManuallyRouted="false" />
         <AssociationConnector Association="SuccessPlusModel.FK_MarkStudent_Student" ManuallyRouted="false" />
         <AssociationConnector Association="SuccessPlusModel.FK_MarkStudent_Subjects" ManuallyRouted="false" />
         <AssociationConnector Association="SuccessPlusModel.FK_SignIn_User" ManuallyRouted="false" />
         <AssociationConnector Association="SuccessPlusModel.FK_Student_Type" ManuallyRouted="false" />
         <AssociationConnector Association="SuccessPlusModel.FK_VisitingStudent_Student" ManuallyRouted="false" />
-        <AssociationConnector Association="SuccessPlusModel.FK_Supervisor_Type" ManuallyRouted="false" />
         <AssociationConnector Association="SuccessPlusModel.FK_User_Type" ManuallyRouted="false" />
         <AssociationConnector Association="SuccessPlusModel.FK_VisitingStudent_Visiting" ManuallyRouted="false" />
       </Diagram>

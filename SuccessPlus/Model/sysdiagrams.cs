@@ -12,10 +12,12 @@ namespace SuccessPlus.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class Assessment
+    public partial class sysdiagrams
     {
-        public int IdAssessment { get; set; }
-        public Nullable<int> Name { get; set; }
-        public string NameAssessment { get; set; }
+        public string name { get; set; }
+        public int principal_id { get; set; }
+        public int diagram_id { get; set; }
+        public Nullable<int> version { get; set; }
+        public byte[] definition { get; set; }
     }
 }

@@ -10,17 +10,13 @@
 namespace SuccessPlus.Model
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class Elder
+    public partial class sp_helpdiagrams_Result
     {
-        public int IdElder { get; set; }
-        public string FisrtName { get; set; }
-        public string LastName { get; set; }
-        public Nullable<int> IdGroup { get; set; }
-        public Nullable<int> TypeId { get; set; }
-    
-        public virtual Group Group { get; set; }
-        public virtual Type Type { get; set; }
+        public string Database { get; set; }
+        public string Name { get; set; }
+        public int ID { get; set; }
+        public string Owner { get; set; }
+        public int OwnerID { get; set; }
     }
 }
