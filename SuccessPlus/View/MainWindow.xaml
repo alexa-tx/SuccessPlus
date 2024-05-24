@@ -25,7 +25,7 @@
                 <StackPanel VerticalAlignment="Center" Margin="0, 100, 0, 100">
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 20" PreviewMouseLeftButtonDown="Image_PreviewMouseLeftButtonDown_1">
                         <Image Source="/Assets/Student.png" Width="60" Style="{StaticResource IconImage}" />
-                        <TextBlock Text="Студенты" VerticalAlignment="Center" Margin="10,0,0,0" FontSize="16"/>
+                        <TextBlock Text="Студенты" Style="{StaticResource TopBarMenuText}"  Margin="10,0,0,0" />
                     </StackPanel>
                     
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 20" PreviewMouseLeftButtonDown="Image_PreviewMouseLeftButtonDown_2">
@@ -35,14 +35,14 @@
                     
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 20" PreviewMouseLeftButtonDown="Image_PreviewMouseLeftButtonDown_3">
                         <Image Source="/Assets/File.png" Width="60" Style="{StaticResource IconImage}" />
-                        <TextBlock Text="Файлы" VerticalAlignment="Center" Margin="10,0,0,0" FontSize="16"/>
+                        <TextBlock Text="Файлы" Style="{StaticResource TopBarMenuText}" Margin="10,0,0,0"/>
                     </StackPanel>
                 </StackPanel>
 
                 <StackPanel VerticalAlignment="Bottom" Margin="0 20" PreviewMouseLeftButtonDown="Image_PreviewMouseLeftButtonDown_4">
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                         <Image Source="/Assets/Exit.png" Width="60" Style="{StaticResource IconImage}" />
-                        <TextBlock Text="Выход" VerticalAlignment="Center" Margin="10,0,0,0" FontSize="16"/>
+                        <TextBlock Text="Выход" Style="{StaticResource TopBarMenuText}" Margin="10,0,0,0" />
                     </StackPanel>
                 </StackPanel>
 

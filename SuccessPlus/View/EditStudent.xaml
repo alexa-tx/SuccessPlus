@@ -21,20 +21,20 @@
             </Grid.RowDefinitions>
             <TextBlock x:Name="NameStudent" Style="{StaticResource NameStudentStyle}"/>
 
-            <TextBlock Text="Группа" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0 30 10 0" Grid.Row="1"/>
-            <ComboBox x:Name="ComboBoxStudent" Width="100" Height="25" VerticalAlignment="Top" Grid.Row="1" HorizontalAlignment="Left" Margin="50 25 10 0" Style="{StaticResource ComboBoxStyle}"/>
+            <TextBlock Text="Группа" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0 15 10 0" Grid.Row="1"/>
+            <ComboBox x:Name="ComboBoxStudent" Width="100" Height="25" VerticalAlignment="Top" Grid.Row="1" HorizontalAlignment="Left" Margin="50 10 10 0" Style="{StaticResource ComboBoxStyle}"/>
             
-            <TextBlock Text="Мероприятия" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0 80 20 0" Grid.Row="1"/>
-            <TextBox x:Name="NameEventSearch" Grid.Row="1" Style="{StaticResource SearchBox}" Width="200" Height="25" Margin="-50 80 10 0" VerticalAlignment="Top"/>
+            <TextBlock Text="Мероприятия" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0 60 20 0" Grid.Row="1"/>
+            <TextBox x:Name="NameEventSearch" Grid.Row="1" Style="{StaticResource SearchBox}" Width="200" Height="25" Margin="-50 55 10 0" VerticalAlignment="Top"/>
             
-            <TextBlock Text="Тип мероприятия" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0 140 20 0" Grid.Row="1"/>
-            <ComboBox x:Name="EventType" Grid.Row="1" Width="100" Height="25" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="120 135 10 0" Style="{StaticResource ComboBoxStyle}"/>
+            <TextBlock Text="Тип мероприятия" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0 100 20 0" Grid.Row="1"/>
+            <ComboBox x:Name="EventType" Grid.Row="1" Width="100" Height="25" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="110 95 10 0" Style="{StaticResource ComboBoxStyle}"/>
             
-            <TextBlock Text="Дата мероприятия" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0 160 20 0" Grid.Row="1"/>
-            <DatePicker x:Name="EventDatePicker" Grid.Row="1" Width="200" Height="30" Margin="0 160 40 0" VerticalAlignment="Top" Style="{StaticResource DatePickerStyle}"/>
+            <TextBlock Text="Дата мероприятия" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0 140 20 0" Grid.Row="1"/>
+            <DatePicker x:Name="EventDatePicker" Grid.Row="1" Width="200" Height="30" Margin="10 135 40 0" VerticalAlignment="Top" Style="{StaticResource DatePickerStyle}"/>
             
-            <TextBlock Text="Оценка за участие" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="310 160 10 0" Grid.Row="1" />
-            <TextBox x:Name="EventMark" Grid.Row="1" Width="100" Height="25" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="310 190 40 0" Style="{StaticResource SearchBox}"/>
+            <TextBlock Text="Оценка за участие" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0 180 20 0" Grid.Row="1" />
+            <TextBox x:Name="EventMark" Grid.Row="1" Width="100" Height="25" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="120 180 40 0" Style="{StaticResource SearchBox}"/>
         </Grid>
 
         <DataGrid Grid.Column="1" HorizontalAlignment="Center" x:Name="DataGridSubject" AutoGenerateColumns="False" Width="170" Height="400" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}">

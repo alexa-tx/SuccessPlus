@@ -147,7 +147,7 @@
     </Style>
 
     <Style x:Key="TopBarMenuText" TargetType="TextBlock">
-        <Setter Property="FontSize" Value="12"/>
+        <Setter Property="FontSize" Value="14"/>
         <Setter Property="Foreground" Value="#CABCCB"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
     </Style>
@@ -189,9 +189,8 @@
         <!-- Стиль для выпадающего списка -->
         <Style TargetType="ComboBox" x:Key="ComboBoxStyle">
             <Setter Property="Foreground" Value="{StaticResource ComboBoxForegroundBrush}"/>
-            <Setter Property="Background" Value="{StaticResource ComboBoxBackgroundBrush}"/>
-            <Setter Property="BorderBrush" Value="{StaticResource ComboBoxBorderBrush}"/>
-            <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="Background" Value="{StaticResource ComboBoxBackgroundBrush}"/>
+        <Setter Property="BorderThickness" Value="1"/>
             <Setter Property="Padding" Value="4,2"/>
             <Setter Property="HorizontalContentAlignment" Value="Left"/>
             <Setter Property="VerticalContentAlignment" Value="Center"/>
@@ -301,7 +300,7 @@
 
         <!-- Стиль для текстового поля ComboBox -->
     <ControlTemplate x:Key="ComboBoxTextBox" TargetType="TextBox">
-        <Border x:Name="PART_ContentHost" Focusable="False" Background="Transparent" BorderBrush="Transparent" BorderThickness="1"/>
+        <Border x:Name="PART_ContentHost" Focusable="False" Background="Transparent" BorderThickness="1"/>
     </ControlTemplate>
 
 
