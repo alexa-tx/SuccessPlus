@@ -32,7 +32,10 @@ namespace SuccessPlus.View
             StudentList = _db.context.Student.ToList();
             DataGrid.ItemsSource = StudentList;
             DataGrid.SelectedValuePath = "IdStudent";
+            var SocialEvent = _db.context.EventStudent.Where(x => x.IdStudent == 9 && x.IdEvent == 3).Select(x => x.IdMark).ToList();
 
+
+            var marks = SocialEvent.Where(mark => mark.HasValue).Select(mark => mark.Value);
         }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)

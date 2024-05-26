@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,8 +20,78 @@ namespace SuccessPlus.Model
         public int TotalVisiting => Visiting.Sum();
 
         public string FIO => $"{LastName} {FisrtName[0]}.";
-        public List<int?> SportEvent => _db.context.EventStudent.Where(x => x.IdStudent == IdStudent && x.IdEvent == 2).Select(x => x.IdMark).ToList();
 
+        public List<int?> SelfDevEvent
+        {
+            get
+            {
+                using (var dbContext = new SuccessPlusEntities())
+                {
+                    var ratings = dbContext.EventStudent
+                        .Where(es => es.IdStudent == this.IdStudent &&
+                                     es.Event.Type == 5)
+                        .Select(es => es.IdMark)
+                        .ToList();
+
+                    return ratings;
+                }
+            }
+
+        }
+
+        public double AVGSelfDev
+        {
+            get
+            {
+                var marks = SelfDevEvent.Where(mark => mark.HasValue).Select(mark => mark.Value);
+                return marks.Any() ? marks.Average() : 0;
+            }
+        }
+        public List<int?> AmateurEvent
+        {
+            get
+            {
+                using (var dbContext = new SuccessPlusEntities())
+                {
+                    var ratings = dbContext.EventStudent
+                        .Where(es => es.IdStudent == this.IdStudent &&
+                                     es.Event.Type == 4)
+                        .Select(es => es.IdMark)
+                        .ToList();
+
+                    return ratings;
+                }
+            }
+
+        }
+
+        public double AVGAmateurEvent
+        {
+            get
+            {
+                var marks = AmateurEvent.Where(mark => mark.HasValue).Select(mark => mark.Value);
+                return marks.Any() ? marks.Average() : 0;
+            }
+        }
+
+        public List<int?> SportEvent
+        {
+            get
+            {
+                using (var dbContext = new SuccessPlusEntities())
+                {
+                    var ratings = dbContext.EventStudent
+                        .Where(es => es.IdStudent == this.IdStudent &&
+                                     es.Event.Type == 2)
+                        .Select(es => es.IdMark)
+                        .ToList();
+
+                    return ratings;
+                }
+            }
+
+        }
+        
         public double AVGSportEvent
         {
             get
@@ -29,9 +100,24 @@ namespace SuccessPlus.Model
                 return marks.Any() ? marks.Average() : 0;
             }
         }
+        public List<int?> SocialEvent
+        { 
+            get
+            {
+                using (var dbContext = new SuccessPlusEntities())
+                {
+                    var ratings = dbContext.EventStudent
+                        .Where(es => es.IdStudent == this.IdStudent &&
+                                     es.Event.Type == 3)
+                        .Select(es => es.IdMark)
+                        .ToList();
 
-        public List<int?> SocialEvent => _db.context.EventStudent.Where(x => x.IdStudent == IdStudent && x.IdEvent == 3).Select(x => x.IdMark).ToList();
-
+                    return ratings;
+                }
+            }
+            
+        }
+       
         public double? AVGSocialEvent
         {
             get
@@ -41,8 +127,25 @@ namespace SuccessPlus.Model
             }
         }
 
-        public List<int?> NttEvent => _db.context.EventStudent.Where(x => x.IdStudent == IdStudent && x.IdEvent == 1).Select(x => x.IdMark).ToList();
+        public List<int?> NttEvent
+        {
+            get
+            {
+                using (var dbContext = new SuccessPlusEntities())
+                {
+                    var ratings = dbContext.EventStudent
+                        .Where(es => es.IdStudent == this.IdStudent &&
+                                     es.Event.Type == 3)
+                        .Select(es => es.IdMark)
+                        .ToList();
 
+                    return ratings;
+                }
+            }
+
+        }
+
+       
         public double? AVGNttEvent
         {
             get

@@ -32,9 +32,9 @@
                 <DataGridTextColumn Header="Средний балл" Width="*" Binding="{Binding AVGMark}"/>
                 <DataGridTextColumn Header="Общ-я работа" Width="*" Binding="{Binding AVGSocialEvent}"/>
                 <DataGridTextColumn Header="Спорт" Width="*" Binding="{Binding AVGSportEvent}"/>
-                <DataGridTextColumn Header="Самодеятельность" Width="*" Binding="{Binding CountStudents}"/>
+                <DataGridTextColumn Header="Самодеятельность" Width="*" Binding="{Binding AVGAmateurEvent}"/>
                 <DataGridTextColumn Header="НТТ" Width="*" Binding="{Binding AVGNttEvent}"/>
-                <DataGridTextColumn Header="Самообразование" Width="*" Binding="{Binding CountStudents}"/>
+                <DataGridTextColumn Header="Самообразование" Width="*" Binding="{Binding AVGSelfDev}"/>
                 <DataGridTextColumn Header="Поведение" Width="*" Binding="{Binding CountStudents}"/>
                 <DataGridTextColumn Header="Рейтинговая оценка" Width="*" Binding="{Binding CountStudents}"/>
                 <DataGridTemplateColumn Header="Редактировать" IsReadOnly="True" Width="auto" CanUserResize="False">

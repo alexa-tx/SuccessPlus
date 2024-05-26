@@ -40,7 +40,7 @@
         <DataGrid Grid.Column="1" HorizontalAlignment="Center" x:Name="DataGridSubject" AutoGenerateColumns="False" Width="170" Height="400" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Предмет" Binding="{Binding Name}"/>
-                <DataGridTextColumn Header="Оценка" Binding="{Binding MarkSubject}"/>
+                <DataGridTextColumn Header="Оценка" />
             </DataGrid.Columns>
         </DataGrid>
 
