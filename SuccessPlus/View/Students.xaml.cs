@@ -110,6 +110,18 @@ namespace SuccessPlus.View
                         string nttEvents = string.Join(", ", selectedStudent.NameNttEvent);
                         info.AppendLine($"Участие в научно-технологических мероприятиях: {nttEvents}");
                     }
+                    if (selectedStudent.AVGSelfDev > 0)
+                    {
+                        string selfDevEvents = string.Join(", ", selectedStudent.SelfDevEvent);
+                        info.AppendLine($"Участие в мероприятиях самосовершенствования: {selfDevEvents}");
+                        
+                    }
+                    if (selectedStudent.AVGAmateurEvent > 0)
+                    {
+                        string amateurEvents = string.Join(", ", selectedStudent.AmateurEvent);
+                        info.AppendLine($"Участие в любительских мероприятиях: {amateurEvents}");
+                    }
+
 
                     // Отображаем информацию
                     System.Windows.MessageBox.Show(info.ToString(), "Информация о студенте");

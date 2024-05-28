@@ -30,12 +30,12 @@ namespace SuccessPlus.View
 
         private void MainFrame_ContentRendered(object sender, EventArgs e)
         {
-                
-                if (Properties.Settings.Default.userId == 0)
-                    TopBarMenu.Visibility = Visibility.Collapsed;
-                else
-                    TopBarMenu.Visibility = Visibility.Visible;
-            
+
+            if (Properties.Settings.Default.userId == 0)
+                TopBarMenu.Visibility = Visibility.Collapsed;
+            else
+                TopBarMenu.Visibility = Visibility.Visible;
+
         }
 
         private void Window_Closed(object sender, EventArgs e)

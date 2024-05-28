@@ -25,6 +25,17 @@ namespace SuccessPlus.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public int userRole {
+            get {
+                return ((int)(this["userRole"]));
+            }
+            set {
+                this["userRole"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("0")]
         public int userId {
             get {
@@ -32,18 +43,6 @@ namespace SuccessPlus.Properties {
             }
             set {
                 this["userId"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
-        public int userRole {
-            get {
-                return ((int)(this["userRole"]));
-            }
-            set {
-                this["userRole"] = value;
             }
         }
         
