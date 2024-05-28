@@ -11,6 +11,6 @@ namespace SuccessPlus.Model
     {
         private Core _db = new Core();
 
-        
+        public string MarkSubject => String.Join(", ",  _db.context.MarkStudent.Where(x => x.IdSubject == IdSubjects).Select(s => s.IdMark).ToList().ToArray());
     }
 }

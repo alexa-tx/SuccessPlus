@@ -26,10 +26,11 @@ namespace SuccessPlus.View
         public List<Group> Groups;
         public List<Subjects> Subjects;
         public List<EventType> EventTypes;
-        
+        private int IdStudent;
         public EditStudent(int idStudent)
         {
             InitializeComponent();
+            IdStudent = idStudent;
             selectedStudent = db.context.Student.Where(x=> x.IdStudent == idStudent).FirstOrDefault();
             NameStudent.Text = selectedStudent.FIO;
             Groups = db.context.Group.ToList();
@@ -79,6 +80,12 @@ namespace SuccessPlus.View
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            AddMark addMark = new AddMark(IdStudent);
+            addMark.ShowDialog();
         }
 
     }

@@ -759,7 +759,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="SuccessPlusEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="SuccessPlusEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Event" EntityType="Self.Event" />
           <EntitySet Name="EventStudent" EntityType="Self.EventStudent" />
           <EntitySet Name="EventType" EntityType="Self.EventType" />
@@ -877,7 +877,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище SuccessPlusModelContainer" CdmEntityContainer="SuccessPlusEntities">
+        <EntityContainerMapping StorageEntityContainer="Хранилище SuccessPlusModelContainer" CdmEntityContainer="SuccessPlusEntities1">
           <EntitySetMapping Name="Event">
             <EntityTypeMapping TypeName="SuccessPlusModel.Event">
               <MappingFragment StoreEntitySet="Event">

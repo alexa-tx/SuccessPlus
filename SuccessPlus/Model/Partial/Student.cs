@@ -25,7 +25,7 @@ namespace SuccessPlus.Model
         {
             get
             {
-                using (var dbContext = new SuccessPlusEntities())
+                using (var dbContext = new SuccessPlusEntities1())
                 {
                     var ratings = dbContext.EventStudent
                         .Where(es => es.IdStudent == this.IdStudent &&
@@ -51,7 +51,7 @@ namespace SuccessPlus.Model
         {
             get
             {
-                using (var dbContext = new SuccessPlusEntities())
+                using (var dbContext = new SuccessPlusEntities1())
                 {
                     var ratings = dbContext.EventStudent
                         .Where(es => es.IdStudent == this.IdStudent &&
@@ -78,7 +78,7 @@ namespace SuccessPlus.Model
         {
             get
             {
-                using (var dbContext = new SuccessPlusEntities())
+                using (var dbContext = new SuccessPlusEntities1())
                 {
                     var ratings = dbContext.EventStudent
                         .Where(es => es.IdStudent == this.IdStudent &&
@@ -104,7 +104,7 @@ namespace SuccessPlus.Model
         { 
             get
             {
-                using (var dbContext = new SuccessPlusEntities())
+                using (var dbContext = new SuccessPlusEntities1())
                 {
                     var ratings = dbContext.EventStudent
                         .Where(es => es.IdStudent == this.IdStudent &&
@@ -131,7 +131,7 @@ namespace SuccessPlus.Model
         {
             get
             {
-                using (var dbContext = new SuccessPlusEntities())
+                using (var dbContext = new SuccessPlusEntities1())
                 {
                     var ratings = dbContext.EventStudent
                         .Where(es => es.IdStudent == this.IdStudent &&

@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:SuccessPlus.View"
       mc:Ignorable="d" 
-      d:DesignHeight="400" d:DesignWidth="600"
+      Height="400" Width="600"
       Title="EditStudent"  Background="#CCDEE0">
 
     <Grid>
@@ -37,13 +37,15 @@
             <TextBox x:Name="EventMark" Grid.Row="1" Width="100" Height="25" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="120 180 40 0" Style="{StaticResource SearchBox}"/>
         </Grid>
 
-        <DataGrid Grid.Column="1" HorizontalAlignment="Center" x:Name="DataGridSubject" AutoGenerateColumns="False" Width="170" Height="400" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}">
+        <DataGrid Grid.Column="1" HorizontalAlignment="Center" x:Name="DataGridSubject" AutoGenerateColumns="False" Width="160" Height="400" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Предмет" Binding="{Binding Name}"/>
-                <DataGridTextColumn Header="Оценка" />
-            </DataGrid.Columns>
-        </DataGrid>
+                <DataGridTextColumn Header="Оценка" Binding="{Binding MarkSubject}" />
 
+            </DataGrid.Columns>
+
+        </DataGrid>
+        <Button Content="Добавить оценку" Click="Button_Click_1"  Style="{StaticResource BtnSave}" Grid.Column="1"/>
         <Button Style="{StaticResource BtnSave}" Content="Сохранить" VerticalAlignment="Bottom" Click="Button_Click" Margin="0 20"/>
     </Grid>
 </Window>
