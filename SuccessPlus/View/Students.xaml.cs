@@ -93,6 +93,9 @@ namespace SuccessPlus.View
                     info.AppendLine($"Студент: {selectedStudent.FisrtName} {selectedStudent.LastName}");
                     info.AppendLine($"Количество оценок: {selectedStudent.CountFives + selectedStudent.CountFours + selectedStudent.CountThrees}");
                     info.AppendLine($"Средний балл: {selectedStudent.AVGMark}");
+                    info.AppendLine($"Средняя оценка за поведение: {selectedStudent.BehaviorScore}");
+                    info.AppendLine($"Средняя оценка за задолженности: {selectedStudent.DebtScore}");
+                    info.AppendLine($"Средняя оценка за бонус руководства: {selectedStudent.LeadershipBonus}");
 
                     // Проверяем, где участвовал студент
                     if (selectedStudent.AVGSocialEvent > 0)

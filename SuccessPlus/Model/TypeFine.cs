@@ -12,24 +12,18 @@ namespace SuccessPlus.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class Marks
+    public partial class TypeFine
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Marks()
+        public TypeFine()
         {
-            this.EventStudent = new HashSet<EventStudent>();
             this.Fine = new HashSet<Fine>();
-            this.MarkStudent = new HashSet<MarkStudent>();
         }
     
-        public int IdMark { get; set; }
-        public int MarkName { get; set; }
+        public int IdTypeFine { get; set; }
+        public string NameType { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<EventStudent> EventStudent { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Fine> Fine { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<MarkStudent> MarkStudent { get; set; }
     }
 }

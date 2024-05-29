@@ -15,10 +15,10 @@ namespace SuccessPlus.Model
     using System.Data.Entity.Core.Objects;
     using System.Linq;
     
-    public partial class SuccessPlusEntities1 : DbContext
+    public partial class SuccessPlusEntities2 : DbContext
     {
-        public SuccessPlusEntities1()
-            : base("name=SuccessPlusEntities1")
+        public SuccessPlusEntities2()
+            : base("name=SuccessPlusEntities2")
         {
         }
     
@@ -30,6 +30,7 @@ namespace SuccessPlus.Model
         public virtual DbSet<Event> Event { get; set; }
         public virtual DbSet<EventStudent> EventStudent { get; set; }
         public virtual DbSet<EventType> EventType { get; set; }
+        public virtual DbSet<Fine> Fine { get; set; }
         public virtual DbSet<Group> Group { get; set; }
         public virtual DbSet<Marks> Marks { get; set; }
         public virtual DbSet<MarkStudent> MarkStudent { get; set; }
@@ -38,6 +39,7 @@ namespace SuccessPlus.Model
         public virtual DbSet<Subjects> Subjects { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<Type> Type { get; set; }
+        public virtual DbSet<TypeFine> TypeFine { get; set; }
         public virtual DbSet<User> User { get; set; }
         public virtual DbSet<Visiting> Visiting { get; set; }
         public virtual DbSet<VisitingStudent> VisitingStudent { get; set; }

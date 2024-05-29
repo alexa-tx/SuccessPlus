@@ -18,6 +18,7 @@ namespace SuccessPlus.Model
         public Student()
         {
             this.EventStudent = new HashSet<EventStudent>();
+            this.Fine = new HashSet<Fine>();
             this.MarkStudent = new HashSet<MarkStudent>();
             this.VisitingStudent = new HashSet<VisitingStudent>();
         }
@@ -33,6 +34,8 @@ namespace SuccessPlus.Model
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<EventStudent> EventStudent { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Fine> Fine { get; set; }
         public virtual Group Group { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<MarkStudent> MarkStudent { get; set; }

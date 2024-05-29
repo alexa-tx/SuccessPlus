@@ -30,6 +30,15 @@
           <Property Name="IdTypeEvent" Type="int" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
+        <EntityType Name="Fine">
+          <Key>
+            <PropertyRef Name="IdFine" />
+          </Key>
+          <Property Name="IdFine" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TypeFine" Type="int" Nullable="false" />
+          <Property Name="IdMark" Type="int" Nullable="false" />
+          <Property Name="IdStudent" Type="int" Nullable="false" />
+        </EntityType>
         <EntityType Name="Group">
           <Key>
             <PropertyRef Name="IdGroup" />
@@ -99,6 +108,13 @@
           </Key>
           <Property Name="IdType" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="NameAcc" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TypeFine">
+          <Key>
+            <PropertyRef Name="IdTypeFine" />
+          </Key>
+          <Property Name="IdTypeFine" Type="int" Nullable="false" />
+          <Property Name="NameType" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="User">
           <Key>
@@ -177,6 +193,42 @@
             </Principal>
             <Dependent Role="EventStudent">
               <PropertyRef Name="IdStudent" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Fine_Marks">
+          <End Role="Marks" Type="Self.Marks" Multiplicity="1" />
+          <End Role="Fine" Type="Self.Fine" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Marks">
+              <PropertyRef Name="IdMark" />
+            </Principal>
+            <Dependent Role="Fine">
+              <PropertyRef Name="IdMark" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Fine_Student">
+          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="Fine" Type="Self.Fine" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="IdStudent" />
+            </Principal>
+            <Dependent Role="Fine">
+              <PropertyRef Name="IdStudent" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Fine_TypeFine">
+          <End Role="TypeFine" Type="Self.TypeFine" Multiplicity="1" />
+          <End Role="Fine" Type="Self.Fine" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypeFine">
+              <PropertyRef Name="IdTypeFine" />
+            </Principal>
+            <Dependent Role="Fine">
+              <PropertyRef Name="TypeFine" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -349,6 +401,7 @@
           <EntitySet Name="Event" EntityType="Self.Event" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="EventStudent" EntityType="Self.EventStudent" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="EventType" EntityType="Self.EventType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Fine" EntityType="Self.Fine" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Group" EntityType="Self.Group" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Marks" EntityType="Self.Marks" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MarkStudent" EntityType="Self.MarkStudent" Schema="dbo" store:Type="Tables" />
@@ -357,6 +410,7 @@
           <EntitySet Name="Subjects" EntityType="Self.Subjects" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Type" EntityType="Self.Type" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TypeFine" EntityType="Self.TypeFine" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Visiting" EntityType="Self.Visiting" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="VisitingStudent" EntityType="Self.VisitingStudent" Schema="dbo" store:Type="Tables" />
@@ -375,6 +429,18 @@
           <AssociationSet Name="FK_EventStudent_Student" Association="Self.FK_EventStudent_Student">
             <End Role="Student" EntitySet="Student" />
             <End Role="EventStudent" EntitySet="EventStudent" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Fine_Marks" Association="Self.FK_Fine_Marks">
+            <End Role="Marks" EntitySet="Marks" />
+            <End Role="Fine" EntitySet="Fine" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Fine_Student" Association="Self.FK_Fine_Student">
+            <End Role="Student" EntitySet="Student" />
+            <End Role="Fine" EntitySet="Fine" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Fine_TypeFine" Association="Self.FK_Fine_TypeFine">
+            <End Role="TypeFine" EntitySet="TypeFine" />
+            <End Role="Fine" EntitySet="Fine" />
           </AssociationSet>
           <AssociationSet Name="FK_MarkStudent_Marks" Association="Self.FK_MarkStudent_Marks">
             <End Role="Marks" EntitySet="Marks" />
@@ -453,6 +519,18 @@
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Event" Relationship="Self.FK_Event_EventType" FromRole="EventType" ToRole="Event" />
         </EntityType>
+        <EntityType Name="Fine">
+          <Key>
+            <PropertyRef Name="IdFine" />
+          </Key>
+          <Property Name="IdFine" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TypeFine" Type="Int32" Nullable="false" />
+          <Property Name="IdMark" Type="Int32" Nullable="false" />
+          <Property Name="IdStudent" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Marks" Relationship="Self.FK_Fine_Marks" FromRole="Fine" ToRole="Marks" />
+          <NavigationProperty Name="Student" Relationship="Self.FK_Fine_Student" FromRole="Fine" ToRole="Student" />
+          <NavigationProperty Name="TypeFine1" Relationship="Self.FK_Fine_TypeFine" FromRole="Fine" ToRole="TypeFine" />
+        </EntityType>
         <EntityType Name="Group">
           <Key>
             <PropertyRef Name="IdGroup" />
@@ -469,6 +547,7 @@
           <Property Name="IdMark" Type="Int32" Nullable="false" />
           <Property Name="MarkName" Type="Int32" Nullable="false" />
           <NavigationProperty Name="EventStudent" Relationship="Self.FK_EventStudent_Marks" FromRole="Marks" ToRole="EventStudent" />
+          <NavigationProperty Name="Fine" Relationship="Self.FK_Fine_Marks" FromRole="Marks" ToRole="Fine" />
           <NavigationProperty Name="MarkStudent" Relationship="Self.FK_MarkStudent_Marks" FromRole="Marks" ToRole="MarkStudent" />
         </EntityType>
         <EntityType Name="MarkStudent">
@@ -507,6 +586,7 @@
           <Property Name="TypeId" Type="Int32" />
           <Property Name="MarkId" Type="Int32" />
           <NavigationProperty Name="EventStudent" Relationship="Self.FK_EventStudent_Student" FromRole="Student" ToRole="EventStudent" />
+          <NavigationProperty Name="Fine" Relationship="Self.FK_Fine_Student" FromRole="Student" ToRole="Fine" />
           <NavigationProperty Name="Group" Relationship="Self.FK_Student_Group" FromRole="Student" ToRole="Group" />
           <NavigationProperty Name="MarkStudent" Relationship="Self.FK_MarkStudent_Student" FromRole="Student" ToRole="MarkStudent" />
           <NavigationProperty Name="Type" Relationship="Self.FK_Student_Type" FromRole="Student" ToRole="Type" />
@@ -538,6 +618,14 @@
           <Property Name="NameAcc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Student" Relationship="Self.FK_Student_Type" FromRole="Type" ToRole="Student" />
           <NavigationProperty Name="User" Relationship="Self.FK_User_Type" FromRole="Type" ToRole="User" />
+        </EntityType>
+        <EntityType Name="TypeFine">
+          <Key>
+            <PropertyRef Name="IdTypeFine" />
+          </Key>
+          <Property Name="IdTypeFine" Type="Int32" Nullable="false" />
+          <Property Name="NameType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Fine" Relationship="Self.FK_Fine_TypeFine" FromRole="TypeFine" ToRole="Fine" />
         </EntityType>
         <EntityType Name="User">
           <Key>
@@ -622,6 +710,42 @@
             </Principal>
             <Dependent Role="EventStudent">
               <PropertyRef Name="IdStudent" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Fine_Marks">
+          <End Role="Marks" Type="Self.Marks" Multiplicity="1" />
+          <End Role="Fine" Type="Self.Fine" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Marks">
+              <PropertyRef Name="IdMark" />
+            </Principal>
+            <Dependent Role="Fine">
+              <PropertyRef Name="IdMark" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Fine_Student">
+          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="Fine" Type="Self.Fine" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="IdStudent" />
+            </Principal>
+            <Dependent Role="Fine">
+              <PropertyRef Name="IdStudent" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Fine_TypeFine">
+          <End Role="TypeFine" Type="Self.TypeFine" Multiplicity="1" />
+          <End Role="Fine" Type="Self.Fine" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypeFine">
+              <PropertyRef Name="IdTypeFine" />
+            </Principal>
+            <Dependent Role="Fine">
+              <PropertyRef Name="TypeFine" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -759,10 +883,11 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="SuccessPlusEntities1" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="SuccessPlusEntities2" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Event" EntityType="Self.Event" />
           <EntitySet Name="EventStudent" EntityType="Self.EventStudent" />
           <EntitySet Name="EventType" EntityType="Self.EventType" />
+          <EntitySet Name="Fine" EntityType="Self.Fine" />
           <EntitySet Name="Group" EntityType="Self.Group" />
           <EntitySet Name="Marks" EntityType="Self.Marks" />
           <EntitySet Name="MarkStudent" EntityType="Self.MarkStudent" />
@@ -771,6 +896,7 @@
           <EntitySet Name="Subjects" EntityType="Self.Subjects" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
           <EntitySet Name="Type" EntityType="Self.Type" />
+          <EntitySet Name="TypeFine" EntityType="Self.TypeFine" />
           <EntitySet Name="User" EntityType="Self.User" />
           <EntitySet Name="Visiting" EntityType="Self.Visiting" />
           <EntitySet Name="VisitingStudent" EntityType="Self.VisitingStudent" />
@@ -789,6 +915,18 @@
           <AssociationSet Name="FK_EventStudent_Student" Association="Self.FK_EventStudent_Student">
             <End Role="Student" EntitySet="Student" />
             <End Role="EventStudent" EntitySet="EventStudent" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Fine_Marks" Association="Self.FK_Fine_Marks">
+            <End Role="Marks" EntitySet="Marks" />
+            <End Role="Fine" EntitySet="Fine" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Fine_Student" Association="Self.FK_Fine_Student">
+            <End Role="Student" EntitySet="Student" />
+            <End Role="Fine" EntitySet="Fine" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Fine_TypeFine" Association="Self.FK_Fine_TypeFine">
+            <End Role="TypeFine" EntitySet="TypeFine" />
+            <End Role="Fine" EntitySet="Fine" />
           </AssociationSet>
           <AssociationSet Name="FK_Student_Group" Association="Self.FK_Student_Group">
             <End Role="Group" EntitySet="Group" />
@@ -877,7 +1015,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище SuccessPlusModelContainer" CdmEntityContainer="SuccessPlusEntities1">
+        <EntityContainerMapping StorageEntityContainer="Хранилище SuccessPlusModelContainer" CdmEntityContainer="SuccessPlusEntities2">
           <EntitySetMapping Name="Event">
             <EntityTypeMapping TypeName="SuccessPlusModel.Event">
               <MappingFragment StoreEntitySet="Event">
@@ -903,6 +1041,16 @@
               <MappingFragment StoreEntitySet="EventType">
                 <ScalarProperty Name="IdTypeEvent" ColumnName="IdTypeEvent" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Fine">
+            <EntityTypeMapping TypeName="SuccessPlusModel.Fine">
+              <MappingFragment StoreEntitySet="Fine">
+                <ScalarProperty Name="IdFine" ColumnName="IdFine" />
+                <ScalarProperty Name="TypeFine" ColumnName="TypeFine" />
+                <ScalarProperty Name="IdMark" ColumnName="IdMark" />
+                <ScalarProperty Name="IdStudent" ColumnName="IdStudent" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -981,6 +1129,14 @@
               <MappingFragment StoreEntitySet="Type">
                 <ScalarProperty Name="IdType" ColumnName="IdType" />
                 <ScalarProperty Name="NameAcc" ColumnName="NameAcc" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TypeFine">
+            <EntityTypeMapping TypeName="SuccessPlusModel.TypeFine">
+              <MappingFragment StoreEntitySet="TypeFine">
+                <ScalarProperty Name="IdTypeFine" ColumnName="IdTypeFine" />
+                <ScalarProperty Name="NameType" ColumnName="NameType" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

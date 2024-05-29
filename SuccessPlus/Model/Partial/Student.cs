@@ -25,7 +25,7 @@ namespace SuccessPlus.Model
         {
             get
             {
-                using (var dbContext = new SuccessPlusEntities1())
+                using (var dbContext = new SuccessPlusEntities2())
                 {
                     var ratings = dbContext.EventStudent
                         .Where(es => es.IdStudent == this.IdStudent &&
@@ -51,7 +51,7 @@ namespace SuccessPlus.Model
         {
             get
             {
-                using (var dbContext = new SuccessPlusEntities1())
+                using (var dbContext = new SuccessPlusEntities2())
                 {
                     var ratings = dbContext.EventStudent
                         .Where(es => es.IdStudent == this.IdStudent &&
@@ -78,7 +78,7 @@ namespace SuccessPlus.Model
         {
             get
             {
-                using (var dbContext = new SuccessPlusEntities1())
+                using (var dbContext = new SuccessPlusEntities2())
                 {
                     var ratings = dbContext.EventStudent
                         .Where(es => es.IdStudent == this.IdStudent &&
@@ -91,7 +91,7 @@ namespace SuccessPlus.Model
             }
 
         }
-        
+
         public double AVGSportEvent
         {
             get
@@ -101,10 +101,10 @@ namespace SuccessPlus.Model
             }
         }
         public List<int?> SocialEvent
-        { 
+        {
             get
             {
-                using (var dbContext = new SuccessPlusEntities1())
+                using (var dbContext = new SuccessPlusEntities2())
                 {
                     var ratings = dbContext.EventStudent
                         .Where(es => es.IdStudent == this.IdStudent &&
@@ -115,9 +115,9 @@ namespace SuccessPlus.Model
                     return ratings;
                 }
             }
-            
+
         }
-       
+
         public double? AVGSocialEvent
         {
             get
@@ -131,7 +131,7 @@ namespace SuccessPlus.Model
         {
             get
             {
-                using (var dbContext = new SuccessPlusEntities1())
+                using (var dbContext = new SuccessPlusEntities2())
                 {
                     var ratings = dbContext.EventStudent
                         .Where(es => es.IdStudent == this.IdStudent &&
@@ -145,7 +145,7 @@ namespace SuccessPlus.Model
 
         }
 
-       
+
         public double? AVGNttEvent
         {
             get
@@ -154,17 +154,128 @@ namespace SuccessPlus.Model
                 return marks.Any() ? (double?)marks.Average() : 0;
             }
         }
+        public int CountZeros => _db.context.MarkStudent.Where(x => x.IdStudent == IdStudent && x.Marks.MarkName == 0).Count();
 
+        public int CountTwos => _db.context.MarkStudent.Where(x => x.IdStudent == IdStudent && x.Marks.MarkName == 2).Count();
         public int CountThrees => _db.context.MarkStudent.Where(x => x.IdStudent == IdStudent && x.Marks.MarkName == 3).Count();
 
         public int CountFours => _db.context.MarkStudent.Where(x => x.IdStudent == IdStudent && x.Marks.MarkName == 4).Count();
 
         public int CountFives => _db.context.MarkStudent.Where(x => x.IdStudent == IdStudent && x.Marks.MarkName == 5).Count();
 
-        public List< string> NameSportEvent => _db.context.Event.Where(x => x.Type == 2).Select(x =>x.Name).ToList();
+        public List<string> NameSportEvent => _db.context.Event.Where(x => x.Type == 2).Select(x => x.Name).ToList();
 
-        public List< string> NameSocialEvent => _db.context.Event.Where(x => x.Type == 1).Select(x =>x.Name).ToList();
+        public List<string> NameSocialEvent => _db.context.Event.Where(x => x.Type == 1).Select(x => x.Name).ToList();
 
-        public List< string> NameNttEvent => _db.context.Event.Where(x => x.Type == 3).Select(x =>x.Name).ToList();
+        public List<string> NameNttEvent => _db.context.Event.Where(x => x.Type == 3).Select(x => x.Name).ToList();
+
+        // Новое свойство для получения оценки поведения
+        public int BehaviorScore
+        {
+            get
+            {
+                using (var dbContext = new SuccessPlusEntities2())
+                {
+                    var behaviorFine = dbContext.Fine
+                        .Where(x => x.IdStudent == this.IdStudent && x.TypeFine == 1)
+                        .Select(x => x.IdMark)
+                        .FirstOrDefault();
+                    return behaviorFine;
+                }
+            }
+        }
+
+        // Новое свойство для получения оценки за задолженности
+        public int DebtScore
+        {
+            get
+            {
+                using (var dbContext = new SuccessPlusEntities2())
+                {
+                    var debtFine = dbContext.Fine
+                        .Where(f => f.IdStudent == this.IdStudent && f.TypeFine == 2)
+                        .Select(f => f.IdMark)
+                        .FirstOrDefault();
+                    return debtFine;
+                }
+            }
+        }
+
+        // Новое свойство для получения бонуса руководства
+        public int LeadershipBonus
+        {
+            get
+            {
+                using (var dbContext = new SuccessPlusEntities2())
+                {
+                    var leadershipFine = dbContext.Fine
+                        .Where(f => f.IdStudent == this.IdStudent && f.TypeFine == 3)
+                        .Select(f => f.IdMark)
+                        .FirstOrDefault();
+                    return leadershipFine;
+                }
+            }
+        }
+
+        public double AverageFineScore
+        {
+            get
+            {
+                using (var dbContext = new SuccessPlusEntities2())
+                {
+                    // Получение всех штрафов для студента
+                    var fines = dbContext.Fine
+                        .Where(f => f.IdStudent == this.IdStudent)
+                        .Select(f => f.IdMark)
+                        .ToList();
+
+                    // Вычисление среднего значения, если есть штрафы
+                    return fines.Any() ? fines.Average() : 0;
+                }
+            }
+        }
+
+        public double? PerformancePercentage
+        {
+            get
+            {
+                int totalMarksCount = CountTwos + CountThrees + CountFours + CountFives + CountZeros;
+                if (totalMarksCount == 0)
+                {
+                    return null;
+                }
+
+                return 40 * (2 * CountTwos + 3 * CountThrees + 4 * CountFours + 5 * CountFives + 0 * CountZeros) / (double)(5 * totalMarksCount);
+            }
+        }
+
+        public double? AttendancePercentage(int totalHours, int missedHours)
+        {
+            if (totalHours == 0)
+            {
+                return null;
+            }
+
+            return 20 * (totalHours - missedHours) / (double)totalHours;
+        }
+
+
+        public double? CalculateRatingScore(int totalHours, int missedHours)
+        {
+            double attendancePercentage = AttendancePercentage(totalHours, missedHours) ?? 0;
+            double performancePercentage = PerformancePercentage ?? 0;
+            double avgSelfDev = AVGSelfDev;
+            double avgAmateurEvent = AVGAmateurEvent;
+            double avgSportEvent = AVGSportEvent;
+            double avgSocialEvent = AVGSocialEvent ?? 0;
+            double avgNttEvent = AVGNttEvent ?? 0;
+            int behaviorScore = BehaviorScore;
+            int debtScore = DebtScore;
+            int leadershipBonus = LeadershipBonus;
+
+            double ratingScore = performancePercentage + attendancePercentage + avgSelfDev + avgAmateurEvent + avgSportEvent + avgSocialEvent + avgNttEvent - behaviorScore - debtScore + leadershipBonus;
+            return ratingScore;
+        }
+
     }
-}
+    }
