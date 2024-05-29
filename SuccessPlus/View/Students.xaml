@@ -36,7 +36,7 @@
                 <DataGridTextColumn Header="НТТ" Width="*" Binding="{Binding AVGNttEvent}"/>
                 <DataGridTextColumn Header="Самообразование" Width="*" Binding="{Binding AVGSelfDev}"/>
                 <DataGridTextColumn Header="Поведение" Width="*" Binding="{Binding AverageFineScore}"/>
-                <DataGridTextColumn Header="Рейтинговая оценка" Width="*" Binding="{Binding CalculateRatingScore}"/>
+                <DataGridTextColumn Header="Рейтинговая оценка" Width="*" Binding="{Binding RatingScore}"/>
                 <DataGridTemplateColumn Header="Редактировать" IsReadOnly="True" Width="auto" CanUserResize="False">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>

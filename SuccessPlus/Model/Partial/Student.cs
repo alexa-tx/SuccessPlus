@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SuccessPlus.Model
 {
@@ -47,6 +45,7 @@ namespace SuccessPlus.Model
                 return marks.Any() ? marks.Average() : 0;
             }
         }
+
         public List<int?> AmateurEvent
         {
             get
@@ -145,7 +144,6 @@ namespace SuccessPlus.Model
 
         }
 
-
         public double? AVGNttEvent
         {
             get
@@ -235,47 +233,48 @@ namespace SuccessPlus.Model
             }
         }
 
-        public double? PerformancePercentage
+        // Новое свойство для процента успеваемости
+        public double AcademicPerformancePercentage
         {
             get
             {
-                int totalMarksCount = CountTwos + CountThrees + CountFours + CountFives + CountZeros;
-                if (totalMarksCount == 0)
-                {
-                    return null;
-                }
-
-                return 40 * (2 * CountTwos + 3 * CountThrees + 4 * CountFours + 5 * CountFives + 0 * CountZeros) / (double)(5 * totalMarksCount);
+                var K2 = CountTwos;
+                var K3 = CountThrees;
+                var K4 = CountFours;
+                var K5 = CountFives;
+                var K0 = CountZeros;
+                return 40 * (2 * K2 + 3 * K3 + 4 * K4 + 5 * K5) / (5 * (K2 + K3 + K4 + K5));
             }
         }
 
-        public double? AttendancePercentage(int totalHours, int missedHours)
+        // Новое свойство для процента прогулов
+        public double AbsenteeismPercentage
         {
-            if (totalHours == 0)
+            get
             {
-                return null;
+                var Kprog = TotalVisiting; // количество пропущенных часов студентом за месяц
+                const int Vch = 160; // количество часов занятий в месяц (примерное значение, может быть изменено)
+                return 20 * (Vch - Kprog) / Vch;
             }
-
-            return 20 * (totalHours - missedHours) / (double)totalHours;
         }
 
-
-        public double? CalculateRatingScore(int totalHours, int missedHours)
+        // Новое свойство для рейтинговой оценки
+        public double RatingScore
         {
-            double attendancePercentage = AttendancePercentage(totalHours, missedHours) ?? 0;
-            double performancePercentage = PerformancePercentage ?? 0;
-            double avgSelfDev = AVGSelfDev;
-            double avgAmateurEvent = AVGAmateurEvent;
-            double avgSportEvent = AVGSportEvent;
-            double avgSocialEvent = AVGSocialEvent ?? 0;
-            double avgNttEvent = AVGNttEvent ?? 0;
-            int behaviorScore = BehaviorScore;
-            int debtScore = DebtScore;
-            int leadershipBonus = LeadershipBonus;
+            get
+            {
+                var Pusp = AcademicPerformancePercentage;
+                var Pprog = AbsenteeismPercentage;
+                var Oreb = AVGAmateurEvent; // оценка участия в общественной работе
+                var S = AVGSportEvent; // оценка участия в спортивных мероприятиях
+                var Sa = AVGSelfDev; // оценка участия в самодеятельности
+                var NTT = AVGNttEvent ?? 0; // оценка участия в научно-техническом труде
+                var Pov = (double)BehaviorScore; // штрафные баллы за поведение
+                var Oz = (double)DebtScore; // штрафные баллы за задолженности за предыдущие семестры
+                var Bruk = (double)LeadershipBonus; // бонус руководства
 
-            double ratingScore = performancePercentage + attendancePercentage + avgSelfDev + avgAmateurEvent + avgSportEvent + avgSocialEvent + avgNttEvent - behaviorScore - debtScore + leadershipBonus;
-            return ratingScore;
+                return Pusp + Pprog + Oreb + S + Sa + NTT - Pov - Oz + Bruk;
+            }
         }
-
     }
-    }
+}
