@@ -167,6 +167,8 @@ namespace SuccessPlus.Model
 
         public List<string> NameNttEvent => _db.context.Event.Where(x => x.Type == 3).Select(x => x.Name).ToList();
 
+
+
         // Новое свойство для получения оценки поведения
         public int BehaviorScore
         {

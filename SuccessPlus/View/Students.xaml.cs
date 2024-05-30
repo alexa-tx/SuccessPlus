@@ -45,6 +45,7 @@ namespace SuccessPlus.View
             || x.FisrtName.ToString().Contains(Poisk.Text) || x.LastName.ToString().Contains(Poisk.Text) || x.GroupName.ToString().Contains(Poisk.Text)).ToList();
             DataGrid.ItemsSource = StudentList;
         }
+        
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             AddStudentView addStudentView = new AddStudentView();

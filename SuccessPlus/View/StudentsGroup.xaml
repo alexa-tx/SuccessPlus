@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:SuccessPlus.View"
       mc:Ignorable="d" 
-      d:DesignHeight="700" d:DesignWidth="1000"
+       Height="700" Width="1050"
      Title="StudentsGroup">
     <Grid>
         <Grid.RowDefinitions>
@@ -22,6 +22,14 @@
                 <DataGridTextColumn Header="ID"  Width="*" Binding="{Binding IdGroup}" />
                 <DataGridTextColumn Header="Название группы"  Width="*" Binding="{Binding NameGroup}"/>
                 <DataGridTextColumn Header="Количество студентов"  Width="*" Binding="{Binding CountStudents}"/>
+                <DataGridTextColumn Header="Прогулы"  Width="*" Binding="{Binding TotalAbsences}"/>
+                <DataGridTextColumn Header="Средняя оценка"  Width="*" Binding="{Binding AverageGrade}"/>
+                <DataGridTextColumn Header="Общественная работа"  Width="*" Binding="{Binding TotalPublicActivity}"/>
+                <DataGridTextColumn Header="Спорт"  Width="*" Binding="{Binding TotalSports}"/>
+                <DataGridTextColumn Header="Самодеятельность"  Width="*" Binding="{Binding TotalArtActivity}"/>
+                <DataGridTextColumn Header="НТТ"  Width="*" Binding="{Binding TotalNTT}"/>
+                <DataGridTextColumn Header="Самообразование"  Width="*" Binding="{Binding TotalSelfEducation}"/>
+                <DataGridTextColumn Header="Рейтинг"  Width="*" Binding="{Binding AverageGroupRating}"/>
                 <DataGridTemplateColumn Header="Редактировать" IsReadOnly="True" Width="*" CanUserResize="False">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>

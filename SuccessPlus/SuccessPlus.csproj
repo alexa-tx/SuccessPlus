@@ -115,6 +115,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model1.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Model\Partial\Group.cs" />
     <Compile Include="Model\Partial\Student.cs" />
     <Compile Include="Model\Partial\Subjects.cs" />
     <Compile Include="Model\SignIn.cs">
