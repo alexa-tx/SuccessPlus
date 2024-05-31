@@ -45,11 +45,7 @@
                 <TextBlock x:Name="GroupCountText" Text="0" FontSize="24" HorizontalAlignment="Center"/>
             </StackPanel>
         </Border>
-
-        
-        <Calendar x:Name="EventCalendar" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0 35" Style="{StaticResource CalendarStyle}"/>
-
-       
+  
         <Border Grid.Column="1" Style="{StaticResource UserInfoStyle}">
             <StackPanel>
                 <TextBlock x:Name="FioTextBox" Text="Имя Фамилия" Style="{StaticResource UserNameTextStyle}"/>
