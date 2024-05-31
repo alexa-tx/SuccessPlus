@@ -26,6 +26,8 @@ namespace SuccessPlus.View
         public List<Group> Groups;
         public List<Subjects> Subjects;
         public List<EventType> EventTypes;
+        public List<TypeFine> Fines;
+        public List<Marks> Marks;
         private int IdStudent;
         public EditStudent(int idStudent)
         {
@@ -34,6 +36,7 @@ namespace SuccessPlus.View
             selectedStudent = db.context.Student.Where(x=> x.IdStudent == idStudent).FirstOrDefault();
             NameStudent.Text = selectedStudent.FIO;
             Groups = db.context.Group.ToList();
+            Fines = db.context.TypeFine.ToList();
             EventTypes = db.context.EventType.ToList();
             EventType.ItemsSource = EventTypes;
             EventType.DisplayMemberPath = "Name";
@@ -42,7 +45,15 @@ namespace SuccessPlus.View
             ComboBoxStudent.SelectedItem = Groups.Where(x => x.IdGroup == selectedStudent.GroupId).FirstOrDefault();
             ComboBoxStudent.DisplayMemberPath = "NameGroup";
             ComboBoxStudent.SelectedValuePath = "IdGroup";
-            Subjects = db.context.Subjects.ToList();
+            FineTypeComboBox.ItemsSource = Fines;
+            FineTypeComboBox.DisplayMemberPath = "NameType";
+            FineTypeComboBox.SelectedValuePath = "IdTypeFine";
+            Marks = db.context.Marks.ToList();
+            FineMarkComboBox.ItemsSource = Marks;
+            FineMarkComboBox.SelectedValuePath = "IdMark";
+            FineMarkComboBox.DisplayMemberPath = "MarkName";
+
+            //Subjects = db.context.Subjects.Where(x => x.).ToList();
             DataGridSubject.ItemsSource = Subjects;
         }
 

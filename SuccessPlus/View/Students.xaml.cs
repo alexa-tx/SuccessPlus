@@ -25,13 +25,24 @@ namespace SuccessPlus.View
 
         private Core _db = new Core();
         public int SelectedStudentId { get; set; }
+
+        User curentUser = new User();
         public Students()
         {
 
             InitializeComponent();
-            StudentList = _db.context.Student.ToList();
-            DataGrid.ItemsSource = StudentList;
-            DataGrid.SelectedValuePath = "IdStudent";
+
+             curentUser = _db.context.User.Where(x => x.IdUser == Properties.Settings.Default.userId).FirstOrDefault();
+            if (Properties.Settings.Default.userRole == 4)
+            {
+                StudentList = _db.context.Student.Where(x => x.GroupId == curentUser.GroupId).ToList();
+                
+            }
+            else
+                StudentList = _db.context.Student.ToList();
+            
+            DataGridStudent.ItemsSource = StudentList;
+            DataGridStudent.SelectedValuePath = "IdStudent";
             var SocialEvent = _db.context.EventStudent.Where(x => x.IdStudent == 9 && x.IdEvent == 3).Select(x => x.IdMark).ToList();
 
 
@@ -43,7 +54,7 @@ namespace SuccessPlus.View
             StudentList = _db.context.Student.ToList();
             StudentList = StudentList.Where(x => x.TotalVisiting.ToString().Contains(Poisk.Text) || x.AVGMark.ToString().Contains(Poisk.Text)
             || x.FisrtName.ToString().Contains(Poisk.Text) || x.LastName.ToString().Contains(Poisk.Text) || x.GroupName.ToString().Contains(Poisk.Text)).ToList();
-            DataGrid.ItemsSource = StudentList;
+            DataGridStudent.ItemsSource = StudentList;
         }
         
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -54,39 +65,46 @@ namespace SuccessPlus.View
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-            DialogResult result = System.Windows.Forms.MessageBox.Show(
-        "Вы уверенны,что хотите удалить?",
-        "Удаление студента",
-        MessageBoxButtons.YesNo,
-        MessageBoxIcon.Exclamation,
-        MessageBoxDefaultButton.Button2
-        );
-
-            if (result == DialogResult.Yes)
+            if (Properties.Settings.Default.userRole == 4)
+                System.Windows.MessageBox.Show("У вас нет доступа");
+            else
             {
-                Student selectedStudent = _db.context.Student.Where(x => x.IdStudent == (int)DataGrid.SelectedValue).FirstOrDefault();
-                _db.context.Student.Remove(selectedStudent);
-                _db.context.SaveChanges();
-                if (_db.context.SaveChanges() == 0)
-                    System.Windows.MessageBox.Show("Удалено");
+                DialogResult result = System.Windows.Forms.MessageBox.Show(
+"Вы уверенны,что хотите удалить?",
+"Удаление студента",
+MessageBoxButtons.YesNo,
+MessageBoxIcon.Exclamation,
+MessageBoxDefaultButton.Button2
+);
 
+                if (result == DialogResult.Yes)
+                {
+                    Student selectedStudent = _db.context.Student.Where(x => x.IdStudent == (int)DataGridStudent.SelectedValue).FirstOrDefault();
+                    _db.context.Student.Remove(selectedStudent);
+                    _db.context.SaveChanges();
+                    if (_db.context.SaveChanges() == 0)
+                        System.Windows.MessageBox.Show("Удалено");
+
+                }
             }
+
+           
 
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            EditStudent editStudent = new EditStudent((int)DataGrid.SelectedValue);
+            EditStudent editStudent = new EditStudent((int)DataGridStudent.SelectedValue);
             editStudent.ShowDialog();
         }
 
         private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             // Проверяем, выбрана ли какая-либо строка
-            if (DataGrid.SelectedItem != null)
+            if (DataGridStudent.SelectedItem != null)
             {
                 // Получаем выбранного студента
-                var selectedStudent = DataGrid.SelectedItem as Student;
+                var selectedStudent = DataGridStudent.SelectedItem as Student;
                 if (selectedStudent != null)
                 {
                     // Формируем информацию о студенте

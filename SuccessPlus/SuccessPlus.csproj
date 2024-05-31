@@ -169,9 +169,6 @@
     <Compile Include="View\HomePage.xaml.cs">
       <DependentUpon>HomePage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\RatingListView.xaml.cs">
-      <DependentUpon>RatingListView.xaml</DependentUpon>
-    </Compile>
     <Compile Include="View\SingInPage.xaml.cs">
       <DependentUpon>SingInPage.xaml</DependentUpon>
     </Compile>
@@ -245,10 +242,6 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="View\RatingListView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="View\SingInPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -322,6 +315,7 @@
     <Resource Include="Assets\Calendar.png" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Assets\User.png" />
     <Content Include="Model\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model1.edmx</DependentUpon>

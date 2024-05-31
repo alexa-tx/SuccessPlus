@@ -15,8 +15,8 @@
         </Grid.ColumnDefinitions>
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="50"/>
-                <RowDefinition Height="2*"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="5*"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
 
@@ -36,6 +36,13 @@
             
             <TextBlock Text="Оценка за участие" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0 180 20 0" Grid.Row="1" />
             <TextBox x:Name="EventMark" Grid.Row="1" Width="100" Height="25" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="120 180 40 0" Style="{StaticResource SearchBox}"/>
+             
+            <TextBlock Text="Тип штрафа" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0 220 20 0" Grid.Row="1" />
+            <ComboBox x:Name="FineTypeComboBox" Grid.Row="1" Width="150" Height="25" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="100 215 10 0" Style="{StaticResource ComboBoxStyle}"/>
+
+            <!-- New Fine Mark ComboBox -->
+            <TextBlock Text="Оценка штрафа" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0 260 20 0" Grid.Row="1" />
+            <ComboBox x:Name="FineMarkComboBox" Grid.Row="1" Width="100" Height="25" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="120 255 40 0" Style="{StaticResource ComboBoxStyle}"/>
         </Grid>
 
         <DataGrid Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Top" x:Name="DataGridSubject" AutoGenerateColumns="False" Width="180" Height="340" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}">

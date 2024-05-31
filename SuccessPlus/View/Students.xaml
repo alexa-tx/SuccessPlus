@@ -20,7 +20,7 @@
         
          <DataGrid RowStyle="{DynamicResource DataGridRowStyle1}" 
                   ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" 
-                  x:Name="DataGrid" IsReadOnly="True" AutoGenerateColumns="False" 
+                  x:Name="DataGridStudent" IsReadOnly="True" AutoGenerateColumns="False" 
                   Margin="0 0" Grid.Row="1"  SelectionChanged="DataGrid_SelectionChanged">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Имя" Width="*" Binding="{Binding FisrtName}"/>
@@ -41,11 +41,11 @@
                 <DataGridTemplateColumn Header="Редактировать" IsReadOnly="True" Width="auto" CanUserResize="False">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <StackPanel Orientation="Horizontal">
+                            <StackPanel Orientation="Horizontal" x:Name="StackPanelBtn">
                                 <Button Style="{StaticResource BtnEdit}" Click="Button_Click_1">
                                     <Image Source="/Assets/BtnEdit.png" Width="20" Height="20"/>
                                 </Button>
-                                <Button Style="{StaticResource BtnDelete}" Margin="8 0" Click="Button_Click_2">
+                                <Button Style="{StaticResource BtnDelete}" Margin="8 0" Click="Button_Click_2" x:Name="BtnDelete">
                                     <Image Source="/Assets/BtnDelete.png" Width="20" Height="20"/>
                                 </Button>
                             </StackPanel>

@@ -36,6 +36,10 @@ namespace SuccessPlus.View
             else
                 TopBarMenu.Visibility = Visibility.Visible;
 
+            if (Properties.Settings.Default.userRole == 4)
+                GroupTobBar.Visibility = Visibility.Collapsed;
+            else
+                GroupTobBar.Visibility = Visibility.Visible;
         }
 
         private void Window_Closed(object sender, EventArgs e)

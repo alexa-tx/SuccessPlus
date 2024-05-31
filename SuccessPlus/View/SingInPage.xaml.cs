@@ -38,6 +38,7 @@ namespace SuccessPlus.View
                 _user = db.context.User.Where(x=> x.IdUser == _singIn.IdUser).FirstOrDefault();
                 Properties.Settings.Default.userId = _user.IdUser;
                 Properties.Settings.Default.loginUser = LoginTextBox.Text;
+                Properties.Settings.Default.userRole = _user.Type;  
                 Properties.Settings.Default.Save();
                 this.NavigationService.Navigate(new HomePage());
                 
