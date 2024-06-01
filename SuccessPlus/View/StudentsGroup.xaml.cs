@@ -38,6 +38,11 @@ namespace SuccessPlus.View
             DataGrid.ItemsSource = userSims;
             DataGrid.SelectedValuePath = "IdGroup";
 
+            if (Properties.Settings.Default.userRole == 3)
+                BtnAddGroups.Visibility = Visibility.Collapsed;
+            else
+                BtnAddGroups.Visibility = Visibility.Visible;
+
 
         }
         //кнопка добавить группу
@@ -55,23 +60,30 @@ namespace SuccessPlus.View
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-            DialogResult result = System.Windows.Forms.MessageBox.Show(
-        "Вы уверенны,что хотите удалить?",
-        "Удаление группы",
-        MessageBoxButtons.YesNo,
-        MessageBoxIcon.Exclamation,
-        MessageBoxDefaultButton.Button2
-        );
-
-            if (result == DialogResult.Yes)
+            if (Properties.Settings.Default.userRole == 3)
+                System.Windows.MessageBox.Show("У вас нет доступа");
+            else
             {
-                Group selectedGroup = _db.context.Group.Where(x => x.IdGroup == (int)DataGrid.SelectedValue).FirstOrDefault();
-                _db.context.Group.Remove(selectedGroup);
-                _db.context.SaveChanges();
-                if (_db.context.SaveChanges() == 0)
-                    System.Windows.MessageBox.Show("Удалено");
+                DialogResult result = System.Windows.Forms.MessageBox.Show(
+"Вы уверенны,что хотите удалить?",
+"Удаление группы",
+MessageBoxButtons.YesNo,
+MessageBoxIcon.Exclamation,
+MessageBoxDefaultButton.Button2
+);
 
+                if (result == DialogResult.Yes)
+                {
+                    Group selectedGroup = _db.context.Group.Where(x => x.IdGroup == (int)DataGrid.SelectedValue).FirstOrDefault();
+                    _db.context.Group.Remove(selectedGroup);
+                    _db.context.SaveChanges();
+                    if (_db.context.SaveChanges() == 0)
+                        System.Windows.MessageBox.Show("Удалено");
+
+                }
             }
+
+                
 
         }
         

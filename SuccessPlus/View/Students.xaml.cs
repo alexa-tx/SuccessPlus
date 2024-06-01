@@ -47,6 +47,16 @@ namespace SuccessPlus.View
 
 
             var marks = SocialEvent.Where(mark => mark.HasValue).Select(mark => mark.Value);
+
+            if (Properties.Settings.Default.userRole == 3)
+                BtnAddStudent.Visibility = Visibility.Collapsed;
+            else
+                BtnAddStudent.Visibility = Visibility.Visible;
+
+            if (Properties.Settings.Default.userRole == 4)
+                BtnAddStudent.Visibility = Visibility.Collapsed;
+            else
+                BtnAddStudent.Visibility = Visibility.Visible;
         }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
@@ -65,7 +75,7 @@ namespace SuccessPlus.View
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-            if (Properties.Settings.Default.userRole == 4)
+            if (Properties.Settings.Default.userRole == 4 )
                 System.Windows.MessageBox.Show("У вас нет доступа");
             else
             {

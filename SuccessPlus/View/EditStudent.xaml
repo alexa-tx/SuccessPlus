@@ -22,7 +22,7 @@
 
             <TextBlock x:Name="NameStudent" Style="{StaticResource NameStudentStyle}"/>
 
-            <TextBlock Text="Группа" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0 15 10 0" Grid.Row="1"/>
+            <TextBlock Text="Группа" x:Name="TextGroupBlock" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0 15 10 0" Grid.Row="1"/>
             <ComboBox x:Name="ComboBoxStudent" Width="100" Height="25" VerticalAlignment="Top" Grid.Row="1" HorizontalAlignment="Left" Margin="50 10 10 0" Style="{StaticResource ComboBoxStyle}"/>
             
             <TextBlock Text="Мероприятия" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0 60 20 0" Grid.Row="1"/>
@@ -34,14 +34,14 @@
             <TextBlock Text="Дата мероприятия" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0 140 20 0" Grid.Row="1"/>
             <DatePicker x:Name="EventDatePicker" Grid.Row="1" Width="200" Height="30" Margin="-80 135 40 0" VerticalAlignment="Top" Style="{StaticResource DatePickerStyle}"/>
             
-            <TextBlock Text="Оценка за участие" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0 180 20 0" Grid.Row="1" />
+            <TextBlock Text="Оценка за участие"  VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0 180 20 0" Grid.Row="1" />
             <TextBox x:Name="EventMark" Grid.Row="1" Width="100" Height="25" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="120 180 40 0" Style="{StaticResource SearchBox}"/>
              
-            <TextBlock Text="Тип штрафа" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0 220 20 0" Grid.Row="1" />
+            <TextBlock Text="Тип штрафа" x:Name="TypeFineText"  VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0 220 20 0" Grid.Row="1" />
             <ComboBox x:Name="FineTypeComboBox" Grid.Row="1" Width="150" Height="25" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="100 215 10 0" Style="{StaticResource ComboBoxStyle}"/>
 
             <!-- New Fine Mark ComboBox -->
-            <TextBlock Text="Оценка штрафа" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0 260 20 0" Grid.Row="1" />
+            <TextBlock Text="Оценка штрафа" x:Name="MarkFineText" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0 260 20 0" Grid.Row="1" />
             <ComboBox x:Name="FineMarkComboBox" Grid.Row="1" Width="100" Height="25" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="120 255 40 0" Style="{StaticResource ComboBoxStyle}"/>
         </Grid>
 

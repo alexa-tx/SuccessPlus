@@ -14,7 +14,7 @@
      <RowDefinition Height="2*"/>
  </Grid.RowDefinitions>
          <TextBox x:Name="Poisk" TextChanged="TextBox_TextChanged" Style="{StaticResource PoiskTextBoxStyle}"/>   
-         <Button Style="{StaticResource BtnAdd}" Click="Button_Click" Grid.Row="0">
+         <Button x:Name="BtnAddStudent" Style="{StaticResource BtnAdd}" Click="Button_Click" Grid.Row="0">
             <TextBlock Text="Добавить"></TextBlock>
         </Button>
         

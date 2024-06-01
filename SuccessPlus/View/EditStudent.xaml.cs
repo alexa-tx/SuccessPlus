@@ -52,6 +52,39 @@ namespace SuccessPlus.View
             FineMarkComboBox.ItemsSource = Marks;
             FineMarkComboBox.SelectedValuePath = "IdMark";
             FineMarkComboBox.DisplayMemberPath = "MarkName";
+            if (Properties.Settings.Default.userRole == 4)
+            {
+                TextGroupBlock.Visibility = Visibility.Collapsed;
+                ComboBoxStudent.Visibility = Visibility.Collapsed;
+                TypeFineText.Visibility = Visibility.Collapsed;
+                FineTypeComboBox.Visibility = Visibility.Collapsed;
+                MarkFineText.Visibility = Visibility.Collapsed;
+                FineMarkComboBox.Visibility = Visibility.Collapsed;
+            }
+
+            else
+            {
+                ComboBoxStudent.Visibility = Visibility.Visible;
+                TextGroupBlock.Visibility = Visibility.Visible;
+                TypeFineText.Visibility = Visibility.Visible;
+                FineTypeComboBox.Visibility = Visibility.Visible;
+                MarkFineText.Visibility = Visibility.Visible;
+                FineMarkComboBox.Visibility = Visibility.Visible;
+            }
+            if (Properties.Settings.Default.userRole == 3)
+            {
+                TextGroupBlock.Visibility = Visibility.Collapsed;
+                ComboBoxStudent.Visibility = Visibility.Collapsed;
+                
+            }
+
+            else
+            {
+                ComboBoxStudent.Visibility = Visibility.Visible;
+                TextGroupBlock.Visibility = Visibility.Visible;
+                
+            }
+
 
             //Subjects = db.context.Subjects.Where(x => x.).ToList();
             DataGridSubject.ItemsSource = Subjects;
@@ -59,13 +92,16 @@ namespace SuccessPlus.View
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+
             selectedStudent.GroupId = (int)ComboBoxStudent.SelectedValue;
             Event newEvent = new Event
             {
                 Name = NameEventSearch.Text,
                 Date = EventDatePicker.SelectedDate.HasValue ? EventDatePicker.SelectedDate.Value : DateTime.Now,
                 Type = (int)EventType.SelectedValue
+
             };
+            
             db.context.Event.Add(newEvent);
            
             int eventMark;
@@ -81,6 +117,16 @@ namespace SuccessPlus.View
                 IdMark = eventMark
             };
             db.context.EventStudent.Add(neweventStudent);
+            if (FineTypeComboBox.SelectedValue != null && FineMarkComboBox.SelectedValue != null)
+            {
+                Fine newFine = new Fine
+                {
+                    TypeFine = (int)FineTypeComboBox.SelectedValue,
+                    IdMark = (int)FineMarkComboBox.SelectedValue,
+                    IdStudent = selectedStudent.IdStudent
+                };
+                db.context.Fine.Add(newFine);
+            }
             try
             {
                 db.context.SaveChanges();
@@ -91,6 +137,8 @@ namespace SuccessPlus.View
             {
                 MessageBox.Show(ex.Message);
             }
+
+            
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)

@@ -47,7 +47,7 @@
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
-        <Button Style="{StaticResource BtnAdd}" Click="Button_Click">
+        <Button Style="{StaticResource BtnAdd}" x:Name="BtnAddGroups" Click="Button_Click">
             <TextBlock Text="Добавить"></TextBlock>
         </Button>
     </Grid>
