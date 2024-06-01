@@ -54,8 +54,14 @@ namespace SuccessPlus.View
         //редактировать
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            EditGroupWindow editGroupWindow = new EditGroupWindow((int)DataGrid.SelectedValue);
-            editGroupWindow.ShowDialog();
+            if (Properties.Settings.Default.userRole == 3)
+                System.Windows.MessageBox.Show("У вас нет доступа");
+            else
+            {
+                EditGroupWindow editGroupWindow = new EditGroupWindow((int)DataGrid.SelectedValue);
+                editGroupWindow.ShowDialog();
+            }
+                
         }
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
