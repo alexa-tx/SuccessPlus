@@ -48,7 +48,7 @@
   
         <Border Grid.Column="1" Style="{StaticResource UserInfoStyle}">
             <StackPanel>
-                <Image Source="/Assets/User.png" Width="150" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                <Image Source="/Assets/user .png" Width="150" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0 130 0 0"/>
 
                 <TextBlock x:Name="FioTextBox" Text="Имя Фамилия" Style="{StaticResource UserNameTextStyle}"/>
             </StackPanel>

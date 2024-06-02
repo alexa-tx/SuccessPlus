@@ -24,7 +24,7 @@ namespace SuccessPlus.View
         Core db = new Core();
         Student selectedStudent;
         public List<Group> Groups;
-        public List<Subjects> Subjects;
+        public List<MarkStudent> MarkStudents;
         public List<EventType> EventTypes;
         public List<TypeFine> Fines;
         public List<Marks> Marks;
@@ -32,6 +32,7 @@ namespace SuccessPlus.View
         public EditStudent(int idStudent)
         {
             InitializeComponent();
+            
             IdStudent = idStudent;
             selectedStudent = db.context.Student.Where(x=> x.IdStudent == idStudent).FirstOrDefault();
             NameStudent.Text = selectedStudent.FIO;
@@ -52,42 +53,13 @@ namespace SuccessPlus.View
             FineMarkComboBox.ItemsSource = Marks;
             FineMarkComboBox.SelectedValuePath = "IdMark";
             FineMarkComboBox.DisplayMemberPath = "MarkName";
-            if (Properties.Settings.Default.userRole == 4)
-            {
-                TextGroupBlock.Visibility = Visibility.Collapsed;
-                ComboBoxStudent.Visibility = Visibility.Collapsed;
-                TypeFineText.Visibility = Visibility.Collapsed;
-                FineTypeComboBox.Visibility = Visibility.Collapsed;
-                MarkFineText.Visibility = Visibility.Collapsed;
-                FineMarkComboBox.Visibility = Visibility.Collapsed;
-            }
-
-            else
-            {
-                ComboBoxStudent.Visibility = Visibility.Visible;
-                TextGroupBlock.Visibility = Visibility.Visible;
-                TypeFineText.Visibility = Visibility.Visible;
-                FineTypeComboBox.Visibility = Visibility.Visible;
-                MarkFineText.Visibility = Visibility.Visible;
-                FineMarkComboBox.Visibility = Visibility.Visible;
-            }
-            if (Properties.Settings.Default.userRole == 3)
-            {
-                TextGroupBlock.Visibility = Visibility.Collapsed;
-                ComboBoxStudent.Visibility = Visibility.Collapsed;
-                
-            }
-
-            else
-            {
-                ComboBoxStudent.Visibility = Visibility.Visible;
-                TextGroupBlock.Visibility = Visibility.Visible;
-                
-            }
+            
 
 
             //Subjects = db.context.Subjects.Where(x => x.).ToList();
-            DataGridSubject.ItemsSource = Subjects;
+            MarkStudents = db.context.MarkStudent.Where(x => x.IdStudent == idStudent).ToList();
+            DataGridSubject.ItemsSource = MarkStudents;
+            
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -147,5 +119,50 @@ namespace SuccessPlus.View
             addMark.ShowDialog();
         }
 
+        private void Window_ContentRendered(object sender, EventArgs e)
+        {
+            if (Properties.Settings.Default.userRole != 1)
+            {
+                TextGroupBlock.Visibility = Visibility.Collapsed;
+                ComboBoxStudent.Visibility = Visibility.Collapsed;
+                TypeFineText.Visibility = Visibility.Collapsed;
+                FineTypeComboBox.Visibility = Visibility.Collapsed;
+                MarkFineText.Visibility = Visibility.Collapsed;
+                FineMarkComboBox.Visibility = Visibility.Collapsed;
+                EventNameText.Visibility = Visibility.Collapsed;
+                NameEventSearch.Visibility = Visibility.Collapsed;
+                EventTypeText.Visibility = Visibility.Collapsed;
+                EventType.Visibility = Visibility.Collapsed;
+                EventDatePicker.Visibility = Visibility.Collapsed;
+                DataEvent.Visibility = Visibility.Collapsed;
+                MarkEvent.Visibility = Visibility.Collapsed;
+                EventMark.Visibility = Visibility.Collapsed;
+
+            }
+            
+
+            if (Properties.Settings.Default.userRole == 4)
+            {
+                EventNameText.Visibility = Visibility.Visible;
+                NameEventSearch.Visibility = Visibility.Visible;
+                EventTypeText.Visibility = Visibility.Visible;
+                EventType.Visibility = Visibility.Visible;
+                EventDatePicker.Visibility = Visibility.Visible;
+                DataEvent.Visibility = Visibility.Visible;
+                MarkEvent.Visibility = Visibility.Visible;
+                EventMark.Visibility = Visibility.Visible;
+
+            }
+
+
+            if (Properties.Settings.Default.userRole == 3)
+            {
+                TypeFineText.Visibility = Visibility.Visible;
+                FineTypeComboBox.Visibility = Visibility.Visible;
+                MarkFineText.Visibility = Visibility.Visible;
+                FineMarkComboBox.Visibility = Visibility.Visible;
+
+            }
+        }
     }
 }

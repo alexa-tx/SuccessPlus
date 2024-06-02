@@ -116,6 +116,7 @@
       <DependentUpon>Model1.edmx</DependentUpon>
     </Compile>
     <Compile Include="Model\Partial\Group.cs" />
+    <Compile Include="Model\Partial\MarkStudent.cs" />
     <Compile Include="Model\Partial\Student.cs" />
     <Compile Include="Model\Partial\Subjects.cs" />
     <Compile Include="Model\SignIn.cs">
@@ -316,6 +317,7 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Assets\User.png" />
+    <Resource Include="Assets\user .png" />
     <Content Include="Model\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model1.edmx</DependentUpon>

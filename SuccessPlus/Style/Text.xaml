@@ -125,7 +125,7 @@
         <Setter Property="HorizontalAlignment" Value="Center"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
         <Setter Property="Foreground" Value="White"/>
-        <Setter Property="Margin" Value="0,90,0,0"/>
+        <Setter Property="Margin" Value="0,40,0,0"/>
     </Style>
 
     <Style x:Key="AppTitleTextStyle" TargetType="TextBlock">
@@ -137,7 +137,6 @@
 
     </Style>
 
-    <!-- Style for the application description -->
     <Style x:Key="AppDescriptionTextStyle" TargetType="TextBlock">
         <Setter Property="FontSize" Value="16"/>
         <Setter Property="Foreground" Value="#3D7278"/>
@@ -154,7 +153,6 @@
 
 
 
-    <!-- Контрольный шаблон для DatePicker -->
     <ControlTemplate x:Key="DatePickerIconTemplate" TargetType="DatePicker">
         <Border BorderThickness="1"  Background="White" CornerRadius="5">
             <Grid>
@@ -170,13 +168,11 @@
         </Border>
     </ControlTemplate>
 
-    <!-- Стиль для DatePicker -->
     <Style TargetType="DatePicker" x:Key="DatePickerStyle">
         <Setter Property="Template" Value="{StaticResource DatePickerIconTemplate}" />
     </Style>
 
 
-        <!-- Стили для ComboBox -->
         <SolidColorBrush x:Key="ComboBoxBorderBrush" Color="#FFCCCCCC"/>
         <SolidColorBrush x:Key="ComboBoxBackgroundBrush" Color="White"/>
         <SolidColorBrush x:Key="ComboBoxMouseOverBrush" Color="#FFBEE6FD"/>
@@ -186,7 +182,6 @@
         <SolidColorBrush x:Key="ComboBoxItemHighlightBrush" Color="#FFBEE6FD"/>
         <SolidColorBrush x:Key="ComboBoxItemSelectedBrush" Color="#FF3399FF"/>
 
-        <!-- Стиль для выпадающего списка -->
         <Style TargetType="ComboBox" x:Key="ComboBoxStyle">
             <Setter Property="Foreground" Value="{StaticResource ComboBoxForegroundBrush}"/>
         <Setter Property="Background" Value="{StaticResource ComboBoxBackgroundBrush}"/>
@@ -266,7 +261,6 @@
             </Setter>
         </Style>
 
-        <!-- Стиль для кнопки выпадающего списка -->
         <ControlTemplate x:Key="ComboBoxToggleButton" TargetType="ToggleButton">
             <Border x:Name="Border" BorderBrush="{StaticResource ComboBoxBorderBrush}" BorderThickness="1">
                 <Border.Background>
@@ -298,7 +292,6 @@
             </ControlTemplate.Triggers>
         </ControlTemplate>
 
-        <!-- Стиль для текстового поля ComboBox -->
     <ControlTemplate x:Key="ComboBoxTextBox" TargetType="TextBox">
         <Border x:Name="PART_ContentHost" Focusable="False" Background="Transparent" BorderThickness="1"/>
     </ControlTemplate>
