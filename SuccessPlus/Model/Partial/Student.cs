@@ -11,6 +11,8 @@ namespace SuccessPlus.Model
         public string GroupName => _db.context.Group.Where(x => x.IdGroup == GroupId).FirstOrDefault().NameGroup;
         public List<int> MarkStudents => _db.context.MarkStudent.Where(x => x.IdStudent == IdStudent).Select(x => x.Marks.IdMark).ToList();
 
+        public List<DateTime> Date => _db.context.MarkStudent.Where(x => x.IdStudent == IdStudent).Select(x => x.Date).ToList();
+
         public double AVGMark => MarkStudents.AsEnumerable().Average(mark => (double)mark);
 
         public List<int> Visiting => _db.context.VisitingStudent.Where(x => x.IdStudent == IdStudent).Select(x => x.Visiting.IdVisiting).ToList();

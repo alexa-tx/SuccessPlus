@@ -61,12 +61,36 @@ namespace SuccessPlus.View
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
+            Filter();
+        }
+
+        private void Filter()
+        {
             StudentList = _db.context.Student.ToList();
-            StudentList = StudentList.Where(x => x.TotalVisiting.ToString().Contains(Poisk.Text) || x.AVGMark.ToString().Contains(Poisk.Text)
-            || x.FisrtName.ToString().Contains(Poisk.Text) || x.LastName.ToString().Contains(Poisk.Text) || x.GroupName.ToString().Contains(Poisk.Text)).ToList();
+            List<DateTime> Date = _db.context.MarkStudent.Where(x => x.IdStudent == 4).Select(x => x.Date).ToList();
+             DateTime? selectedDate = DatePickerMark.SelectedDate;
+            if (selectedDate.HasValue)
+            {
+                StudentList = StudentList.Where(student => student.Date.Contains((DateTime)DatePickerMark.SelectedDate))
+                    .ToList();
+                StudentList = StudentList.Where(x => x.TotalVisiting.ToString().ToLower().Contains(Poisk.Text.ToLower()) || x.AVGMark.ToString().ToLower().Contains(Poisk.Text.ToLower())
+                || x.FisrtName.ToString().ToLower().Contains(Poisk.Text.ToLower()) || x.LastName.ToString().ToLower().Contains(Poisk.Text.ToLower()) ||
+                x.GroupName.ToString().ToLower().Contains(Poisk.Text.ToLower())).ToList();
+            }
+            else
+            {
+                StudentList = StudentList.Where(x => x.TotalVisiting.ToString().ToLower().Contains(Poisk.Text.ToLower()) || x.AVGMark.ToString().ToLower().Contains(Poisk.Text.ToLower())
+                || x.FisrtName.ToString().ToLower().Contains(Poisk.Text.ToLower()) || x.LastName.ToString().ToLower().Contains(Poisk.Text.ToLower()) ||
+                x.GroupName.ToString().ToLower().Contains(Poisk.Text.ToLower())).ToList();
+            }
+            //StudentList = StudentList.Where(student => student.Date.ToString().Contains(DatePickerMark.SelectedDate.ToString()))
+            //.ToList();
+            //StudentList = StudentList.Where(x => x.TotalVisiting.ToString().Contains(Poisk.Text) || x.AVGMark.ToString().Contains(Poisk.Text)
+            //|| x.FisrtName.ToString().Contains(Poisk.Text) || x.LastName.ToString().Contains(Poisk.Text) || 
+            //x.GroupName.ToString().Contains(Poisk.Text)).ToList();
             DataGridStudent.ItemsSource = StudentList;
         }
-        
+
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             AddStudentView addStudentView = new AddStudentView();
@@ -80,12 +104,12 @@ namespace SuccessPlus.View
             else
             {
                 DialogResult result = System.Windows.Forms.MessageBox.Show(
-"Вы уверенны,что хотите удалить?",
-"Удаление студента",
-MessageBoxButtons.YesNo,
-MessageBoxIcon.Exclamation,
-MessageBoxDefaultButton.Button2
-);
+                    "Вы уверенны,что хотите удалить?",
+                    "Удаление студента",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Exclamation,
+                    MessageBoxDefaultButton.Button2
+                    );
 
                 if (result == DialogResult.Yes)
                 {
@@ -160,5 +184,15 @@ MessageBoxDefaultButton.Button2
                 }
             }
             }
+
+        private void DatePickerMark_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Filter();
+        }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

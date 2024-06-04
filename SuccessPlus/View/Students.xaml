@@ -17,8 +17,9 @@
          <Button x:Name="BtnAddStudent" Style="{StaticResource BtnAdd}" Click="Button_Click" Grid.Row="0">
             <TextBlock Text="Добавить"></TextBlock>
         </Button>
-        
-         <DataGrid RowStyle="{DynamicResource DataGridRowStyle1}" 
+        <DatePicker x:Name="DatePickerMark" Width="200" Height="30"  VerticalAlignment="Center" HorizontalAlignment="Left" Margin="220 0" SelectedDateChanged="DatePickerMark_SelectedDateChanged" Style="{StaticResource DatePickerStyle}"/>
+
+        <DataGrid RowStyle="{DynamicResource DataGridRowStyle1}"
                   ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" 
                   x:Name="DataGridStudent" IsReadOnly="True" AutoGenerateColumns="False" 
                   Margin="0 0" Grid.Row="1"  SelectionChanged="DataGrid_SelectionChanged">
@@ -47,6 +48,9 @@
                                 </Button>
                                 <Button Style="{StaticResource BtnDelete}" Margin="8 0" Click="Button_Click_2" x:Name="BtnDelete">
                                     <Image Source="/Assets/BtnDelete.png" Width="20" Height="20"/>
+                                </Button>
+                                <Button Style="{StaticResource BtnEdit}" Click="Button_Click_3">
+                                    <Image Source="/Assets/File.png"/>
                                 </Button>
                             </StackPanel>
                         </DataTemplate>
