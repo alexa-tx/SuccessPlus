@@ -29,6 +29,12 @@
         </Setter>
     </Style>
 
+    <Style x:Key="TextBlockReport" TargetType="TextBlock">
+        <Setter Property="FontSize" Value="30"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+    </Style>
+
     <Style x:Key="PoiskTextBoxStyle" TargetType="TextBox">
         <Setter Property="Background" Value="#ffff" />
         <Setter Property="Foreground" Value="#b0b9c6" />

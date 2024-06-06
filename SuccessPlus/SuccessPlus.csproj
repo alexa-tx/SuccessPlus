@@ -183,6 +183,9 @@
     <Compile Include="View\EditStudent.xaml.cs">
       <DependentUpon>EditStudent.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\File.xaml.cs">
+      <DependentUpon>File.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\HomePage.xaml.cs">
       <DependentUpon>HomePage.xaml</DependentUpon>
     </Compile>
@@ -196,10 +199,6 @@
       <DependentUpon>StudentsGroup.xaml</DependentUpon>
     </Compile>
     <Page Include="Style\Button.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Style\Calendar.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -240,6 +239,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\EditStudent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\File.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -334,6 +337,7 @@
   <ItemGroup>
     <Resource Include="Assets\User.png" />
     <Resource Include="Assets\user .png" />
+    <Resource Include="Assets\download.png" />
     <Content Include="Model\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model1.edmx</DependentUpon>

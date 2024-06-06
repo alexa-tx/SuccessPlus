@@ -72,7 +72,7 @@ namespace SuccessPlus.View
 
         private void Image_PreviewMouseLeftButtonDown_3(object sender, MouseButtonEventArgs e)
         {
-            //MainFrame.Navigate(new HomePage());
+            MainFrame.Navigate(new File());
         }
 
         private void Image_PreviewMouseLeftButtonDown_4(object sender, MouseButtonEventArgs e)
