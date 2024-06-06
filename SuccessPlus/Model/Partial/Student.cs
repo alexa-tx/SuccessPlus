@@ -25,7 +25,7 @@ namespace SuccessPlus.Model
         {
             get
             {
-                using (var dbContext = new SuccessPlusEntities2())
+                using (var dbContext = new SuccessPlusEntities())
                 {
                     var ratings = dbContext.EventStudent
                         .Where(es => es.IdStudent == this.IdStudent &&
@@ -52,7 +52,7 @@ namespace SuccessPlus.Model
         {
             get
             {
-                using (var dbContext = new SuccessPlusEntities2())
+                using (var dbContext = new SuccessPlusEntities())
                 {
                     var ratings = dbContext.EventStudent
                         .Where(es => es.IdStudent == this.IdStudent &&
@@ -79,7 +79,7 @@ namespace SuccessPlus.Model
         {
             get
             {
-                using (var dbContext = new SuccessPlusEntities2())
+                using (var dbContext = new SuccessPlusEntities())
                 {
                     var ratings = dbContext.EventStudent
                         .Where(es => es.IdStudent == this.IdStudent &&
@@ -105,7 +105,7 @@ namespace SuccessPlus.Model
         {
             get
             {
-                using (var dbContext = new SuccessPlusEntities2())
+                using (var dbContext = new SuccessPlusEntities())
                 {
                     var ratings = dbContext.EventStudent
                         .Where(es => es.IdStudent == this.IdStudent &&
@@ -132,7 +132,7 @@ namespace SuccessPlus.Model
         {
             get
             {
-                using (var dbContext = new SuccessPlusEntities2())
+                using (var dbContext = new SuccessPlusEntities())
                 {
                     var ratings = dbContext.EventStudent
                         .Where(es => es.IdStudent == this.IdStudent &&
@@ -176,7 +176,7 @@ namespace SuccessPlus.Model
         {
             get
             {
-                using (var dbContext = new SuccessPlusEntities2())
+                using (var dbContext = new SuccessPlusEntities())
                 {
                     var behaviorFine = dbContext.Fine
                         .Where(x => x.IdStudent == this.IdStudent && x.TypeFine == 1)
@@ -192,7 +192,7 @@ namespace SuccessPlus.Model
         {
             get
             {
-                using (var dbContext = new SuccessPlusEntities2())
+                using (var dbContext = new SuccessPlusEntities())
                 {
                     var debtFine = dbContext.Fine
                         .Where(f => f.IdStudent == this.IdStudent && f.TypeFine == 2)
@@ -208,7 +208,7 @@ namespace SuccessPlus.Model
         {
             get
             {
-                using (var dbContext = new SuccessPlusEntities2())
+                using (var dbContext = new SuccessPlusEntities())
                 {
                     var leadershipFine = dbContext.Fine
                         .Where(f => f.IdStudent == this.IdStudent && f.TypeFine == 3)
@@ -223,7 +223,7 @@ namespace SuccessPlus.Model
         {
             get
             {
-                using (var dbContext = new SuccessPlusEntities2())
+                using (var dbContext = new SuccessPlusEntities())
                 {
                     // Получение всех штрафов для студента
                     var fines = dbContext.Fine

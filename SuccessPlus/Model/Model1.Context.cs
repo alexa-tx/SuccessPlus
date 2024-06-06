@@ -15,10 +15,10 @@ namespace SuccessPlus.Model
     using System.Data.Entity.Core.Objects;
     using System.Linq;
     
-    public partial class SuccessPlusEntities2 : DbContext
+    public partial class SuccessPlusEntities : DbContext
     {
-        public SuccessPlusEntities2()
-            : base("name=SuccessPlusEntities2")
+        public SuccessPlusEntities()
+            : base("name=SuccessPlusEntities")
         {
         }
     
@@ -27,6 +27,7 @@ namespace SuccessPlus.Model
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<Departmen> Departmen { get; set; }
         public virtual DbSet<Event> Event { get; set; }
         public virtual DbSet<EventStudent> EventStudent { get; set; }
         public virtual DbSet<EventType> EventType { get; set; }

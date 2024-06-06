@@ -16,7 +16,7 @@ namespace SuccessPlus.Model
         {
             get
             {
-                using (var dbContext = new SuccessPlusEntities2())
+                using (var dbContext = new SuccessPlusEntities())
                 {
                     var totalAbsences = (from student in dbContext.Student
                                          join visiting in dbContext.VisitingStudent on student.IdStudent equals visiting.IdStudent
@@ -32,7 +32,7 @@ namespace SuccessPlus.Model
         {
             get
             {
-                using (var dbContext = new SuccessPlusEntities2())
+                using (var dbContext = new SuccessPlusEntities())
                 {
                     var totalNTT = (from student in dbContext.Student
                                     join eventStudent in dbContext.EventStudent on student.IdStudent equals eventStudent.IdStudent
@@ -49,7 +49,7 @@ namespace SuccessPlus.Model
         {
             get
             {
-                using (var dbContext = new SuccessPlusEntities2())
+                using (var dbContext = new SuccessPlusEntities())
                 {
                     var totalSports = (from student in dbContext.Student
                                        join eventStudent in dbContext.EventStudent on student.IdStudent equals eventStudent.IdStudent
@@ -66,7 +66,7 @@ namespace SuccessPlus.Model
         {
             get
             {
-                using (var dbContext = new SuccessPlusEntities2())
+                using (var dbContext = new SuccessPlusEntities())
                 {
                     var totalPublicActivity = (from student in dbContext.Student
                                                join eventStudent in dbContext.EventStudent on student.IdStudent equals eventStudent.IdStudent
@@ -83,7 +83,7 @@ namespace SuccessPlus.Model
         {
             get
             {
-                using (var dbContext = new SuccessPlusEntities2())
+                using (var dbContext = new SuccessPlusEntities())
                 {
                     var totalArtActivity = (from student in dbContext.Student
                                             join eventStudent in dbContext.EventStudent on student.IdStudent equals eventStudent.IdStudent
@@ -100,7 +100,7 @@ namespace SuccessPlus.Model
         {
             get
             {
-                using (var dbContext = new SuccessPlusEntities2())
+                using (var dbContext = new SuccessPlusEntities())
                 {
                     var totalSelfEducation = (from student in dbContext.Student
                                               join eventStudent in dbContext.EventStudent on student.IdStudent equals eventStudent.IdStudent
@@ -117,7 +117,7 @@ namespace SuccessPlus.Model
         {
             get
             {
-                using (var dbContext = new SuccessPlusEntities2())
+                using (var dbContext = new SuccessPlusEntities())
                 {
                     var averageGrade = (from student in dbContext.Student
                                         join markStudent in dbContext.MarkStudent on student.IdStudent equals markStudent.IdStudent
@@ -132,7 +132,7 @@ namespace SuccessPlus.Model
         {
             get
             {
-                using (var dbContext = new SuccessPlusEntities2())
+                using (var dbContext = new SuccessPlusEntities())
                 {
                     // Получаем список всех студентов в группе
                     var students = dbContext.Student.Where(s => s.GroupId == this.IdGroup).ToList();

@@ -5,6 +5,13 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
       <Schema Namespace="Хранилище SuccessPlusModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Departmen">
+          <Key>
+            <PropertyRef Name="IdDepartmen" />
+          </Key>
+          <Property Name="IdDepartmen" Type="int" Nullable="false" />
+          <Property Name="NameDepartmen" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
         <EntityType Name="Event">
           <Key>
             <PropertyRef Name="IdEvent" />
@@ -45,6 +52,7 @@
           </Key>
           <Property Name="IdGroup" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="NameGroup" Type="nvarchar" MaxLength="50" />
+          <Property Name="IdDepartmen" Type="int" />
         </EntityType>
         <EntityType Name="Marks">
           <Key>
@@ -232,6 +240,20 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Group_Departmen">
+          <End Role="Departmen" Type="Self.Departmen" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Group" Type="Self.Group" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Departmen">
+              <PropertyRef Name="IdDepartmen" />
+            </Principal>
+            <Dependent Role="Group">
+              <PropertyRef Name="IdDepartmen" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_MarkStudent_Marks">
           <End Role="Marks" Type="Self.Marks" Multiplicity="1">
             <OnDelete Action="Cascade" />
@@ -398,6 +420,7 @@
         </Function>
         <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="Хранилище SuccessPlusModelContainer">
+          <EntitySet Name="Departmen" EntityType="Self.Departmen" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Event" EntityType="Self.Event" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="EventStudent" EntityType="Self.EventStudent" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="EventType" EntityType="Self.EventType" Schema="dbo" store:Type="Tables" />
@@ -441,6 +464,10 @@
           <AssociationSet Name="FK_Fine_TypeFine" Association="Self.FK_Fine_TypeFine">
             <End Role="TypeFine" EntitySet="TypeFine" />
             <End Role="Fine" EntitySet="Fine" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Group_Departmen" Association="Self.FK_Group_Departmen">
+            <End Role="Departmen" EntitySet="Departmen" />
+            <End Role="Group" EntitySet="Group" />
           </AssociationSet>
           <AssociationSet Name="FK_MarkStudent_Marks" Association="Self.FK_MarkStudent_Marks">
             <End Role="Marks" EntitySet="Marks" />
@@ -488,6 +515,14 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="SuccessPlusModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Departmen">
+          <Key>
+            <PropertyRef Name="IdDepartmen" />
+          </Key>
+          <Property Name="IdDepartmen" Type="Int32" Nullable="false" />
+          <Property Name="NameDepartmen" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Group" Relationship="Self.FK_Group_Departmen" FromRole="Departmen" ToRole="Group" />
+        </EntityType>
         <EntityType Name="Event">
           <Key>
             <PropertyRef Name="IdEvent" />
@@ -537,6 +572,8 @@
           </Key>
           <Property Name="IdGroup" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="NameGroup" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IdDepartmen" Type="Int32" />
+          <NavigationProperty Name="Departmen" Relationship="Self.FK_Group_Departmen" FromRole="Group" ToRole="Departmen" />
           <NavigationProperty Name="Student" Relationship="Self.FK_Student_Group" FromRole="Group" ToRole="Student" />
           <NavigationProperty Name="User" Relationship="Self.FK_User_Group" FromRole="Group" ToRole="User" />
         </EntityType>
@@ -659,6 +696,20 @@
           <NavigationProperty Name="Student" Relationship="Self.FK_VisitingStudent_Student" FromRole="VisitingStudent" ToRole="Student" />
           <NavigationProperty Name="Visiting" Relationship="Self.FK_VisitingStudent_Visiting" FromRole="VisitingStudent" ToRole="Visiting" />
         </EntityType>
+        <Association Name="FK_Group_Departmen">
+          <End Role="Departmen" Type="Self.Departmen" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Group" Type="Self.Group" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Departmen">
+              <PropertyRef Name="IdDepartmen" />
+            </Principal>
+            <Dependent Role="Group">
+              <PropertyRef Name="IdDepartmen" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Event_EventType">
           <End Role="EventType" Type="Self.EventType" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
@@ -883,7 +934,8 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="SuccessPlusEntities2" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="SuccessPlusEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Departmen" EntityType="Self.Departmen" />
           <EntitySet Name="Event" EntityType="Self.Event" />
           <EntitySet Name="EventStudent" EntityType="Self.EventStudent" />
           <EntitySet Name="EventType" EntityType="Self.EventType" />
@@ -900,6 +952,10 @@
           <EntitySet Name="User" EntityType="Self.User" />
           <EntitySet Name="Visiting" EntityType="Self.Visiting" />
           <EntitySet Name="VisitingStudent" EntityType="Self.VisitingStudent" />
+          <AssociationSet Name="FK_Group_Departmen" Association="Self.FK_Group_Departmen">
+            <End Role="Departmen" EntitySet="Departmen" />
+            <End Role="Group" EntitySet="Group" />
+          </AssociationSet>
           <AssociationSet Name="FK_Event_EventType" Association="Self.FK_Event_EventType">
             <End Role="EventType" EntitySet="EventType" />
             <End Role="Event" EntitySet="Event" />
@@ -1015,7 +1071,15 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище SuccessPlusModelContainer" CdmEntityContainer="SuccessPlusEntities2">
+        <EntityContainerMapping StorageEntityContainer="Хранилище SuccessPlusModelContainer" CdmEntityContainer="SuccessPlusEntities">
+          <EntitySetMapping Name="Departmen">
+            <EntityTypeMapping TypeName="SuccessPlusModel.Departmen">
+              <MappingFragment StoreEntitySet="Departmen">
+                <ScalarProperty Name="IdDepartmen" ColumnName="IdDepartmen" />
+                <ScalarProperty Name="NameDepartmen" ColumnName="NameDepartmen" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Event">
             <EntityTypeMapping TypeName="SuccessPlusModel.Event">
               <MappingFragment StoreEntitySet="Event">
@@ -1059,6 +1123,7 @@
               <MappingFragment StoreEntitySet="Group">
                 <ScalarProperty Name="IdGroup" ColumnName="IdGroup" />
                 <ScalarProperty Name="NameGroup" ColumnName="NameGroup" />
+                <ScalarProperty Name="IdDepartmen" ColumnName="IdDepartmen" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
