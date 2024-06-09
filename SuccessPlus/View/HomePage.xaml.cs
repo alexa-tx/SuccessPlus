@@ -66,5 +66,20 @@ namespace SuccessPlus.View
             return _db.context.Group.Count(); 
         }
 
+        private void BtnAddUser_Click(object sender, RoutedEventArgs e)
+        {
+            if (Properties.Settings.Default.userRole == 1)
+            {
+                BtnAddUser.Visibility = Visibility.Visible;
+                AddUser addUser = new AddUser();
+                addUser.ShowDialog();
+            }
+            else
+            {
+                BtnAddUser.Visibility= Visibility.Collapsed;
+            }
+            
+
+        }
     }
 }

@@ -51,6 +51,11 @@
                 <Image Source="/Assets/user .png" Width="150" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0 130 0 0"/>
 
                 <TextBlock x:Name="FioTextBox" Text="Имя Фамилия" Style="{StaticResource UserNameTextStyle}"/>
+
+                 <Button x:Name="BtnAddUser" Style="{StaticResource BtnAdd}" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="200" Height="40" 
+                         Margin="0 250"  Click="BtnAddUser_Click">
+                    <TextBlock Text="Добавить пользователя"></TextBlock>
+                </Button>
             </StackPanel>
         </Border>
     </Grid>

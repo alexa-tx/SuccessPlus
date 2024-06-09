@@ -31,5 +31,9 @@ namespace SuccessPlus.Model
         public virtual ICollection<Fine> Fine { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<MarkStudent> MarkStudent { get; set; }
+        public DateTime? Date { get; internal set; }
+        public int StudentId { get; internal set; }
+        public object Subjects { get; internal set; }
+        public object MarkValue { get; internal set; }
     }
 }

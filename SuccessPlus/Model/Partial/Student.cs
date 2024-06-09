@@ -8,6 +8,8 @@ namespace SuccessPlus.Model
     partial class Student
     {
         private Core _db = new Core();
+
+
         public string GroupName => _db.context.Group.Where(x => x.IdGroup == GroupId).FirstOrDefault().NameGroup;
         public List<int> MarkStudents => _db.context.MarkStudent.Where(x => x.IdStudent == IdStudent).Select(x => x.Marks.IdMark).ToList();
 

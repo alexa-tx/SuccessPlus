@@ -83,5 +83,9 @@ namespace SuccessPlus.View
             Properties.Settings.Default.Save();
         }
 
+        //private void StackPanel_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        //{
+        //    MainFrame.Navigate(new Journal());
+        //}
     }
 }

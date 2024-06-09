@@ -1,0 +1,51 @@
+﻿<Window x:Class="SuccessPlus.View.AddUser"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SuccessPlus.View"
+        mc:Ignorable="d"
+        Title="AddUser"  Height="600" Width="500"
+        Background="#CCDEE0">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <Grid Width="350" Height="45" HorizontalAlignment="Center" VerticalAlignment="Bottom" >
+            <TextBlock Margin="10 0" VerticalAlignment="Center" Foreground="#060D0E" IsHitTestVisible="False" 
+               Panel.ZIndex="1" Text="Фамилия" Visibility="{Binding ElementName=LastName, Path=Text.IsEmpty, Converter={StaticResource BoolToVis}}"/>
+            <TextBox x:Name="LastName" Style="{StaticResource SearchBox}" Height="40" VerticalContentAlignment="Center"/>
+        </Grid>
+        <Grid Width="350" Height="45" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 25" Grid.Row="1">
+            <TextBlock Margin="10 0" VerticalAlignment="Center" Foreground="#060D0E" IsHitTestVisible="False" 
+               Panel.ZIndex="1" Text="Имя" Visibility="{Binding ElementName=FirstName, Path=Text.IsEmpty, Converter={StaticResource BoolToVis}}"/>
+            <TextBox x:Name="FirstName" Style="{StaticResource SearchBox}" Height="40" VerticalContentAlignment="Center"/>
+        </Grid>
+        <Grid Width="350" Height="45" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 10" Grid.Row="2">
+            <TextBlock Margin="10 0" VerticalAlignment="Center" Foreground="#060D0E" IsHitTestVisible="False" 
+               Panel.ZIndex="1" Text="Логин" Visibility="{Binding ElementName=Login, Path=Text.IsEmpty, Converter={StaticResource BoolToVis}}"/>
+            <TextBox x:Name="Login" Style="{StaticResource SearchBox}" Height="40" VerticalContentAlignment="Center"/>
+        </Grid>
+        <Grid Width="350" Height="45" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 10" Grid.Row="3">
+            <TextBlock Margin="10 0" VerticalAlignment="Center" Foreground="#060D0E" IsHitTestVisible="False" 
+               Panel.ZIndex="1" Text="Пароль" Visibility="{Binding ElementName=Password, Path=Text.IsEmpty, Converter={StaticResource BoolToVis}}"/>
+            <TextBox x:Name="Password" Style="{StaticResource SearchBox}" Height="40" VerticalContentAlignment="Center"/>
+        </Grid>
+        <Grid Width="350" Height="45" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 10" Grid.Row="4">
+            <ComboBox x:Name="TypeUserComboBox" SelectedValuePath="IdType" DisplayMemberPath="NameAcc" SelectionChanged="TypeUserComboBox_SelectionChanged"/>
+        </Grid>
+        <Grid Width="350" Height="45" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 10" Grid.Row="5" Visibility="Collapsed" x:Name="GroupComboBoxContainer">
+            <TextBlock Margin="10 0" VerticalAlignment="Center" Foreground="#060D0E" IsHitTestVisible="False" 
+               Panel.ZIndex="1" Text="Группа" Visibility="{Binding ElementName=GroupComboBox, Path=SelectedItem.IsEmpty, Converter={StaticResource BoolToVis}}"/>
+            <ComboBox x:Name="GroupComboBox" SelectedValuePath="IdGroup" DisplayMemberPath="Name"/>
+        </Grid>
+        <Button Style="{StaticResource BtnAddView}" VerticalContentAlignment="Bottom" Margin="0 20" Grid.Row="5" Click="Button_Click">
+            <TextBlock Text="Добавить"/>
+        </Button>
+    </Grid>
+</Window>
