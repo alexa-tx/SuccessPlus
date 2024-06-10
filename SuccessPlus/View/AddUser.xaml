@@ -16,6 +16,7 @@
             <RowDefinition Height="1*"/>
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
+        <TextBlock Text="Добавление пользователя" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0 15"/>
         <Grid Width="350" Height="45" HorizontalAlignment="Center" VerticalAlignment="Bottom" >
             <TextBlock Margin="10 0" VerticalAlignment="Center" Foreground="#060D0E" IsHitTestVisible="False" 
                Panel.ZIndex="1" Text="Фамилия" Visibility="{Binding ElementName=LastName, Path=Text.IsEmpty, Converter={StaticResource BoolToVis}}"/>

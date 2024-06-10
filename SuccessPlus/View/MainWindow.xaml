@@ -37,10 +37,10 @@
                         <Image Source="/Assets/File.png" Width="60" Style="{StaticResource IconImage}" />
                         <TextBlock Text="Файлы" Style="{StaticResource TopBarMenuText}" Margin="10,0,0,0"/>
                     </StackPanel>
-                    <!--<StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 20" PreviewMouseLeftButtonDown="StackPanel_PreviewMouseLeftButtonDown">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 20" PreviewMouseLeftButtonDown="StackPanel_PreviewMouseLeftButtonDown">
                         <Image Source="/Assets/File.png" Width="60" Style="{StaticResource IconImage}" />
                         <TextBlock Text="Журнал" Style="{StaticResource TopBarMenuText}" Margin="10,0,0,0"/>
-                    </StackPanel>-->
+                    </StackPanel>
                 </StackPanel>
 
                 <StackPanel VerticalAlignment="Bottom"  PreviewMouseLeftButtonDown="Image_PreviewMouseLeftButtonDown_4">

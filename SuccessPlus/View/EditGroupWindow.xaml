@@ -11,6 +11,7 @@
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
+        <TextBlock Text="Редактирование группы" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0 60"/>
         <TextBox x:Name="GroupNameTextBox" Style="{StaticResource SearchBox}" Height="40" VerticalContentAlignment="Center" Width="400" VerticalAlignment="Bottom">Название группы</TextBox>
         <Button Grid.Row="1" Style="{StaticResource BtnSave}" Content="Сохранить" VerticalAlignment="Top" Click="Button_Click" Margin="0 20"/>
     </Grid>

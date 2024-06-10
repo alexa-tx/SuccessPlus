@@ -1,27 +1,42 @@
 ﻿<Window x:Class="SuccessPlus.View.AddMark"
-      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-      xmlns:local="clr-namespace:SuccessPlus.View"
-      mc:Ignorable="d"
-      Title="AddMark" Height="300" Width="400"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:local="clr-namespace:SuccessPlus.View"
+        mc:Ignorable="d"
+        Title="AddMark" Height="350" Width="400"
         Background="#CCDEE0">
 
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="40"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="100"/>
         </Grid.RowDefinitions>
-        <TextBlock Text="Выберите предмет:" Grid.Row="0" Margin="10"/>
-        <ComboBox x:Name="SubjectComboBox" Grid.Row="1" Width="200" Margin="10" Style="{StaticResource ComboBoxStyle}"/>
 
-        <TextBlock Text="Выберите оценку:" Grid.Row="2" Margin="10"/>
-        <ComboBox x:Name="MarkComboBox" Grid.Row="3" Width="200" Margin="10" Style="{StaticResource ComboBoxStyle}"/>
+        <TextBlock Text="Добавление оценки" Grid.Column="1" HorizontalAlignment="Left" />
 
-        <Button Content="Сохранить" Style="{StaticResource BtnSave}" Grid.Row="4"  HorizontalAlignment="Center" Margin="10" Click="SaveButton_Click"/>
+        <TextBlock Text="Выберите студента:" Grid.Row="1" Grid.Column="0" Margin="10" VerticalAlignment="Center"/>
+        <ComboBox x:Name="StudentComboBox" Grid.Row="1" Grid.Column="1" Width="200" Margin="10"  VerticalAlignment="Center" Height="25" HorizontalAlignment="Left" Style="{StaticResource ComboBoxStyle}"/>
+
+        <TextBlock Text="Выберите предмет:" Grid.Row="2" Grid.Column="0" Margin="10" VerticalAlignment="Center"/>
+        <ComboBox x:Name="SubjectComboBox" Grid.Row="2" Grid.Column="1" Width="200" Height="25"  VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10 10 -50 0" Style="{StaticResource ComboBoxStyle}"/>
+
+        <TextBlock Text="Выберите оценку:" Grid.Row="3" Grid.Column="0" Margin="10"  VerticalAlignment="Center"/>
+        <ComboBox x:Name="MarkComboBox" Grid.Row="3" Grid.Column="1" Width="200" Height="25"  VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10 0 -20 0" Style="{StaticResource ComboBoxStyle}"/>
+
+        <TextBlock Text="Выберите дату:" Grid.Row="4" Grid.Column="0" Margin="10"  VerticalAlignment="Center"/>
+        <DatePicker x:Name="MarkDatePicker" Grid.Row="4" Grid.Column="1" Width="200" HorizontalAlignment="Left"  Margin="10" Style="{StaticResource DatePickerStyle}"/>
+
+        <Button Content="Сохранить" Style="{StaticResource BtnSave}" Grid.Row="6" Grid.Column="1" HorizontalAlignment="Left"  VerticalAlignment="Center" Margin="10" Click="SaveButton_Click"/>
     </Grid>
 </Window>

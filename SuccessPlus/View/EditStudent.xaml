@@ -1,59 +1,62 @@
 ﻿<Window x:Class="SuccessPlus.View.EditStudent"
-      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:SuccessPlus.View"
-      mc:Ignorable="d" 
-      Height="400" Width="750"
-      Title="EditStudent"  Background="#CCDEE0" ContentRendered="Window_ContentRendered">
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+        xmlns:local="clr-namespace:SuccessPlus.View"
+        mc:Ignorable="d" 
+        Height="400" Width="450"
+        Title="EditStudent"  Background="#CCDEE0" ContentRendered="Window_ContentRendered">
 
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="3*"/>
-            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="40"/>
-                <RowDefinition Height="5*"/>
-                <RowDefinition/>
-            </Grid.RowDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="100"/>
+        </Grid.RowDefinitions>
 
-            <TextBlock x:Name="NameStudent" Style="{StaticResource NameStudentStyle}"/>
+        <!-- Имя студента -->
+        <TextBlock x:Name="NameStudent" Grid.Row="0" Grid.Column="2" HorizontalAlignment="Left" Margin="10 0 0 0" Style="{StaticResource NameStudentStyle}"/>
 
-            <TextBlock Text="Группа" x:Name="TextGroupBlock" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0 15 10 0" Grid.Row="1"/>
-            <ComboBox x:Name="ComboBoxStudent" Width="100" Height="25" VerticalAlignment="Top" Grid.Row="1" HorizontalAlignment="Left" Margin="50 10 10 0" Style="{StaticResource ComboBoxStyle}"/>
-            
-            <TextBlock Text="Мероприятия" x:Name="EventNameText" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0 60 20 0" Grid.Row="1"/>
-            <TextBox x:Name="NameEventSearch" Grid.Row="1" Style="{StaticResource SearchBox}" Width="200" Height="25" Margin="-130 55 10 0" VerticalAlignment="Top"/>
-            
-            <TextBlock Text="Тип мероприятия" x:Name="EventTypeText" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0 100 20 0" Grid.Row="1"/>
-            <ComboBox x:Name="EventType" Grid.Row="1" Width="100" Height="25" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="110 95 10 0" Style="{StaticResource ComboBoxStyle}"/>
-            
-            <TextBlock Text="Дата мероприятия" x:Name="DataEvent" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0 140 20 0" Grid.Row="1"/>
-            <DatePicker x:Name="EventDatePicker" Grid.Row="1" Width="200" Height="30" Margin="-80 135 40 0" VerticalAlignment="Top" Style="{StaticResource DatePickerStyle}"/>
-            
-            <TextBlock Text="Оценка за участие" x:Name="MarkEvent" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0 180 20 0" Grid.Row="1" />
-            <TextBox x:Name="EventMark" Grid.Row="1" Width="100" Height="25" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="120 180 40 0" Style="{StaticResource SearchBox}"/>
-             
-            <TextBlock Text="Тип штрафа" x:Name="TypeFineText"  VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0 220 20 0" Grid.Row="1" />
-            <ComboBox x:Name="FineTypeComboBox" Grid.Row="1" Width="150" Height="25" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="100 215 10 0" Style="{StaticResource ComboBoxStyle}"/>
+        <!-- Группа -->
+        <TextBlock Text="Группа" x:Name="TextGroupBlock" Grid.Row="1" Grid.Column="0" Margin="10 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+        <ComboBox x:Name="ComboBoxStudent" Grid.Row="1" Grid.Column="1" Width="100" Height="25" Margin="10 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Left" Style="{StaticResource ComboBoxStyle}"/>
 
-            <!-- New Fine Mark ComboBox -->
-            <TextBlock Text="Оценка штрафа" x:Name="MarkFineText" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0 260 20 0" Grid.Row="1" />
-            <ComboBox x:Name="FineMarkComboBox" Grid.Row="1" Width="100" Height="25" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="120 255 40 0" Style="{StaticResource ComboBoxStyle}"/>
-        </Grid>
+        <!-- Мероприятия -->
+        <TextBlock Text="Мероприятия" x:Name="EventNameText" Grid.Row="2" Grid.Column="0" Margin="10 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+        <TextBox x:Name="NameEventSearch" Grid.Row="2" Grid.Column="1" Style="{StaticResource SearchBox}" Width="200" Height="25" Margin="10 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Left"/>
 
-        <DataGrid Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Top" x:Name="DataGridSubject" AutoGenerateColumns="False" Width="180" Height="340" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Предмет" Binding="{Binding NameSubject}"/>
-                <DataGridTextColumn Header="Оценка" Binding="{Binding IdMark}" />
+        <!-- Тип мероприятия -->
+        <TextBlock Text="Тип мероприятия" x:Name="EventTypeText" Grid.Row="3" Grid.Column="0" Margin="10 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+        <ComboBox x:Name="EventType" Grid.Row="3" Grid.Column="1" Width="100" Height="25" Margin="10 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Left" Style="{StaticResource ComboBoxStyle}"/>
 
-            </DataGrid.Columns>
+        <!-- Дата мероприятия -->
+        <TextBlock Text="Дата мероприятия" x:Name="DataEvent" Grid.Row="4" Grid.Column="0" Margin="10 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+        <DatePicker x:Name="EventDatePicker" Grid.Row="4" Grid.Column="1" Width="200" Height="30" Margin="10 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Left" Style="{StaticResource DatePickerStyle}"/>
 
-        </DataGrid>
-        <Button Content="Добавить оценку" Click="Button_Click_1"  Style="{StaticResource BtnAddMark}" Grid.Column="1"/>
-        <Button Style="{StaticResource BtnSave}" Content="Сохранить" VerticalAlignment="Bottom" Click="Button_Click" Margin="0 20"/>
+        <!-- Оценка за участие -->
+        <TextBlock Text="Оценка за участие" x:Name="MarkEvent" Grid.Row="5" Grid.Column="0" Margin="10 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+        <TextBox x:Name="EventMark" Grid.Row="5" Grid.Column="1" Width="100" Height="25" Margin="10 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Left" Style="{StaticResource SearchBox}"/>
+
+        <!-- Тип штрафа -->
+        <TextBlock Text="Тип штрафа" x:Name="TypeFineText" Grid.Row="6" Grid.Column="0" Margin="10 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+        <ComboBox x:Name="FineTypeComboBox" Grid.Row="6" Grid.Column="1" Width="100" Height="25" Margin="10 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Left" Style="{StaticResource ComboBoxStyle}"/>
+
+        <!-- Оценка штрафа -->
+        <TextBlock Text="Оценка штрафа" x:Name="MarkFineText" Grid.Row="7" Grid.Column="0" Margin="10 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+        <ComboBox x:Name="FineMarkComboBox" Grid.Row="7" Grid.Column="1" Width="100" Height="25" Margin="10 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Left" Style="{StaticResource ComboBoxStyle}"/>
+
+        <!-- Кнопка Сохранить -->
+        <Button Style="{StaticResource BtnSave}" Content="Сохранить" Grid.Row="8" Grid.Column="1" Margin="10 20"/>
     </Grid>
 </Window>

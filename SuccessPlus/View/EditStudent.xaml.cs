@@ -56,39 +56,40 @@ namespace SuccessPlus.View
             
 
 
-            //Subjects = db.context.Subjects.Where(x => x.).ToList();
-            MarkStudents = db.context.MarkStudent.Where(x => x.IdStudent == idStudent).ToList();
-            DataGridSubject.ItemsSource = MarkStudents;
+            ////Subjects = db.context.Subjects.Where(x => x.).ToList();
+            //MarkStudents = db.context.MarkStudent.Where(x => x.IdStudent == idStudent).ToList();
+            //DataGridSubject.ItemsSource = MarkStudents;
             
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            selectedStudent.GroupId = ComboBoxStudent.SelectedValue != null ? (int)ComboBoxStudent.SelectedValue : selectedStudent.GroupId;
 
-            selectedStudent.GroupId = (int)ComboBoxStudent.SelectedValue;
-            Event newEvent = new Event
+            if (!string.IsNullOrEmpty(NameEventSearch.Text) && EventDatePicker.SelectedDate.HasValue && EventType.SelectedValue != null)
             {
-                Name = NameEventSearch.Text,
-                Date = EventDatePicker.SelectedDate.HasValue ? EventDatePicker.SelectedDate.Value : DateTime.Now,
-                Type = (int)EventType.SelectedValue
+                Event newEvent = new Event
+                {
+                    Name = NameEventSearch.Text,
+                    Date = EventDatePicker.SelectedDate.Value,
+                    Type = (int)EventType.SelectedValue
+                };
 
-            };
-            
-            db.context.Event.Add(newEvent);
-           
-            int eventMark;
-            if (!int.TryParse(EventMark.Text, out eventMark))
-            {
-                MessageBox.Show("Пожалуйста, введите корректную оценку.");
-                return;
+                db.context.Event.Add(newEvent);
+
+                int eventMark;
+                if (!string.IsNullOrEmpty(EventMark.Text) && int.TryParse(EventMark.Text, out eventMark))
+                {
+                    EventStudent neweventStudent = new EventStudent
+                    {
+                        IdStudent = selectedStudent.IdStudent,
+                        IdEvent = newEvent.IdEvent,
+                        IdMark = eventMark
+                    };
+                    db.context.EventStudent.Add(neweventStudent);
+                }
             }
-            EventStudent neweventStudent = new EventStudent
-            {
-                IdStudent = selectedStudent.IdStudent,
-                IdEvent = newEvent.IdEvent,
-                IdMark = eventMark
-            };
-            db.context.EventStudent.Add(neweventStudent);
+
             if (FineTypeComboBox.SelectedValue != null && FineMarkComboBox.SelectedValue != null)
             {
                 Fine newFine = new Fine
@@ -99,25 +100,19 @@ namespace SuccessPlus.View
                 };
                 db.context.Fine.Add(newFine);
             }
+
             try
             {
                 db.context.SaveChanges();
-                if (db.context.SaveChanges() == 0)
-                    MessageBox.Show("Успешное изменение");
+                MessageBox.Show("Успешное изменение");
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
-
-            
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-            AddMark addMark = new AddMark(IdStudent);
-            addMark.ShowDialog();
-        }
+
 
         private void Window_ContentRendered(object sender, EventArgs e)
         {

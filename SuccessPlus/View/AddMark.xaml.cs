@@ -1,17 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using SuccessPlus.Model;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace SuccessPlus.View
 {
@@ -24,6 +15,8 @@ namespace SuccessPlus.View
         private int _studentId;
         public List<Subjects> Subject;
         public List<Marks> Mark;
+        public List<Student> students;
+
         public AddMark(int IdStudent)
         {
             InitializeComponent();
@@ -36,25 +29,40 @@ namespace SuccessPlus.View
             MarkComboBox.ItemsSource = Mark;
             MarkComboBox.DisplayMemberPath = "MarkName";
             MarkComboBox.SelectedValuePath = "IdMark";
+            students = _db.context.Student.ToList();
+            var studentNames = students.Select(s => $"{s.LastName} {s.FisrtName}").ToList();
+            StudentComboBox.ItemsSource = studentNames;
+
         }
 
         private void SaveButton_Click(object sender, RoutedEventArgs e)
         {
-            if (SubjectComboBox.SelectedItem == null || MarkComboBox.SelectedItem == null)
+            if (StudentComboBox.SelectedItem == null || SubjectComboBox.SelectedItem == null || MarkComboBox.SelectedItem == null || !MarkDatePicker.SelectedDate.HasValue)
             {
-                MessageBox.Show("Пожалуйста, выберите предмет и оценку.");
+                MessageBox.Show("Пожалуйста, выберите студента, предмет, оценку и дату.");
                 return;
             }
 
+            var selectedStudentName = (string)StudentComboBox.SelectedItem;
+            var selectedStudent = students.FirstOrDefault(s => $"{s.LastName} {s.FisrtName}" == selectedStudentName);
+
+            if (selectedStudent == null)
+            {
+                MessageBox.Show("Не удалось найти выбранного студента.");
+                return;
+            }
+
+            int studentId = selectedStudent.IdStudent;
             int subjectId = (int)SubjectComboBox.SelectedValue;
             int markId = (int)MarkComboBox.SelectedValue;
+            DateTime selectedDate = MarkDatePicker.SelectedDate.Value;
 
             MarkStudent markStudent = new MarkStudent
             {
-                IdStudent = _studentId,
+                IdStudent = studentId,
                 IdSubject = subjectId,
                 IdMark = markId,
-                Date = DateTime.Now
+                Date = selectedDate
             };
 
             _db.context.MarkStudent.Add(markStudent);
@@ -70,4 +78,4 @@ namespace SuccessPlus.View
             }
         }
     }
-}
+    }
