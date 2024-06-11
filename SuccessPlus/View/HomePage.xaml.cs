@@ -21,7 +21,7 @@ namespace SuccessPlus.View
     /// </summary>
     public partial class HomePage : Page
     {
-        
+
         private Core _db = new Core();
 
         public HomePage()
@@ -29,17 +29,17 @@ namespace SuccessPlus.View
             InitializeComponent();
             LoadStudentCount();
             LoadGroupCount();
-            LoadUserFio();
+            LoadUserFio(GetCurrentUser());
         }
 
-        private User GetCurrentUser()
+        public User GetCurrentUser()
         {
             return _db.context.User.Where(x => x.IdUser == Properties.Settings.Default.userId).First();
 
         }
-        private void LoadUserFio()
+        public static string LoadUserFio(User user)
         {
-            FioTextBox.Text = $"{GetCurrentUser().LastName} {GetCurrentUser().FirstName}";
+            return $"{user.LastName} {user.FirstName}";
         }
 
         private void LoadStudentCount()
@@ -50,8 +50,8 @@ namespace SuccessPlus.View
 
         private int GetTotalStudentCount()
         {
-            
-            return _db.context.Student.Count(); 
+
+            return _db.context.Student.Count();
         }
 
         private void LoadGroupCount()
@@ -62,8 +62,8 @@ namespace SuccessPlus.View
 
         private int GetTotaGroupCount()
         {
-            
-            return _db.context.Group.Count(); 
+
+            return _db.context.Group.Count();
         }
 
         private void BtnAddUser_Click(object sender, RoutedEventArgs e)
@@ -76,9 +76,9 @@ namespace SuccessPlus.View
             }
             else
             {
-                BtnAddUser.Visibility= Visibility.Collapsed;
+                BtnAddUser.Visibility = Visibility.Collapsed;
             }
-            
+
 
         }
     }
