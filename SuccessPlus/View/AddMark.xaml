@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:SuccessPlus.View"
         mc:Ignorable="d"
         Title="AddMark" Height="350" Width="400"
-        Background="#CCDEE0">
+        Background="#9FB5CF">
 
     <Grid>
         <Grid.ColumnDefinitions>
@@ -23,7 +23,7 @@
             <RowDefinition Height="100"/>
         </Grid.RowDefinitions>
 
-        <TextBlock Text="Добавление оценки" Grid.Column="1" HorizontalAlignment="Left" />
+        <TextBlock Text="Добавление оценки" Grid.Column="1" HorizontalAlignment="Left" Style="{StaticResource MainTextWIndow}" FontSize="15" />
 
         <TextBlock Text="Выберите студента:" Grid.Row="1" Grid.Column="0" Margin="10" VerticalAlignment="Center"/>
         <ComboBox x:Name="StudentComboBox" Grid.Row="1" Grid.Column="1" Width="200" Margin="10"  VerticalAlignment="Center" Height="25" HorizontalAlignment="Left" Style="{StaticResource ComboBoxStyle}"/>
@@ -37,6 +37,6 @@
         <TextBlock Text="Выберите дату:" Grid.Row="4" Grid.Column="0" Margin="10"  VerticalAlignment="Center"/>
         <DatePicker x:Name="MarkDatePicker" Grid.Row="4" Grid.Column="1" Width="200" HorizontalAlignment="Left"  Margin="10" Style="{StaticResource DatePickerStyle}"/>
 
-        <Button Content="Сохранить" Style="{StaticResource BtnSave}" Grid.Row="6" Grid.Column="1" HorizontalAlignment="Left"  VerticalAlignment="Center" Margin="10" Click="SaveButton_Click"/>
+        <Button Content="Сохранить" Style="{StaticResource BtnSaveWindow}" Grid.Row="6" Grid.Column="1" HorizontalAlignment="Left"  VerticalAlignment="Center" Margin="10" Click="SaveButton_Click"/>
     </Grid>
 </Window>

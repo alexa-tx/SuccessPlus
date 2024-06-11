@@ -5,32 +5,35 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:SuccessPlus.View"
       mc:Ignorable="d" 
-      d:DesignHeight="400" d:DesignWidth="600"
-      Title="AddStudentView" Background="#CCDEE0">
+      Height="400" Width="600"
+      Title="AddStudentView" Background="#9FB5CF">
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="2*"/>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <TextBlock Text="Добавление студента" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0 30"/>
-        <Grid Width="350" Height="45" HorizontalAlignment="Center" VerticalAlignment="Bottom">
+        <TextBlock Text="Добавление студента" Style="{StaticResource MainTextWIndow}"/>
+        <Grid Width="350" Height="45" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1">
             <TextBlock Margin="10 0" VerticalAlignment="Center" Foreground="#060D0E" IsHitTestVisible="False" 
                        Panel.ZIndex="1" Text="Фамилия" Visibility="{Binding ElementName=LastName, Path=Text.IsEmpty, Converter={StaticResource BoolToVis}}"/>
             <TextBox x:Name="LastName" Style="{StaticResource SearchBox}" Height="40" VerticalContentAlignment="Center"/>
         </Grid>
         
-        <Grid Width="350" Height="45" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0 25" Grid.Row="1">
+        <Grid Width="350" Height="45" HorizontalAlignment="Center" VerticalAlignment="Center"  Grid.Row="2">
             <TextBlock Margin="10 0" VerticalAlignment="Center" Foreground="#060D0E" IsHitTestVisible="False" 
                        Panel.ZIndex="1" Text="Имя" Visibility="{Binding ElementName=FirstName, Path=Text.IsEmpty, Converter={StaticResource BoolToVis}}"/>
             <TextBox x:Name="FirstName" Style="{StaticResource SearchBox}" Height="40" VerticalContentAlignment="Center"/>
         </Grid>
         
-        <Grid Width="350" Height="45" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0 100" Grid.Row="1">
+        <Grid Width="350" Height="45" HorizontalAlignment="Center" VerticalAlignment="Center"  Grid.Row="3">
             <ComboBox SelectedValuePath="IdGroup" DisplayMemberPath="NameGroup" x:Name="GroupComboBox" />
         </Grid>
         
-        <Button Style="{StaticResource BtnAddView}" VerticalContentAlignment="Center" Grid.Row="2" Click="Button_Click">
+        <Button Style="{StaticResource BtnSaveWindow}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10 0 0 0" Grid.Row="4" Click="Button_Click">
             <TextBlock Text="Добавить"/>
         </Button>
     </Grid>

@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:SuccessPlus.View"
         mc:Ignorable="d" 
         Height="400" Width="450"
-        Title="EditStudent"  Background="#CCDEE0" ContentRendered="Window_ContentRendered">
+        Title="EditStudent"  Background="#9FB5CF" ContentRendered="Window_ContentRendered">
 
     <Grid>
         <Grid.ColumnDefinitions>
@@ -57,6 +57,6 @@
         <ComboBox x:Name="FineMarkComboBox" Grid.Row="7" Grid.Column="1" Width="100" Height="25" Margin="10 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Left" Style="{StaticResource ComboBoxStyle}"/>
 
         <!-- Кнопка Сохранить -->
-        <Button Style="{StaticResource BtnSave}" Content="Сохранить" Grid.Row="8" Grid.Column="1" Margin="10 20"/>
+        <Button Style="{StaticResource BtnSaveWindow}" Content="Сохранить" Grid.Row="8" Grid.Column="1" Margin="10 0 100 0"/>
     </Grid>
 </Window>

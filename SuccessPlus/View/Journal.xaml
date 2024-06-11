@@ -15,22 +15,22 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         
-        <!-- Group Selection -->
         <StackPanel Orientation="Horizontal" Grid.Row="0" Margin="0,0,0,10">
             <TextBlock Text="Группа:" VerticalAlignment="Center" Margin="0,0,10,0"/>
-            <ComboBox x:Name="GroupComboBox" SelectionChanged="GroupComboBox_SelectionChanged" Width="200" Margin="10"/>
+            <ComboBox x:Name="GroupComboBox" SelectionChanged="GroupComboBox_SelectionChanged" Width="200" Margin="10" Style="{StaticResource ComboBoxStyle}"/>
         </StackPanel>
 
-        <!-- Date Selection -->
         <StackPanel Orientation="Horizontal" Grid.Row="1" Margin="0,0,0,10">
             <TextBlock Text="Период:" VerticalAlignment="Center" Margin="0,0,10,0"/>
-            <DatePicker x:Name="StartDatePicker" Width="200" />
+            <DatePicker x:Name="StartDatePicker"  Height="30" Width="200" Style="{StaticResource DatePickerStyle}"/>
             <TextBlock Text=" - " VerticalAlignment="Center"/>
-            <DatePicker x:Name="EndDatePicker" Width="200" />
-            <Button Content="Применить" Click="ApplyDateFilter_Click" Width="100"/>
-            <Button Content="Добавить оценку" Click="Button_Click"/>
+            <DatePicker x:Name="EndDatePicker" Width="200" Height="30" Style="{StaticResource DatePickerStyle}"/>
+            <Button Content="Применить" Click="ApplyDateFilter_Click" Width="100"  Margin="10 0 100 0"  Style="{StaticResource ApplyData}"/>
+            <Button Content="Добавить оценку" Click="Button_Click" HorizontalAlignment="Right" Margin="170 0 0 0" VerticalAlignment="Center" Style="{StaticResource BtnAddMarkJournal}"/>
         </StackPanel>
-        <DataGrid x:Name="JournalDataGrid" Grid.Row="2" AutoGenerateColumns="False" CanUserAddRows="False">
+        <DataGrid x:Name="JournalDataGrid" Grid.Row="2" AutoGenerateColumns="False" CanUserAddRows="False"
+                  RowStyle="{DynamicResource DataGridRowStyle1}" 
+                  ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" >
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Фамилия Имя" Binding="{Binding Name}" Width="*"/>
                 <!-- столбцы с названием предметов программно создаются -->

@@ -171,6 +171,7 @@
     <Compile Include="Model\VisitingStudent.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Services\ExcelHelper.cs" />
     <Compile Include="View\AddGroupWindow.xaml.cs">
       <DependentUpon>AddGroupWindow.xaml</DependentUpon>
     </Compile>
@@ -340,9 +341,6 @@
     <Resource Include="Assets\BtnEdit.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Assets\main.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Assets\File.png" />
     <Resource Include="Assets\Group.png" />
     <Resource Include="Assets\Student.png" />
@@ -352,11 +350,10 @@
     <Resource Include="Assets\Calendar.png" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Assets\Journal.png" />
     <Resource Include="Assets\User.png" />
-    <Resource Include="Assets\user .png" />
-    <Resource Include="Assets\download.png" />
-  </ItemGroup>
-  <ItemGroup>
+    <Resource Include="Assets\MainPhoto.png" />
+    <Resource Include="Assets\JournalBtn.png" />
     <Content Include="Model\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model1.edmx</DependentUpon>
@@ -367,6 +364,35 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>8</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Interop.Excel">
+      <Guid>{00020813-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>9</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\MaterialDesignThemes.5.0.0\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.5.0.0\build\MaterialDesignThemes.targets')" />

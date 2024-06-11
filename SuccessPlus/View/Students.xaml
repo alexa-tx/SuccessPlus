@@ -50,7 +50,7 @@
                                     <Image Source="/Assets/BtnDelete.png" Width="20" Height="20"/>
                                 </Button>
                                 <Button Style="{StaticResource BtnEdit}" Click="Button_Click_3">
-                                    <Image Source="/Assets/File.png" Width="20" Height="20"/>
+                                    <Image Source="/Assets/JournalBtn.png" Width="20" Height="20"/>
                                 </Button>
                             </StackPanel>
                         </DataTemplate>

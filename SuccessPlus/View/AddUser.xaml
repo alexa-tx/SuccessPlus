@@ -6,46 +6,47 @@
         xmlns:local="clr-namespace:SuccessPlus.View"
         mc:Ignorable="d"
         Title="AddUser"  Height="600" Width="500"
-        Background="#CCDEE0">
+        Background="#9FB5CF">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="1*"/>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <TextBlock Text="Добавление пользователя" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0 15"/>
-        <Grid Width="350" Height="45" HorizontalAlignment="Center" VerticalAlignment="Bottom" >
+        <TextBlock Text="Добавление пользователя" Style="{StaticResource MainTextWIndow}"/>
+        <Grid Width="350" Height="45" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1">
             <TextBlock Margin="10 0" VerticalAlignment="Center" Foreground="#060D0E" IsHitTestVisible="False" 
                Panel.ZIndex="1" Text="Фамилия" Visibility="{Binding ElementName=LastName, Path=Text.IsEmpty, Converter={StaticResource BoolToVis}}"/>
             <TextBox x:Name="LastName" Style="{StaticResource SearchBox}" Height="40" VerticalContentAlignment="Center"/>
         </Grid>
-        <Grid Width="350" Height="45" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 25" Grid.Row="1">
+        <Grid Width="350" Height="45" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 25" Grid.Row="2">
             <TextBlock Margin="10 0" VerticalAlignment="Center" Foreground="#060D0E" IsHitTestVisible="False" 
                Panel.ZIndex="1" Text="Имя" Visibility="{Binding ElementName=FirstName, Path=Text.IsEmpty, Converter={StaticResource BoolToVis}}"/>
             <TextBox x:Name="FirstName" Style="{StaticResource SearchBox}" Height="40" VerticalContentAlignment="Center"/>
         </Grid>
-        <Grid Width="350" Height="45" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 10" Grid.Row="2">
+        <Grid Width="350" Height="45" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 10" Grid.Row="3">
             <TextBlock Margin="10 0" VerticalAlignment="Center" Foreground="#060D0E" IsHitTestVisible="False" 
                Panel.ZIndex="1" Text="Логин" Visibility="{Binding ElementName=Login, Path=Text.IsEmpty, Converter={StaticResource BoolToVis}}"/>
             <TextBox x:Name="Login" Style="{StaticResource SearchBox}" Height="40" VerticalContentAlignment="Center"/>
         </Grid>
-        <Grid Width="350" Height="45" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 10" Grid.Row="3">
+        <Grid Width="350" Height="45" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 10" Grid.Row="4">
             <TextBlock Margin="10 0" VerticalAlignment="Center" Foreground="#060D0E" IsHitTestVisible="False" 
                Panel.ZIndex="1" Text="Пароль" Visibility="{Binding ElementName=Password, Path=Text.IsEmpty, Converter={StaticResource BoolToVis}}"/>
             <TextBox x:Name="Password" Style="{StaticResource SearchBox}" Height="40" VerticalContentAlignment="Center"/>
         </Grid>
-        <Grid Width="350" Height="45" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 10" Grid.Row="4">
+        <Grid Width="350" Height="45" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 10" Grid.Row="5">
             <ComboBox x:Name="TypeUserComboBox" SelectedValuePath="IdType" DisplayMemberPath="NameAcc" SelectionChanged="TypeUserComboBox_SelectionChanged"/>
         </Grid>
-        <Grid Width="350" Height="45" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 10" Grid.Row="5" Visibility="Collapsed" x:Name="GroupComboBoxContainer">
+        <Grid Width="350" Height="45" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 10" Grid.Row="6" Visibility="Collapsed" x:Name="GroupComboBoxContainer">
             <TextBlock Margin="10 0" VerticalAlignment="Center" Foreground="#060D0E" IsHitTestVisible="False" 
                Panel.ZIndex="1" Text="Группа" Visibility="{Binding ElementName=GroupComboBox, Path=SelectedItem.IsEmpty, Converter={StaticResource BoolToVis}}"/>
             <ComboBox x:Name="GroupComboBox" SelectedValuePath="IdGroup" DisplayMemberPath="Name"/>
         </Grid>
-        <Button Style="{StaticResource BtnAddView}" VerticalContentAlignment="Bottom" Margin="0 20" Grid.Row="5" Click="Button_Click">
+        <Button Style="{StaticResource BtnSaveWindow}" VerticalContentAlignment="Bottom" Margin="0 20" Grid.Row="7" Click="Button_Click">
             <TextBlock Text="Добавить"/>
         </Button>
     </Grid>

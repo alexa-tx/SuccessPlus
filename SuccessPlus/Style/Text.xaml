@@ -34,6 +34,12 @@
         <Setter Property="VerticalAlignment" Value="Center"/>
         <Setter Property="HorizontalAlignment" Value="Center"/>
     </Style>
+    
+     <Style x:Key="MainTextWIndow" TargetType="TextBlock">
+     <Setter Property="FontSize" Value="20"/>
+     <Setter Property="VerticalAlignment" Value="Center"/>
+     <Setter Property="HorizontalAlignment" Value="Center"/>
+ </Style>
 
     <Style x:Key="PoiskTextBoxStyle" TargetType="TextBox">
         <Setter Property="Background" Value="#ffff" />
@@ -99,7 +105,7 @@
     </Style>
 
     <Style TargetType="TextBlock" x:Key="NameStudentStyle">
-        <Setter Property="Foreground" Value="#3D7278"/>
+        <Setter Property="Foreground" Value="#FCFCFD"/>
         <Setter Property="HorizontalAlignment" Value="Center"/>
         <Setter Property="FontWeight" Value="Bold"/>
         <Setter Property="FontSize" Value="20"/>
@@ -114,7 +120,7 @@
     </Style>
 
     <Style x:Key="InfoWindowStyle" TargetType="Border">
-        <Setter Property="Background" Value="#9FB5CF"/>
+        <Setter Property="Background" Value="#CABCCB"/>
         <Setter Property="CornerRadius" Value="10"/>
         <Setter Property="Padding" Value="10"/>
         <Setter Property="Margin" Value="10"/>
@@ -137,7 +143,7 @@
     <Style x:Key="AppTitleTextStyle" TargetType="TextBlock">
         <Setter Property="FontSize" Value="24"/>
         <Setter Property="FontWeight" Value="Bold"/>
-        <Setter Property="Foreground" Value="#3D7278"/>
+        <Setter Property="Foreground" Value="#FFFFFF"/>
         <Setter Property="HorizontalAlignment" Value="Center"/>
         <Setter Property="Margin" Value="0,10,0,0"/>
 
@@ -145,7 +151,7 @@
 
     <Style x:Key="AppDescriptionTextStyle" TargetType="TextBlock">
         <Setter Property="FontSize" Value="16"/>
-        <Setter Property="Foreground" Value="#3D7278"/>
+        <Setter Property="Foreground" Value="#FFFFFF"/>
         <Setter Property="Margin" Value="5,40,0,0"/>
         <Setter Property="HorizontalAlignment" Value="Left"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
@@ -153,8 +159,16 @@
 
     <Style x:Key="TopBarMenuText" TargetType="TextBlock">
         <Setter Property="FontSize" Value="14"/>
-        <Setter Property="Foreground" Value="#CABCCB"/>
+        <Setter Property="Foreground" Value="#060606"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
+    </Style>
+    
+    <Style x:Key="FileMainText" TargetType="TextBlock">
+        <Setter Property="FontSize" Value="28"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="Foreground" Value="#060606"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
     </Style>
 
 

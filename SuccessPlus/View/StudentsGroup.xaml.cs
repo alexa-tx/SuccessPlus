@@ -1,4 +1,5 @@
 ﻿using SuccessPlus.Model;
+using SuccessPlus.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -92,6 +93,39 @@ MessageBoxDefaultButton.Button2
                 
 
         }
-        
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                using (ExcelHelper excelHelper = new ExcelHelper())
+                {
+
+                    if (excelHelper.Open(filePath: System.IO.Path.Combine(Environment.CurrentDirectory, "Test2.xlsx")))
+                    {
+                        Group SelectedGroup = _db.context.Group.Where(x => x.IdGroup == (int)DataGrid.SelectedValue).FirstOrDefault();
+                        excelHelper.Set(column: "B", row: 2, data: $"{SelectedGroup.NameGroup}");
+                        excelHelper.Set(column: "B", row: 3, data: $"{SelectedGroup.Departmen.NameDepartmen}");
+                        excelHelper.Set(column: "B", row: 4, data: $"{SelectedGroup.AverageGrade.ToString("#.##")}");//
+                        var a = (SelectedGroup.TotalPublicActivity + SelectedGroup.TotalArtActivity + SelectedGroup.TotalSports + SelectedGroup.TotalNTT + 1) / 4;
+                        excelHelper.Set(column: "B", row: 5, data: $"{a.ToString("#.##")}");//
+                        excelHelper.Set(column: "B", row: 6, data: $"{SelectedGroup.AverageGroupRating.ToString("#.##")}");
+
+
+
+
+
+                        excelHelper.Save();
+
+                    }
+
+
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Windows.MessageBox.Show(ex.ToString());
+            }
+        }
     }
 }

@@ -27,7 +27,7 @@
                     <TextBlock Text="Приложение для управления студентами и группами." 
                               Style="{StaticResource AppDescriptionTextStyle}" TextAlignment="Left"/>
                 </StackPanel>
-                <Image Grid.Column="1" Source="/Assets/main.png" Style="{StaticResource ImageHomePage}" Margin="10,0,0,0"/>
+                <Image Grid.Column="1" Source="/Assets/MainPhoto.png" Style="{StaticResource ImageHomePage}" Margin="10,0,0,0"/>
             </Grid>
         </Border>
 
@@ -48,12 +48,11 @@
   
         <Border Grid.Column="1" Style="{StaticResource UserInfoStyle}">
             <StackPanel>
-                <Image Source="/Assets/user .png" Width="150" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0 130 0 0"/>
+                <Image Source="/Assets/User.png" Width="150" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0 130 0 0"/>
 
                 <TextBlock x:Name="FioTextBox" Text="Имя Фамилия" Style="{StaticResource UserNameTextStyle}"/>
 
-                 <Button x:Name="BtnAddUser" Style="{StaticResource BtnAdd}" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="200" Height="40" 
-                         Margin="0 250"  Click="BtnAddUser_Click">
+                 <Button x:Name="BtnAddUser" Style="{StaticResource BtnAddUser}" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0 270 0 0" Click="BtnAddUser_Click">
                     <TextBlock Text="Добавить пользователя"></TextBlock>
                 </Button>
             </StackPanel>

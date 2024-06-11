@@ -1,4 +1,5 @@
 ﻿using SuccessPlus.Model;
+using SuccessPlus.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -83,11 +84,7 @@ namespace SuccessPlus.View
                 || x.FisrtName.ToString().ToLower().Contains(Poisk.Text.ToLower()) || x.LastName.ToString().ToLower().Contains(Poisk.Text.ToLower()) ||
                 x.GroupName.ToString().ToLower().Contains(Poisk.Text.ToLower())).ToList();
             }
-            //StudentList = StudentList.Where(student => student.Date.ToString().Contains(DatePickerMark.SelectedDate.ToString()))
-            //.ToList();
-            //StudentList = StudentList.Where(x => x.TotalVisiting.ToString().Contains(Poisk.Text) || x.AVGMark.ToString().Contains(Poisk.Text)
-            //|| x.FisrtName.ToString().Contains(Poisk.Text) || x.LastName.ToString().Contains(Poisk.Text) || 
-            //x.GroupName.ToString().Contains(Poisk.Text)).ToList();
+            
             DataGridStudent.ItemsSource = StudentList;
         }
 
@@ -192,7 +189,86 @@ namespace SuccessPlus.View
 
         private void Button_Click_3(object sender, RoutedEventArgs e)
         {
+            try
+            {
+                using (ExcelHelper excelHelper = new ExcelHelper())
+                {
+                    if (excelHelper.Open(filePath: System.IO.Path.Combine(Environment.CurrentDirectory, "Test.xlsx")))
+                    {
+                        Student selectedStudent = _db.context.Student.Where(x => x.IdStudent == (int)DataGridStudent.SelectedValue).FirstOrDefault();
+                        excelHelper.Set(column: "B", row: 2, data: $"{selectedStudent.FIO}");
+                        excelHelper.Set(column: "B", row: 3, data: $"{selectedStudent.GroupName}");
+                        string[] rowArray = new string[] { "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M" };
 
+                        DateTime startDate = new DateTime(2024, 1, 1);
+                        //прогулы
+                        for (int i = 0; i < 12; i++)
+                        {
+                            DateTime monthStart = startDate.AddMonths(i);
+                            DateTime monthEnd = monthStart.AddMonths(1).AddDays(-1); // Последний день текущего месяца
+
+                            var a = _db.context.VisitingStudent
+                                .Where(x => x.IdStudent == selectedStudent.IdStudent &&
+                                            x.Date >= monthStart &&
+                                            x.Date <= monthEnd)
+                                .Select(x => x.Visiting.IdVisiting)
+                                .Count().ToString(); // Если ожидается только одно значение
+
+                            // Здесь замените row: 9 на нужный вам номер строки, если требуется
+                            excelHelper.Set(column: rowArray[i], row: 9, data: a?.ToString());
+                        }
+                        //оценки
+                        for (int i = 0; i < 12; i++)
+                        {
+                            DateTime monthStart = startDate.AddMonths(i);
+                            DateTime monthEnd = monthStart.AddMonths(1).AddDays(-1); // Последний день текущего месяца
+
+                            List<int> a = new List<int> { 0, 0, 0, 0, 0, 0, 0, 0, };
+                            a = _db.context.MarkStudent.Where(x => x.IdStudent == selectedStudent.IdStudent &&
+                                        x.Date >= monthStart &&
+                                        x.Date <= monthEnd).Select(x => x.IdMark).ToList();
+
+                            // Здесь замените row: 9 на нужный вам номер строки, если требуется
+                            excelHelper.Set(column: rowArray[i], row: 8, data: GetAvgMark(a).ToString());
+                        }
+                        //мероприятия
+                        for (int i = 0; i < 12; i++)
+                        {
+                            DateTime monthStart = startDate.AddMonths(i);
+                            DateTime monthEnd = monthStart.AddMonths(1).AddDays(-1); // Последний день текущего месяца
+
+                            List<int?> a = new List<int?> { 0, 0, 0, 0, 0, 0, 0, 0, };
+                            a = _db.context.EventStudent.Where(x => x.IdStudent == selectedStudent.IdStudent &&
+                                        x.Event.Date >= monthStart &&
+                                        x.Event.Date <= monthEnd).Select(x => x.IdMark).ToList();
+
+                            // Здесь замените row: 9 на нужный вам номер строки, если требуется
+                            excelHelper.Set(column: rowArray[i], row: 7, data: GetAvgMark(a).ToString());
+                        }
+
+                        excelHelper.Save();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Windows.MessageBox.Show(ex.ToString());
+            }
+        }
+        private object GetAvgMark(List<int> a)
+        {
+            if (a.Count() > 0)
+                return a.AsEnumerable().Average(mark => (double)mark);
+            else
+                return 0;
+        }
+
+        private string GetAvgMark(List<int?> a)
+        {
+            if (a.Count() > 0)
+                return a.AsEnumerable().Average(mark => (double)mark).ToString("#.##");
+            else
+                return "0";
         }
     }
 }
