@@ -282,5 +282,13 @@ namespace SuccessPlus.Model
                 return Pusp + Pprog + Oreb + S + Sa + NTT - Pov - Oz + Bruk;
             }
         }
+        public double? AVGEventMark
+        {
+            get
+            {
+                var marks = AVGAmateurEvent + AVGNttEvent + AVGSelfDev + AVGSocialEvent + AVGSportEvent;
+                return marks.HasValue ? marks / 4 : 0;
+            }
+        }
     }
 }

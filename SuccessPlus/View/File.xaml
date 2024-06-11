@@ -16,13 +16,13 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <TextBlock Text="Отчеты" Style="{StaticResource FileMainText}"/>
-        <Button x:Name="ReportStudents"  Style="{StaticResource ReportBtn}" Grid.Row="1" VerticalAlignment="Bottom">
+        <Button x:Name="ReportStudents"  Style="{StaticResource ReportBtn}" Grid.Row="1" VerticalAlignment="Bottom" Click="ReportStudents_Click">
             <TextBlock Text="Отчет по студентам"></TextBlock>
         </Button>
-         <Button x:Name="ReportGroup" Style="{StaticResource ReportBtn}" Grid.Row="2" VerticalAlignment="Center">
+         <Button x:Name="ReportGroup" Style="{StaticResource ReportBtn}" Grid.Row="2" VerticalAlignment="Center" Click="ReportGroup_Click">
             <TextBlock Text="Отчет по группам"></TextBlock>
         </Button>
-         <Button x:Name="ReportDepartment" Style="{StaticResource ReportBtn}" Grid.Row="3" VerticalAlignment="Top" >
+         <Button x:Name="ReportDepartment" Style="{StaticResource ReportBtn}" Grid.Row="3" VerticalAlignment="Top" Click="ReportDepartment_Click" >
             <TextBlock Text="Отчет по отделениям"></TextBlock>
         </Button>
     </Grid>

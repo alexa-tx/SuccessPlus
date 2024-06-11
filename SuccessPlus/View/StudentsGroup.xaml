@@ -17,9 +17,8 @@
         <DataGrid RowStyle="{DynamicResource DataGridRowStyle1}" 
                   ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" 
                   x:Name="DataGrid" IsReadOnly="True" AutoGenerateColumns="False" 
-                  Margin="10" Grid.Row="1">
+                  Margin="0 0" Grid.Row="1">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="ID"  Width="*" Binding="{Binding IdGroup}" />
                 <DataGridTextColumn Header="Название группы"  Width="*" Binding="{Binding NameGroup}"/>
                 <DataGridTextColumn Header="Количество студентов"  Width="*" Binding="{Binding CountStudents}"/>
                 <DataGridTextColumn Header="Прогулы"  Width="*" Binding="{Binding TotalAbsences}"/>

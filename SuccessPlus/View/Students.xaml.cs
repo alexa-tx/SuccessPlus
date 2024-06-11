@@ -14,6 +14,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.IO;
 
 namespace SuccessPlus.View
 {
@@ -65,7 +66,7 @@ namespace SuccessPlus.View
             Filter();
         }
 
-        private void Filter()
+        public void Filter()
         {
             StudentList = _db.context.Student.ToList();
             List<DateTime> Date = _db.context.MarkStudent.Where(x => x.IdStudent == 4).Select(x => x.Date).ToList();
@@ -148,28 +149,28 @@ namespace SuccessPlus.View
                     info.AppendLine($"Средняя оценка за бонус руководства: {selectedStudent.LeadershipBonus}");
 
                     // Проверяем, где участвовал студент
-                    if (selectedStudent.AVGSocialEvent > 0)
+                    if (IsEventStat(selectedStudent.AVGSocialEvent))
                     {
                         string socialEvents = string.Join(", ", selectedStudent.NameSocialEvent);
                         info.AppendLine($"Участие в общественных мероприятиях: {socialEvents}");
                     }
-                    if (selectedStudent.AVGSportEvent > 0)
+                    if (IsEventStat(selectedStudent.AVGSportEvent))
                     {
                         string sportEvents = string.Join(", ", selectedStudent.NameSportEvent);
                         info.AppendLine($"Участие в спортивных мероприятиях: {sportEvents}");
                     }
-                    if (selectedStudent.AVGNttEvent > 0)
+                    if (IsEventStat(selectedStudent.AVGNttEvent))
                     {
                         string nttEvents = string.Join(", ", selectedStudent.NameNttEvent);
                         info.AppendLine($"Участие в научно-технологических мероприятиях: {nttEvents}");
                     }
-                    if (selectedStudent.AVGSelfDev > 0)
+                    if (IsEventStat(selectedStudent.AVGSelfDev))
                     {
                         string selfDevEvents = string.Join(", ", selectedStudent.SelfDevEvent);
                         info.AppendLine($"Участие в мероприятиях самосовершенствования: {selfDevEvents}");
-                        
+
                     }
-                    if (selectedStudent.AVGAmateurEvent > 0)
+                    if (IsEventStat(selectedStudent.AVGAmateurEvent))
                     {
                         string amateurEvents = string.Join(", ", selectedStudent.AmateurEvent);
                         info.AppendLine($"Участие в любительских мероприятиях: {amateurEvents}");
@@ -182,6 +183,11 @@ namespace SuccessPlus.View
             }
             }
 
+        public static bool IsEventStat(double? selectedStudent)
+        {
+            return selectedStudent > 0;
+        }
+
         private void DatePickerMark_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
         {
             Filter();
@@ -191,14 +197,14 @@ namespace SuccessPlus.View
         {
             try
             {
-                using (ExcelHelper excelHelper = new ExcelHelper())
+                using(ExcelHelper excelHelper = new ExcelHelper())
                 {
-                    if (excelHelper.Open(filePath: System.IO.Path.Combine(Environment.CurrentDirectory, "Test.xlsx")))
+                    if(excelHelper.Open(filePath: System.IO.Path.Combine(Environment.CurrentDirectory, "Test.xlsx")))
                     {
                         Student selectedStudent = _db.context.Student.Where(x => x.IdStudent == (int)DataGridStudent.SelectedValue).FirstOrDefault();
                         excelHelper.Set(column: "B", row: 2, data: $"{selectedStudent.FIO}");
                         excelHelper.Set(column: "B", row: 3, data: $"{selectedStudent.GroupName}");
-                        string[] rowArray = new string[] { "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M" };
+                        string[] rowArray = new string[] {"B", "C", "D", "E", "F", "G", "H", "I","J", "K", "L", "M" };
 
                         DateTime startDate = new DateTime(2024, 1, 1);
                         //прогулы
@@ -250,11 +256,12 @@ namespace SuccessPlus.View
                     }
                 }
             }
-            catch (Exception ex)
+            catch(Exception ex)
             {
                 System.Windows.MessageBox.Show(ex.ToString());
             }
         }
+
         private object GetAvgMark(List<int> a)
         {
             if (a.Count() > 0)
@@ -265,10 +272,11 @@ namespace SuccessPlus.View
 
         private string GetAvgMark(List<int?> a)
         {
-            if (a.Count() > 0)
-                return a.AsEnumerable().Average(mark => (double)mark).ToString("#.##");
+            if( a.Count() > 0 )
+                    return a.AsEnumerable().Average(mark => (double)mark).ToString("#.##");
             else
                 return "0";
         }
+
     }
 }

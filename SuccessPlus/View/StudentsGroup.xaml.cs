@@ -67,17 +67,17 @@ namespace SuccessPlus.View
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-            if (Properties.Settings.Default.userRole == 3)
+            if (IsAdmin(Properties.Settings.Default.userRole))
                 System.Windows.MessageBox.Show("У вас нет доступа");
             else
             {
                 DialogResult result = System.Windows.Forms.MessageBox.Show(
-"Вы уверенны,что хотите удалить?",
-"Удаление группы",
-MessageBoxButtons.YesNo,
-MessageBoxIcon.Exclamation,
-MessageBoxDefaultButton.Button2
-);
+                    "Вы уверенны,что хотите удалить?",
+                    "Удаление группы",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Exclamation,
+                    MessageBoxDefaultButton.Button2
+                    );
 
                 if (result == DialogResult.Yes)
                 {
@@ -93,6 +93,12 @@ MessageBoxDefaultButton.Button2
                 
 
         }
+        public static bool IsAdmin(int userRole)
+        {
+            if (userRole == 3)
+                return true;
+            return false;
+        }
 
         private void Button_Click_3(object sender, RoutedEventArgs e)
         {
@@ -107,19 +113,19 @@ MessageBoxDefaultButton.Button2
                         excelHelper.Set(column: "B", row: 2, data: $"{SelectedGroup.NameGroup}");
                         excelHelper.Set(column: "B", row: 3, data: $"{SelectedGroup.Departmen.NameDepartmen}");
                         excelHelper.Set(column: "B", row: 4, data: $"{SelectedGroup.AverageGrade.ToString("#.##")}");//
-                        var a = (SelectedGroup.TotalPublicActivity + SelectedGroup.TotalArtActivity + SelectedGroup.TotalSports + SelectedGroup.TotalNTT + 1) / 4;
+                        var a = (SelectedGroup.TotalPublicActivity + SelectedGroup.TotalArtActivity + SelectedGroup.TotalSports + SelectedGroup.TotalNTT + 1)/4;
                         excelHelper.Set(column: "B", row: 5, data: $"{a.ToString("#.##")}");//
                         excelHelper.Set(column: "B", row: 6, data: $"{SelectedGroup.AverageGroupRating.ToString("#.##")}");
-
-
-
-
-
+                        
+                        
+                        
+                        
+                        
                         excelHelper.Save();
 
                     }
-
-
+                        
+                    
                 }
             }
             catch (Exception ex)
